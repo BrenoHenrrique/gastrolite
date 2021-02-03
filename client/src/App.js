@@ -34,6 +34,8 @@ class App extends Component {
     render() {
         const {serverInfo, clientInfo, collapse} = this.state;
 
+        console.log(this.state?.serverInfo)
+
         return [
             <AppNav serverInfo={serverInfo} clientInfo={clientInfo} collapse={collapse} toggle={this.toggle} key={0}/>,
             <div className="grails-logo-container" key={1}>
