@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/restaurante-online.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/AppNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/errors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/grails.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/css/mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/advancedgrails.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/apple-touch-icon-retina.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/documentation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails-cupsonly-logo-white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/database_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/database_delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/database_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/database_save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/database_table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/exclamation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/house.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/information.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/shadow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/sorted_asc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/skin/sorted_desc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/slack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nx7tzkRBZg762iwXngOIC0khru" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Grails: server" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="grailsApplicationRoot" value="$PROJECT_DIR$/server" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="" />
+      <created>1612320106445</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612320106445</updated>
+      <workItem from="1612320114558" duration="162000" />
+      <workItem from="1612320337612" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
