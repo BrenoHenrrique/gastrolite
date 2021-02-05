@@ -1,0 +1,74 @@
+.login-div-principal {
+    width: 100vw;
+    height: 100vh;
+    background: url("../../images/login-fundo.jpg");
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-div-form {
+    position: relative;
+    width: 580px;
+    height: 90%;
+    margin-top: 2.5%;
+    background-color: #FAFAFA;
+    box-shadow: 0 3px 66px #00000096;
+    border-radius: 15px;
+    border: 1px #D0D0D0 solid;
+}
+
+.login-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.login-div-acesso {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.login-label-acesso {
+    font-size: 30px;
+    color: #373737;
+}
+
+.login-form-fields {
+    display: flex;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-fields input {
+    display: block;
+    height: 35px;
+    width: 300px;
+    border: 1px #D0D0D0 solid;
+    padding: 0 0 0 10px;
+    border-radius: 5px;
+}
+
+.login-form-fields input:focus {
+    display: block;
+    border: 1px #E31717 solid;
+    outline: 0;
+}
+
+.input-pass {
+    margin-top: 30px;
+}
+
+.login-bot-submit {
+    background-color: #E31717;
+    border: 1px #D0D0D0 solid;
+    border-radius: 5px;
+    font-size: 17px;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    float: right;
+    font-weight: 500;
+}

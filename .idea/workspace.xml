@@ -20,12 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/images/gastrolite-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/images/login-fundo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/routes/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/view/dashboard/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/view/login/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/view/login/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/AppNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/advancedgrails.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/apple-touch-icon-retina.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/documentation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/favicon48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails-cupsonly-logo-white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/grails.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/slack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/images/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/serviceWorker.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +62,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -46,17 +78,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Grails: server" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -81,7 +127,9 @@
       <option name="presentableId" value="Default" />
       <updated>1612320106445</updated>
       <workItem from="1612320114558" duration="162000" />
-      <workItem from="1612320337612" duration="830000" />
+      <workItem from="1612320337612" duration="962000" />
+      <workItem from="1612398396080" duration="9570000" />
+      <workItem from="1612484143505" duration="6607000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -97,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612320674993</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1612321217978</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612321217978</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -129,55 +184,6 @@
                   <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-databinding/4.0.1/e2791885e012bcd42754dfa0a69f855071f3c4ae/grails-web-databinding-4.0.1.jar!/META-INF/grails.factories" />
                 </list>
               </option>
-              <option name="traits">
-                <SerializableStringMultiMap>
-                  <option name="underlyingMap">
-                    <map>
-                      <entry key="Controller">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Controller" />
-                            <option value="grails.artefact.gsp.TagLibraryInvoker" />
-                            <option value="grails.artefact.controller.RestResponder" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Domain">
-                        <value>
-                          <list>
-                            <option value="grails.web.databinding.WebDataBinding" />
-                            <option value="grails.artefact.DomainClass" />
-                            <option value="grails.gorm.Entity" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Interceptor">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Interceptor" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLib">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLibrary">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                    </map>
-                  </option>
-                </SerializableStringMultiMap>
-              </option>
             </StateHolder>
           </value>
         </entry>
@@ -205,54 +211,6 @@
                   <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-plugin-validation/4.0.1/fd2961a0426910a837305949ee6cce712341978d/grails-plugin-validation-4.0.1.jar!/META-INF/grails.factories" />
                   <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-databinding/4.0.1/e2791885e012bcd42754dfa0a69f855071f3c4ae/grails-web-databinding-4.0.1.jar!/META-INF/grails.factories" />
                 </list>
-              </option>
-              <option name="traits">
-                <SerializableStringMultiMap>
-                  <option name="underlyingMap">
-                    <map>
-                      <entry key="Controller">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Controller" />
-                            <option value="grails.artefact.controller.RestResponder" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Domain">
-                        <value>
-                          <list>
-                            <option value="grails.web.databinding.WebDataBinding" />
-                            <option value="grails.artefact.DomainClass" />
-                            <option value="grails.gorm.Entity" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Interceptor">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Interceptor" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLib">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLibrary">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                    </map>
-                  </option>
-                </SerializableStringMultiMap>
               </option>
             </StateHolder>
           </value>
@@ -283,55 +241,6 @@
                   <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-databinding/4.0.1/e2791885e012bcd42754dfa0a69f855071f3c4ae/grails-web-databinding-4.0.1.jar!/META-INF/grails.factories" />
                 </list>
               </option>
-              <option name="traits">
-                <SerializableStringMultiMap>
-                  <option name="underlyingMap">
-                    <map>
-                      <entry key="Controller">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Controller" />
-                            <option value="grails.artefact.gsp.TagLibraryInvoker" />
-                            <option value="grails.artefact.controller.RestResponder" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Domain">
-                        <value>
-                          <list>
-                            <option value="grails.web.databinding.WebDataBinding" />
-                            <option value="grails.artefact.DomainClass" />
-                            <option value="grails.gorm.Entity" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="Interceptor">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.Interceptor" />
-                            <option value="org.grails.compiler.web.converters.RenderConverterTrait" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLib">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                      <entry key="TagLibrary">
-                        <value>
-                          <list>
-                            <option value="grails.artefact.TagLibrary" />
-                          </list>
-                        </value>
-                      </entry>
-                    </map>
-                  </option>
-                </SerializableStringMultiMap>
-              </option>
             </StateHolder>
           </value>
         </entry>
@@ -351,35 +260,44 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1557" height="226" key="GridCell.Tab.0.bottom" timestamp="1612320718369">
+    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612408274662">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="226" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1612320718369" />
-    <state width="1557" height="226" key="GridCell.Tab.0.center" timestamp="1612320718369">
+    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1612408274662" />
+    <state width="1557" height="226" key="GridCell.Tab.0.bottom" timestamp="1612321322825">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="226" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1612320718369" />
-    <state width="1557" height="226" key="GridCell.Tab.0.left" timestamp="1612320718369">
+    <state width="1557" height="226" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1612321322825" />
+    <state width="1557" height="226" key="GridCell.Tab.0.center" timestamp="1612321322825">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="226" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1612320718369" />
-    <state width="1557" height="226" key="GridCell.Tab.0.right" timestamp="1612320718369">
+    <state width="1557" height="226" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1612321322825" />
+    <state width="1557" height="226" key="GridCell.Tab.0.left" timestamp="1612321322825">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="226" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1612320718369" />
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1612320714588">
+    <state width="1557" height="226" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1612321322825" />
+    <state width="1557" height="226" key="GridCell.Tab.0.right" timestamp="1612321322825">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1612320714588" />
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1612320743378">
+    <state width="1557" height="226" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1612321322825" />
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1612321224463">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1612320743378" />
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1612321224463" />
+    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1612399959434">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.870@0.0.1600.870" timestamp="1612399959434" />
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1612400205700">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1612400205700" />
   </component>
 </project>

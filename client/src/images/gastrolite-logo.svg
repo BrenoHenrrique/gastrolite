@@ -1,0 +1,18 @@
+<svg width="304" height="134" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fafafa" id="canvas_background" height="136" width="306" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text opacity="0.95" stroke="#000" transform="matrix(0.9585683941841125,0,0,1,0.12429481744766235,0) " font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat Medium'" font-size="65" id="svg_2" y="65.45313" x="3" stroke-width="0" fill="#e20b0b">G</text>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat Medium'" font-size="65" id="svg_5" y="65.45313" x="48" stroke-width="0" stroke="#000" fill="#000000">astro</text>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat Light'" font-size="65" id="svg_6" y="122.45313" x="185" stroke-width="0" stroke="#000" fill="#059316">L</text>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat Light'" font-size="65" id="svg_7" y="122.45313" x="223" stroke-width="0" stroke="#000" fill="#000000">ite</text>
+ </g>
+</svg>
