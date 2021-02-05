@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Logo from "../../images/gastrolite-logo.svg";
+import axios from "axios";
 import "./style.css";
 
 export default function Login() {
@@ -7,12 +8,13 @@ export default function Login() {
     const [user, setUser] = useState(null);
     const [pass, setPass] = useState(null);
 
-    function handleSubmit() {
-
+    function handleSubmit(event) {
+        event.preventDefault();
+        axios.post(`http://localhost:8080/api/login/validate`, {"nome": "breno", "senha": 1234})
     }
 
     return (
-        <header className={"login-div-principal"}>
+        <main className={"login-div-principal"}>
             <div className={"login-div-form"}>
                 <div className={"login-logo"}>
                     <img
@@ -48,6 +50,6 @@ export default function Login() {
                     </form>
                 </div>
             </div>
-        </header>
-    )
+        </main>
+    );
 }

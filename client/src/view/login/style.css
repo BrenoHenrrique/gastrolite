@@ -49,11 +49,6 @@
     border: 1px #D0D0D0 solid;
     padding: 0 0 0 10px;
     border-radius: 5px;
-}
-
-.login-form-fields input:focus {
-    display: block;
-    border: 1px #E31717 solid;
     outline: 0;
 }
 
@@ -71,4 +66,5 @@
     margin-top: 20px;
     float: right;
     font-weight: 500;
+    outline: 0;
 }
