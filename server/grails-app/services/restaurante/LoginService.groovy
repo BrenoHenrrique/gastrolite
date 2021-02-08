@@ -5,7 +5,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class LoginService {
 
-    def save() {
-
+    Login validate(nome, senha) {
+        return Login.findByNomeAndSenha(nome, senha)
     }
 }

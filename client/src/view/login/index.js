@@ -1,16 +1,33 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Logo from "../../images/gastrolite-logo.svg";
-import axios from "axios";
+import {ServiceLogin} from "../../service/serviceLogin";
+import {isAuthenticated} from "../../service/auth";
+import {Redirect} from "react-router-dom";
 import "./style.css";
 
 export default function Login() {
 
     const [user, setUser] = useState(null);
     const [pass, setPass] = useState(null);
+    const [entity, setEntity] = useState(null);
+    const [auth, setAuth] = useState(false);
 
-    function handleSubmit(event) {
+    useEffect(() => {
+        sessionStorage.removeItem("auth");
+    }, []);
+
+    async function handleSubmit(event) {
         event.preventDefault();
-        axios.post(`http://localhost:8080/api/login/validate`, {"nome": "breno", "senha": 1234})
+        setEntity({"nome": user, "senha": pass});
+        if (entity !== null) {
+            await ServiceLogin.validate(entity).then(response => {
+                const {entityInstance} = response;
+                sessionStorage.setItem("auth", JSON.stringify(entityInstance));
+            });
+            if (isAuthenticated()) {
+                setAuth(true);
+            }
+        }
     }
 
     return (
@@ -36,17 +53,20 @@ export default function Login() {
                             value={user}
                         />
                         <input
-                            type={"text"}
+                            type={"password"}
                             className={"input-pass"}
                             placeholder={"Senha"}
                             name={"pass"}
+                            onKeyPress={event => (event.keyCode === 13 || event.which === 13) && handleSubmit(event)}
                             onChange={event => setPass(event.target.value)}
                             value={pass}
                         />
                         <button
                             type={"submit"}
                             className={"login-bot-submit"}
-                        >ENTRAR</button>
+                        >ENTRAR
+                        </button>
+                        {auth && <Redirect to={"/"}/>}
                     </form>
                 </div>
             </div>
