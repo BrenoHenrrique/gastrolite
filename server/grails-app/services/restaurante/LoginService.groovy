@@ -6,6 +6,12 @@ import grails.gorm.transactions.Transactional
 class LoginService {
 
     Login validate(nome, senha) {
-        return Login.findByNomeAndSenha(nome, senha)
+        Login entity = Login.findByNomeAndSenha(nome, senha)
+        return entity
+//        if (entity) {
+//
+//        } else {
+//
+//        }
     }
 }

@@ -11,8 +11,10 @@ body, html {
 p, a, label, button, strong, input {
     font-family: Inter, Helvetica, sans-serif;
     font-size: 14px;
+    color: #707070;
 }
 
 a, button, input {
     cursor: pointer;
+    color: #707070;
 }
