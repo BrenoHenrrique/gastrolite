@@ -16,7 +16,6 @@
     position: relative;
     margin-top: 25px;
     width: 40%;
-    height: 100%;
     border: 1px #bababa solid;
     box-shadow: 0 3px 66px #00000096;
     border-radius: 10px;
@@ -34,7 +33,7 @@
 .today-card-container label {
     font-weight: bold;
     font-size: 60px;
-    margin: 10% 0 16% 0;
+    margin: 5% auto 15% auto;
     color: #059316;
 }
 
