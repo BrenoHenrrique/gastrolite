@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/service/UserContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/view/Layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/view/Root.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/menu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/menu/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/Root.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/dashboard/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/login/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/dashboard/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/dashboard/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,7 @@
       <workItem from="1612828372346" duration="3227000" />
       <workItem from="1612832591640" duration="9970000" />
       <workItem from="1612913947598" duration="15083000" />
-      <workItem from="1613001337484" duration="3329000" />
+      <workItem from="1613001337484" duration="6644000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -167,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612929764172</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feito método que aceita o menu em todas as telas menos no login.">
+      <created>1613005030781</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613005030782</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -283,13 +289,18 @@
     <MESSAGE value="feito métodos e classes para a comunicação com o back do login" />
     <MESSAGE value="termino rotas e login." />
     <MESSAGE value="feito dashboard parcialmente." />
-    <option name="LAST_COMMIT_MESSAGE" value="feito dashboard parcialmente." />
+    <MESSAGE value="feito método que aceita o menu em todas as telas menos no login." />
+    <option name="LAST_COMMIT_MESSAGE" value="feito método que aceita o menu em todas as telas menos no login." />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="113" key="#Inspections" timestamp="1612749735807">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="426" y="113" key="#Inspections/0.0.1600.870@0.0.1600.870" timestamp="1612749735807" />
+    <state x="603" y="222" key="#Web_Browsers" timestamp="1613005496245">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="603" y="222" key="#Web_Browsers/0.0.1600.870@0.0.1600.870" timestamp="1613005496245" />
     <state x="545" y="237" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612701069978">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -342,18 +353,18 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="686" y="350" key="VCS.EditChangelistDialog/0.0.1600.870@0.0.1600.870" timestamp="1612495441457" />
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1612929771906">
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1613005038382">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1612929771906" />
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1613005038382" />
     <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1612399959434">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.870@0.0.1600.870" timestamp="1612399959434" />
-    <state x="507" y="168" width="585" height="534" key="find.popup" timestamp="1612495411808">
+    <state x="507" y="168" width="585" height="534" key="find.popup" timestamp="1613007662683">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="507" y="168" width="585" height="534" key="find.popup/0.0.1600.870@0.0.1600.870" timestamp="1612495411808" />
+    <state x="507" y="168" width="585" height="534" key="find.popup/0.0.1600.870@0.0.1600.870" timestamp="1613007662683" />
     <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1612832993267">
       <screen x="0" y="0" width="1600" height="870" />
     </state>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import Menu from "../../component/menu";
 import Chart from "chart.js"
 import "./style.css";
 
@@ -87,7 +86,6 @@ export default function Dashboard() {
 
     return (
         <>
-            {/*<Menu/>*/}
             <main className={"dashboard-container-principal"}>
                 <aside className={"aside-container-top"}>
                     <div className={"today-card-container"}>

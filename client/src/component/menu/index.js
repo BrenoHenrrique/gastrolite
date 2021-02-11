@@ -15,7 +15,7 @@ export default function Menu() {
     const [openMenu, setOpenMenu] = useState(true);
 
     useEffect(() => {
-        setUserLogged(getUserLogged())
+        setUserLogged(getUserLogged());
     }, []);
 
     useEffect(() => {
@@ -46,8 +46,11 @@ export default function Menu() {
                         width={125}
                     />
                 </div>
-                <div className={"menu-div-usuario"}>
-                    <label className={"menu-label-usuario"}>{userLogged?.nome}</label>
+                <div
+                    className={"menu-div-usuario"}
+                    onClick={() => <Link to={"/"}/>}
+                >
+                    <label className={"menu-label-usuario"}>{userLogged?.nome.toUpperCase()}</label>
                 </div>
                 <div className={"menu-div-bot"}>
                     <button
