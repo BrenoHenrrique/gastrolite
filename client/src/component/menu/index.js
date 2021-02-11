@@ -19,7 +19,7 @@ export default function Menu() {
     }, []);
 
     useEffect(() => {
-        window.addEventListener("click", function(event) {
+        window.addEventListener("click", function (event) {
             if (event) {
                 if (event.path[0].id === "menu-icone-open" || event.path[1].id === "menu-icone-open") {
                     setOpenMenu(false);
@@ -37,8 +37,11 @@ export default function Menu() {
 
     return (
         <header className={"menu-header"}>
-            <div className={"menu-div-principal"}>
-                <div className={"menu-div-logo"}>
+            <div className={"menu-container-principal"}>
+                <div
+                    className={"menu-container-logo"}
+                    onClick={() => window.location.replace("/")}
+                >
                     <img
                         alt={"logo menu"}
                         src={Logo}
@@ -47,12 +50,12 @@ export default function Menu() {
                     />
                 </div>
                 <div
-                    className={"menu-div-usuario"}
-                    onClick={() => <Link to={"/"}/>}
+                    className={"menu-container-usuario"}
+                    onClick={() => window.location.replace("/meuPerfil")}
                 >
                     <label className={"menu-label-usuario"}>{userLogged?.nome.toUpperCase()}</label>
                 </div>
-                <div className={"menu-div-bot"}>
+                <div className={"menu-container-bot"}>
                     <button
                         className={"menu-bot"}
                         onClick={() => changeStates()}
@@ -60,19 +63,20 @@ export default function Menu() {
                     </button>
                     {logout && <Redirect to={"/login"}/>}
                 </div>
-                <div className={"menu-div-icone"}>
+                <div className={"menu-container-icone"}>
                     {openMenu ? <AiOutlineMenu id={"menu-icone-open"} size={25} onClick={() => setOpenMenu(false)}/> :
                         <IoMdClose id={"menu-icone-close"} size={25} onClick={() => setOpenMenu(true)}/>}
                 </div>
             </div>
             <div className={openMenu ? "menu-itens" : "menu-itens-drop"}>
                 <Link to={"/"}>PÁGINA INICIAL</Link>
+                <Link to={"/cardapio"}>CARDÁPIO</Link>
                 <Link to={"/entregas"}>ENTREGAS</Link>
                 <Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>
-                <Link to={"/mesas"}>MESAS</Link>
-                <Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>
-                <Link to={"/estatisticas"}>ESTATÍSTICAS</Link>
-                <Link to={"/perfil"}>MEU PERFIL</Link>
+                <Link to={"/clientes"}>CLIENTES</Link>
+                {/*<Link to={"/mesas"}>MESAS</Link>*/}
+                {/*<Link to={"/estatisticas"}>ESTATÍSTICAS</Link>*/}
+                {/*<Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>*/}
             </div>
         </header>
     );

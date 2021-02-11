@@ -1,4 +1,4 @@
-.login-div-principal {
+.login-container-principal {
     width: 100vw;
     height: 100vh;
     background: url("../../images/login-fundo.jpg");
@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.login-div-form {
+.login-container-form {
     position: relative;
     width: 580px;
     height: 90%;
@@ -24,7 +24,7 @@
     margin-top: 90px;
 }
 
-.login-div-acesso {
+.login-container-acesso {
     display: flex;
     justify-content: center;
     margin-top: 50px;

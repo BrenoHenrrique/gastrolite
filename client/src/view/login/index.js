@@ -39,15 +39,15 @@ export default function Login() {
     }
 
     return (
-        <main className={"login-div-principal"}>
-            <div className={"login-div-form"}>
+        <main className={"login-container-principal"}>
+            <div className={"login-container-form"}>
                 <div className={"login-logo"}>
                     <img
                         alt={"Logo GastroLite"}
                         src={Logo}
                     />
                 </div>
-                <div className={"login-div-acesso"}>
+                <div className={"login-container-acesso"}>
                     <label className={"login-label-acesso"}>Acesse sua conta</label>
                 </div>
                 <div className={"login-form-fields"}>
