@@ -1,16 +1,24 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Logo from "../../images/gastrolite-logo.svg";
 import {ServiceLogin} from "../../service/serviceLogin";
 import {isAuthenticated} from "../../service/auth";
 import {Redirect} from "react-router-dom";
+import {UserContext} from "../../service/UserContext";
 import "./style.css";
 
 export default function Login() {
 
+    const {setIsLogged} = useContext(UserContext);
     const [user, setUser] = useState(null);
     const [pass, setPass] = useState(null);
     const [entity, setEntity] = useState(null);
     const [auth, setAuth] = useState(false);
+
+    useEffect(() => {
+        if (auth) {
+            setIsLogged(true);
+        }
+    }, [auth]);
 
     useEffect(() => {
         sessionStorage.removeItem("auth");

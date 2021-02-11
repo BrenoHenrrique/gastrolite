@@ -7,7 +7,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         new Chart(document.getElementById("chart-week").getContext("2d"), {
-            type: 'doughnut',
+            type: "doughnut",
             data: {
                 labels: ["segunda", "terça", "quinta", "sexta", "sabado", "domingo"],
                 datasets: [
@@ -21,7 +21,8 @@ export default function Dashboard() {
             options: {
                 title: {
                     display: true,
-                    text: "Ganhos na semana anterior"
+                    text: "Ganhos na semana anterior",
+                    hover: {mode: null}
                 }
             }
         });
@@ -35,6 +36,10 @@ export default function Dashboard() {
                 labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
                 datasets: [
                     {
+                        pointBorderColor: "#E31717",
+                        pointBackgroundColor: "#E31717",
+                        pointRadius: 3,
+                        pointBorderWidth: 2,
                         label: "Janeiro",
                         backgroundColor: "rgba(0, 0, 0, 0.0)",
                         borderColor: "#E31717",
@@ -49,14 +54,16 @@ export default function Dashboard() {
                 },
                 label: {
                     display: false
-                }
+                },
+                showTooltips: false,
+                hover: {mode: null},
             }
         });
     }, []);
 
     useEffect(() => {
         new Chart(document.getElementById("chart-year"), {
-            type: 'bar',
+            type: "bar",
             data: {
                 labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
                 datasets: [
@@ -71,7 +78,8 @@ export default function Dashboard() {
                 legend: {display: false},
                 title: {
                     display: true,
-                    text: "Lucro ao decorrer do ano de 2021"
+                    text: "Lucro ao decorrer do ano de 2021",
+                    hover: {mode: null}
                 }
             }
         });
@@ -79,7 +87,7 @@ export default function Dashboard() {
 
     return (
         <>
-            <Menu/>
+            {/*<Menu/>*/}
             <main className={"dashboard-container-principal"}>
                 <aside className={"aside-container-top"}>
                     <div className={"today-card-container"}>

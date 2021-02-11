@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Logo from "../../images/gastrolite-logo.svg";
 import {getUserLogged} from "../../service/auth";
 import {IoMdClose} from "react-icons/io";
 import {AiOutlineMenu} from "react-icons/ai";
 import {Redirect, Link} from "react-router-dom";
+import {UserContext} from "../../service/UserContext";
 import "./style.css";
 
 export default function Menu() {
 
+    const {setIsLogged} = useContext(UserContext);
     const [userLogged, setUserLogged] = useState(null);
     const [logout, setLogout] = useState(false);
     const [openMenu, setOpenMenu] = useState(true);
@@ -28,6 +30,11 @@ export default function Menu() {
         });
     });
 
+    function changeStates() {
+        setLogout(true);
+        setIsLogged(false);
+    }
+
     return (
         <header className={"menu-header"}>
             <div className={"menu-div-principal"}>
@@ -45,7 +52,7 @@ export default function Menu() {
                 <div className={"menu-div-bot"}>
                     <button
                         className={"menu-bot"}
-                        onClick={() => setLogout(true)}
+                        onClick={() => changeStates()}
                     >SAIR
                     </button>
                     {logout && <Redirect to={"/login"}/>}

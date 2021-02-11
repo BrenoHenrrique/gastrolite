@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter} from "react-router-dom";
-import Routes from "./routes/routes";
 import "./global.css";
+import Root from "./view/Root";
 
 const App = () => (
     <BrowserRouter>
-        <Routes/>
+        <Root/>
     </BrowserRouter>
 );
 
