@@ -17,8 +17,11 @@
 }
 
 .menu-container-logo {
-    cursor: pointer;
     padding-left: 10px;
+}
+
+#logo-menu {
+    cursor: pointer;
 }
 
 .menu-container-usuario {

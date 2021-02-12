@@ -14,7 +14,6 @@
 
 .today-card-container {
     position: relative;
-    margin-top: 25px;
     width: 40%;
     border: 1px #bababa solid;
     box-shadow: 0 3px 66px #00000096;
@@ -28,17 +27,17 @@
 .today-card-container p {
     font-size: 25px;
     font-weight: bold;
+    margin: 0;
 }
 
 .today-card-container label {
     font-weight: bold;
     font-size: 60px;
-    margin: 5% auto 15% auto;
+    margin: 10% auto 10% auto;
     color: #059316;
 }
 
 .chart-week-container {
-    margin-top: 25px;
     width: 40%;
     height: 30%;
     border: 1px #bababa solid;
@@ -52,7 +51,7 @@
 }
 
 .chart-month-container {
-    margin-top: 25px;
+    margin-top: 10px;
     width: 40%;
     height: 30%;
     border: 1px #bababa solid;
@@ -61,7 +60,7 @@
 }
 
 .chart-year-container {
-    margin-top: 25px;
+    margin-top: 10px;
     width: 40%;
     height: 30%;
     border: 1px #bababa solid;

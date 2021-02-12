@@ -4,35 +4,37 @@ import "./style.css";
 export default function FormProdEntregas() {
     return (
         <>
-            <form className={"container-form"}>
-                <div className={"input-div-id"}>
-                    <label>ID</label>
+            <form className={"formProdEntregas-container-form"}>
+                <div className={"formProdEntregas-input-div-id"}>
+                    <label>CÓDIGO</label>
                     <input
                         type={"number"}
-                        className={"input-form-id"}
+                        className={"formProdEntregas-input-form-id"}
                     />
                 </div>
-                <div className={"input-div-nome"}>
+                <div className={"formProdEntregas-input-div-nome"}>
                     <label>NOME</label>
                     <input
                         type={"text"}
-                        className={"input-form-nome"}
+                        className={"formProdEntregas-input-form-nome"}
                         readOnly={true}
+                        tabIndex={-1}
                     />
                 </div>
-                <div className={"input-div-qtd"}>
+                <div className={"formProdEntregas-input-div-qtd"}>
                     <label>QTD</label>
                     <input
                         type={"number"}
-                        className={"input-form-qtd"}
+                        className={"formProdEntregas-input-form-qtd"}
                     />
                 </div>
-                <div className={"input-div-valor"}>
+                <div className={"formProdEntregas-input-div-valor"}>
                     <label>VALOR</label>
                     <input
                         type={"number"}
-                        className={"input-form-valor"}
+                        className={"formProdEntregas-input-form-valor"}
                         readOnly={true}
+                        tabIndex={-1}
                     />
                 </div>
             </form>

@@ -38,15 +38,14 @@ export default function Menu() {
     return (
         <header className={"menu-header"}>
             <div className={"menu-container-principal"}>
-                <div
-                    className={"menu-container-logo"}
-                    onClick={() => window.location.replace("/")}
-                >
+                <div className={"menu-container-logo"}>
                     <img
+                        id={"logo-menu"}
                         alt={"logo menu"}
                         src={Logo}
                         height={50}
                         width={125}
+                        onClick={() => window.location.replace("/")}
                     />
                 </div>
                 <div

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+body {
+    overflow-y: auto;
+}
+
 body, html {
     padding: 0;
     margin: 0;
@@ -8,7 +12,7 @@ body, html {
     height: 100%;
 }
 
-p, a, label, button, strong, input {
+p, a, label, button, strong, input, h2 {
     font-family: Inter, Helvetica, sans-serif;
     font-size: 14px;
     color: #222;
@@ -17,4 +21,11 @@ p, a, label, button, strong, input {
 a, button, input {
     cursor: pointer;
     color: #222;
+    outline: 0;
+}
+
+.title-screen {
+    margin-left: 88px;
+    font-weight: normal;
+    font-size: 25px;
 }

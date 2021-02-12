@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import Chart from "chart.js"
 import "./style.css";
 
@@ -87,6 +87,7 @@ export default function Dashboard() {
     return (
         <>
             <main className={"dashboard-container-principal"}>
+                <h2 className={"title-screen"}>Painel de Controle</h2>
                 <aside className={"aside-container-top"}>
                     <div className={"today-card-container"}>
                         <p>SEUS GANHOS HOJE</p>

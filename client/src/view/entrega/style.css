@@ -1,12 +1,47 @@
-.container-principal {
+.entregas-container-principal {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container-top {
+.entregas-div-superior {
+    position: absolute;
+    width: 150px;
+    left: 82%;
+    top: 75px;
+}
+
+.entregas-div-superior label {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: end;
+    padding-left: 7px;
+}
+
+.entregas-div-superior p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #E31717;
+    text-align: end;
+}
+
+.entregas-container-produto {
     margin: 25px auto 0 auto;
     width: 70%;
     height: 100px;
     border-bottom: 1px #e0e0e0 solid;
+}
+
+.entregas-container-cliente {
+    position: relative;
+    margin: 25px auto 0 auto;
+    width: 70%;
+    height: 100%;
+}
+
+.entregas-div-table {
+    position: absolute;
+    width: 60%;
+    padding: 15px 0 0 5px;
 }

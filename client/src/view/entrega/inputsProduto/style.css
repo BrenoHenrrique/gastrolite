@@ -1,12 +1,16 @@
-.container-form {
+.formProdEntregas-container-form {
     display: flex;
     justify-content: center;
 }
 
-.container-form label {
+.formProdEntregas-container-form label {
     display: block;
     width: 25px;
     font-weight: bold;
+}
+
+.formProdEntregas-container-form input:focus {
+    border-color: #059316;
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -17,36 +21,17 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-.container-form input {
-    border: none;
-    background-color: #FAFAFA;
-}
-
-.container-form input:focus {
-    border: none;
-    background-color: #FAFAFA;
-    outline: 0;
-}
-
-.input-div {
+.formProdEntregas-input-div {
     width: 150px;
     padding-right: 20px;
 }
 
-.input-div-id {
+.formProdEntregas-input-div-id {
     width: 75px;
     margin: auto 20px auto 20px;
 }
 
-.input-div-id input {
-    width: 75px;
-    margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
-}
-
-.input-div-id input:focus {
+.formProdEntregas-input-div-id input {
     width: 75px;
     margin: 15px auto 0 auto;
     border: 1px #BBB solid;
@@ -54,20 +39,12 @@ input[type=number] {
     height: 23px;
 }
 
-.input-div-nome {
+.formProdEntregas-input-div-nome {
     width: 300px;
     margin: auto 20px auto 20px;
 }
 
-.input-div-nome input {
-    width: 300px;
-    margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
-}
-
-.input-div-nome input:focus {
+.formProdEntregas-input-div-nome input {
     width: 300px;
     margin: 15px auto 0 auto;
     border: 1px #BBB solid;
@@ -75,12 +52,12 @@ input[type=number] {
     height: 23px;
 }
 
-.input-div-qtd {
+.formProdEntregas-input-div-qtd {
     width: 100px;
     margin: auto 20px auto 20px;
 }
 
-.input-div-qtd input {
+.formProdEntregas-input-div-qtd input {
     width: 100px;
     margin: 15px auto 0 auto;
     border: 1px #BBB solid;
@@ -88,30 +65,14 @@ input[type=number] {
     height: 23px;
 }
 
-.input-div-qtd input:focus {
-    width: 100px;
-    margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
-}
-
-.input-div-valor {
+.formProdEntregas-input-div-valor {
     width: 100px;
     margin: auto 20px auto 20px;
 }
 
-.input-div-valor input {
+.formProdEntregas-input-div-valor input {
     width: 100px;
     margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
-}
-
-.input-div-valor input:focus {
-    width: 100px;
-    margin: 15px auto 0 auto;;
     border: 1px #BBB solid;
     border-radius: 3px;
     height: 23px;
