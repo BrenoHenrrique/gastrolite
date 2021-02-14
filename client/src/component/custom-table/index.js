@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import HeaderTable from "./headerTable";
-import TableItens from "./tableItens";
+import HeaderTable from "./header-table";
+import TableItens from "./table-itens";
 import "./style.css";
 import CustomModal from "../custom-modal";
 

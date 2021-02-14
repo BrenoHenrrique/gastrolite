@@ -1,6 +1,6 @@
 import React from "react";
-import FormProdEntregas from "./inputsProduto";
-import FormClientEntregas from "./inputsCliente";
+import FormProdEntregas from "./inputs-produto";
+import FormClientEntregas from "./inputs-cliente";
 import "./style.css";
 import TableCompra from "../../component/table-compra";
 

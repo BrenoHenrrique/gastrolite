@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTable from "../../../component/customTable";
+import CustomTable from "../../../component/custom-table";
 import "./style.css";
 
 export default function ListaCardapio() {
