@@ -5,6 +5,7 @@ import {isAuthenticated} from "../../service/auth";
 import {Redirect} from "react-router-dom";
 import {UserContext} from "../../service/UserContext";
 import "./style.css";
+import {validateFields} from "../../component/InterfaceCliente";
 
 export default function Login() {
 
@@ -24,16 +25,25 @@ export default function Login() {
         sessionStorage.removeItem("auth");
     }, []);
 
+    useEffect(() => {
+        setEntity({"nome": user, "senha": pass});
+    }, [pass, user]);
+
     async function handleSubmit(event) {
         event.preventDefault();
-        setEntity({"nome": user, "senha": pass});
-        if (entity !== null) {
-            await ServiceLogin.validate(entity).then(response => {
-                const {entityInstance} = response;
-                sessionStorage.setItem("auth", JSON.stringify(entityInstance));
-            });
-            if (isAuthenticated()) {
-                setAuth(true);
+        const inputUser = document.querySelector(".input-user");
+        const inputPass = document.querySelector(".input-pass");
+        if (validateFields([inputUser, inputPass])) {
+            if (entity !== null) {
+                await ServiceLogin.validate(entity).then(response => {
+                    const {entityInstance} = response;
+                    if (entityInstance) {
+                        sessionStorage.setItem("auth", JSON.stringify(entityInstance));
+                    }
+                });
+                if (isAuthenticated()) {
+                    setAuth(true);
+                }
             }
         }
     }

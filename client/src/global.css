@@ -24,6 +24,20 @@ a, button, input {
     outline: 0;
 }
 
+input {
+    height: 25px;
+    border: 1px #BBB solid;
+    border-radius: 3px;
+}
+
+button {
+    height: 30px;
+    border: 1px #D0D0D0 solid;
+    background-color: #E31717;
+    border-radius: 3px;
+}
+
+
 .title-screen {
     margin-left: 88px;
     font-weight: normal;

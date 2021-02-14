@@ -1,0 +1,23 @@
+table {
+    border-collapse: collapse;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.tableItens-container {
+    width: 100%;
+    margin: 30px auto 0 auto;
+    border-radius: 5px;
+}
+
+.tableItens-column th {
+    border: 1px #bababa solid;
+    padding: 7px 0;
+    color: white;
+    background-color: #E31717;
+}
+
+.tableItens-body td {
+    padding: 5px;
+    border: 1px #bababa solid;
+}

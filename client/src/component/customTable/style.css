@@ -1,22 +1,15 @@
-.customTable-container {
-    width: 100%;
-    background-color: #FDF5AB;
-    margin-bottom: 25px;
-    padding-top: 10px;
-    border: 1px #bababa dashed;
-    border-radius: 5px;
+.customTable-container-principal {
+    margin-top: 25px;
+    position: relative;
 }
 
-.customTable-column th {
-    font-size: 12px;
-    padding-bottom: 10px;
-    font-family: "Times New Roman", Arial, sans-serif;
-
+.customTable-container-botNovo {
+    position: absolute;
+    right: 0;
+    top: -50px;
 }
 
-.customTable-body td {
-    font-size: 13px;
-    font-weight: normal;
-    font-family: "Times New Roman", Arial, sans-serif;
-    padding: 10px 0 10px 13px;
+.customTable-container-botNovo button {
+    font-weight: bold;
+    color: white;
 }

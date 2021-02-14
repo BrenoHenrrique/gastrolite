@@ -91,7 +91,7 @@ export default function Dashboard() {
                 <aside className={"aside-container-top"}>
                     <div className={"today-card-container"}>
                         <p>SEUS GANHOS HOJE</p>
-                        <label>153,15 R$</label>
+                        <label>R$ 153,15</label>
                     </div>
                     <div className={"chart-week-container"}>
                         <canvas id="chart-week"/>

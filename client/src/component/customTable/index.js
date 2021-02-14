@@ -1,31 +1,55 @@
-import React from "react";
+import React, {useState} from "react";
+import HeaderTable from "./headerTable";
+import TableItens from "./tableItens";
 import "./style.css";
+import CustomModal from "../custom-modal";
 
-export default function CustomTable({columns, itens}) {
+export default function CustomTable() {
+
+    const [showModal, setShowModal] = useState(false);
+
+    const headerBody = ["id", "nome", "preço"]
+    const itens = [
+        {
+            id: "123456789",
+            nome: "ARROZ NAMORADO",
+            preco: "3,60"
+        },
+        {
+            id: "234567891",
+            nome: "FEIJÃO PAI JOÃO",
+            preco: "4,80",
+        },
+        {
+            id: "345678912",
+            nome: "AÇUCAR ESTRELA",
+            preco: "2,15",
+        }
+    ]
+
+    const handleCloseModal = (event) => {
+        setShowModal(event)
+    }
+
     return (
-        <table className={"customTable-container"}>
-            <thead className={"customTable-column"}>
-            <tr>
-                {columns.map((column, index) => {
-                    return (
-                        <th key={index}>{column}</th>
-                    )
-                })}
-            </tr>
-            </thead>
-            <tbody className={"customTable-body"}>
-            {itens.map((item, index) => {
-                return (
-                    <tr key={index}>
-                        <td>{item.id}</td>
-                        <td>{item.nome}</td>
-                        <td>{item.qtd}</td>
-                        <td>{item.valorUni}</td>
-                        <td>{item.valorQtd}</td>
-                    </tr>
-                )
-            })}
-            </tbody>
-        </table>
+        <main className={"customTable-container-principal"}>
+            <div className={"customTable-container-botNovo"}>
+                <button onClick={() => setShowModal(!showModal)}>NOVO</button>
+            </div>
+            <header className={"customTable-container-header"}>
+                <HeaderTable headerBody={headerBody}/>
+            </header>
+            <section className={"customTable-container-body"}>
+                <TableItens columns={headerBody} itens={itens}/>
+            </section>
+            {showModal &&
+            <CustomModal
+                open={handleCloseModal}
+                title={"Cadastro"}
+                modalBody={headerBody}
+                width={500}
+                height={450}
+            />}
+        </main>
     );
 }

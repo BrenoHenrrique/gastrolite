@@ -2,7 +2,7 @@ import React from "react";
 import FormProdEntregas from "./inputsProduto";
 import FormClientEntregas from "./inputsCliente";
 import "./style.css";
-import CustomTable from "../../component/customTable";
+import TableCompra from "../../component/table-compra";
 
 export default function Entregas() {
 
@@ -99,7 +99,7 @@ export default function Entregas() {
             </div>
             <div className={"entregas-container-cliente"}>
                 <div className={"entregas-div-table"}>
-                    <CustomTable
+                    <TableCompra
                         columns={columns}
                         itens={itens}
                     />

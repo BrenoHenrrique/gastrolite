@@ -34,9 +34,6 @@ input[type=number] {
 .formProdEntregas-input-div-id input {
     width: 75px;
     margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
 }
 
 .formProdEntregas-input-div-nome {
@@ -47,9 +44,6 @@ input[type=number] {
 .formProdEntregas-input-div-nome input {
     width: 300px;
     margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
 }
 
 .formProdEntregas-input-div-qtd {
@@ -60,9 +54,6 @@ input[type=number] {
 .formProdEntregas-input-div-qtd input {
     width: 100px;
     margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
 }
 
 .formProdEntregas-input-div-valor {
@@ -73,7 +64,4 @@ input[type=number] {
 .formProdEntregas-input-div-valor input {
     width: 100px;
     margin: 15px auto 0 auto;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-    height: 23px;
 }
