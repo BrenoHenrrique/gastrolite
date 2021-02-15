@@ -1,0 +1,34 @@
+.vendaRapida-container-principal {
+    width: 80%;
+    margin: auto;
+}
+
+.vendaRapida-container-superior {
+    position: absolute;
+    width: 150px;
+    left: 82%;
+    top: 75px;
+}
+
+.vendaRapida-container-superior label {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: end;
+    padding-left: 7px;
+}
+
+.vendaRapida-container-superior p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #E31717;
+    text-align: end;
+}
+
+.vendaRapida-container-produto {
+    margin: 50px 0 0 0;
+}
+
+.vendaRapida-container-table {
+    margin: 25px 0 0 0;
+}

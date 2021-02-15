@@ -65,3 +65,12 @@ input[type=number] {
     width: 100px;
     margin: 15px auto 0 auto;
 }
+
+.formProdEntregas-container-submit {
+    padding-top: 31px;
+}
+
+.formProdEntregas-container-submit button {
+    font-weight: bold;
+    color: white;
+}

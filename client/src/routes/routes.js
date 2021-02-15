@@ -6,6 +6,7 @@ import Login from "../view/login";
 import Dashboard from "../view/dashboard";
 import CardapioLista from "../view/cardapio/lista";
 import Entregas from "../view/entrega";
+import VendaRapida from "../view/venda-rapida";
 
 export default function Routes() {
     return (
@@ -14,7 +15,7 @@ export default function Routes() {
             <PrivateRoute exact path={"/"} component={Dashboard}/>
             <PrivateRoute exact path={"/cardapio"} component={CardapioLista}/>
             <PrivateRoute path={"/entregas"} component={Entregas}/>
-            <PrivateRoute path={"/vendaRapida"} component={Entregas}/>
+            <PrivateRoute path={"/vendaRapida"} component={VendaRapida}/>
             <PrivateRoute path={"/clientes"} component={Entregas}/>
         </Switch>
     );

@@ -17,11 +17,11 @@ export default function CustomTableCompra({columns, itens}) {
             {itens.map((item, index) => {
                 return (
                     <tr key={index}>
-                        <td>{item.id.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.id.toUpperCase()}</td>
                         <td>{item.nome.toUpperCase()}</td>
-                        <td>{item.qtd.toUpperCase()}</td>
-                        <td>{item.valorUni.toUpperCase()}</td>
-                        <td>{item.valorQtd.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.qtd.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.valorUni.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.valorQtd.toUpperCase()}</td>
                     </tr>
                 )
             })}

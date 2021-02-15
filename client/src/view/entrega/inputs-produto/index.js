@@ -4,7 +4,7 @@ import "./style.css";
 export default function FormProdEntregas() {
     return (
         <>
-            <form className={"formProdEntregas-container-form"}>
+            <form onSubmit={{}} className={"formProdEntregas-container-form"}>
                 <div className={"formProdEntregas-input-div-id"}>
                     <label>CÓDIGO</label>
                     <input
@@ -36,6 +36,9 @@ export default function FormProdEntregas() {
                         readOnly={true}
                         tabIndex={-1}
                     />
+                </div>
+                <div className={"formProdEntregas-container-submit"}>
+                    <button>FINALIZAR</button>
                 </div>
             </form>
         </>
