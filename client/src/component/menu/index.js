@@ -5,6 +5,7 @@ import {IoMdClose} from "react-icons/io";
 import {AiOutlineMenu} from "react-icons/ai";
 import {Redirect, Link} from "react-router-dom";
 import {UserContext} from "../../service/UserContext";
+import Perfil from "../../view/perfil";
 import "./style.css";
 
 export default function Menu() {
@@ -13,6 +14,7 @@ export default function Menu() {
     const [userLogged, setUserLogged] = useState(null);
     const [logout, setLogout] = useState(false);
     const [openMenu, setOpenMenu] = useState(true);
+    const [showPerfil, setShowPerfil] = useState(false)
 
     useEffect(() => {
         setUserLogged(getUserLogged());
@@ -50,7 +52,7 @@ export default function Menu() {
                 </div>
                 <div
                     className={"menu-container-usuario"}
-                    onClick={() => window.location.replace("/meuPerfil")}
+                    onClick={() => setShowPerfil(true)}
                 >
                     <label className={"menu-label-usuario"}>{userLogged?.nome.toUpperCase()}</label>
                 </div>
@@ -77,6 +79,7 @@ export default function Menu() {
                 {/*<Link to={"/estatisticas"}>ESTATÍSTICAS</Link>*/}
                 {/*<Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>*/}
             </div>
+            {showPerfil && <Perfil status={setShowPerfil}/>}
         </header>
     );
 }

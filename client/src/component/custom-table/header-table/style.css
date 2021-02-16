@@ -1,9 +1,21 @@
 .headerTable-container-principal {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     border: 1px #bababa solid;
     border-radius: 5px;
     background-color: #f0f0f0;
+}
+
+.headerTable-container-botNovo {
+    position: absolute;
+    top: 80px;
+    right: 10%;
+}
+
+.headerTable-container-botNovo button {
+    font-weight: bold;
+    color: white;
 }
 
 .headerTable-container-fields {
@@ -17,10 +29,6 @@
     padding: 0 0 5px 5px;
     width: 150px;
     font-weight: bold;
-}
-
-.headerTable-container-fields input {
-    width: 200px;
 }
 
 .headerTable-container-bot {

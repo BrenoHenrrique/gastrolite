@@ -61,7 +61,10 @@ export default function Login() {
                     <label className={"login-label-acesso"}>Acesse sua conta</label>
                 </div>
                 <div className={"login-form-fields"}>
-                    <form onSubmit={handleSubmit}>
+                    <form
+                        method={"post"}
+                        onSubmit={handleSubmit}
+                    >
                         <input
                             type={"text"}
                             className={"input-user"}

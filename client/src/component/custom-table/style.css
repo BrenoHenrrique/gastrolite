@@ -2,14 +2,3 @@
     margin-top: 25px;
     position: relative;
 }
-
-.customTable-container-botNovo {
-    position: absolute;
-    right: 0;
-    top: -50px;
-}
-
-.customTable-container-botNovo button {
-    font-weight: bold;
-    color: white;
-}

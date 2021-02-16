@@ -1,0 +1,49 @@
+.perfil-container-principal {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.perfil-container-aside-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.perfil-container-aside-top {
+    padding: 20px;
+}
+
+.perfil-container-aside-top label {
+    margin: 0 0 5px 5px;
+}
+
+.perfil-container-aside-top input {
+    width: 350px;
+}
+
+.perfil-container-aside-bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.perfil-container-aside-bot {
+    padding: 20px;
+}
+
+.perfil-container-aside-bot label {
+    margin: 0 0 5px 5px;
+}
+
+.perfil-container-aside-bot input {
+    width: 350px;
+}
+
+.perfil-container-btn {
+    float: right;
+    margin: 0 40px 0 0;
+}
+
+.perfil-container-btn button {
+    color: white;
+    font-weight: bold;
+}

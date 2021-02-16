@@ -16,11 +16,19 @@ export default function TableItens({columns, itens}) {
             <tbody className={"tableItens-body"}>
             {itens.map((item, index) => {
                 return (
-                    <tr key={index}>
-                        <td>{item.id.toUpperCase()}</td>
-                        <td>{item.nome.toUpperCase()}</td>
-                        <td>{`R$ ${item.preco.toUpperCase()}`}</td>
-                    </tr>
+                    item.id ?
+                        <tr key={index}>
+                            <td>{item.id.toUpperCase()}</td>
+                            <td>{item.nome.toUpperCase()}</td>
+                            <td>{`R$ ${item.preco.toUpperCase()}`}</td>
+                        </tr>
+                        :
+                        <tr key={index}>
+                            <td>{item.nome.toUpperCase()}</td>
+                            <td>{item.celular.toUpperCase()}</td>
+                            <td>{item.endereco.toUpperCase()}</td>
+                            <td>{item.referencia.toUpperCase()}</td>
+                        </tr>
                 )
             })}
             </tbody>
