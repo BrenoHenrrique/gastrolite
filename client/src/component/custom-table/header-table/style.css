@@ -15,7 +15,6 @@
 
 .headerTable-container-botNovo button {
     font-weight: bold;
-    color: white;
 }
 
 .headerTable-container-fields {
@@ -38,9 +37,10 @@
 }
 
 .headerTable-container-bot button {
-    color: white;
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: bold;
+    color: white !important;
+    background-color: #0069d9 !important;
 }
 
 @media screen and (min-width: 1300px) {

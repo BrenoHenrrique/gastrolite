@@ -2,7 +2,7 @@ import React from "react";
 import TableItens from "./table-itens";
 import "./style.css";
 
-export default function CustomTable({header, itens}) {
+export default function CustomTable({header, itens, callBackEdit, callBackDelete}) {
 
     return (
         <section className={"customTable-container-principal"}>
@@ -10,6 +10,8 @@ export default function CustomTable({header, itens}) {
                 <TableItens
                     columns={header}
                     itens={itens}
+                    callBackEdit={callBackEdit}
+                    callBackDelete={callBackDelete}
                 />
             </section>
         </section>

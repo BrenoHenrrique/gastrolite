@@ -1,29 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import CustomTable from "../../component/custom-table";
-import "./style.css";
 import HeaderTable from "../../component/custom-table/header-table";
+import {ServiceCardapio} from "../../service/serviceCardapio";
+import CustomModal from "../../component/custom-modal";
+import ModalBody from "./utils";
+import "./style.css";
 
 export default function Cardapio() {
 
-    const header = ["id", "nome", "preço"]
-    const itens = [
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            preco: "3,60"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            preco: "4,80",
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            preco: "2,15",
-        }
-    ]
+    const [header, setHeader] = useState(null);
+    const [itens, setItens] = useState(null);
+    const [entityEdit, setEntityEdit] = useState(null);
+    const [entity, setEntity] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
+    useEffect(() => {
+        getList();
+    }, []);
+
+
+    async function getList() {
+        await ServiceCardapio.list().then(res => {
+            setHeader(res.columns);
+            setItens(res.entities);
+        });
+    }
+
+    const callBackEdit = (entity) => {
+        setEntityEdit(entity);
+        setShowModal(true);
+    }
+
+    const callBackDelete = (entity) => {
+
+    }
 
     return (
         <>
@@ -34,15 +44,27 @@ export default function Cardapio() {
                         <HeaderTable
                             headerBody={header}
                             widthInput={window.innerWidth < 1300 ? 200 : window.innerWidth > 1400 && window.innerWidth < 1500 ? 250 : 300}
-                            heightModal={450}
                         />
                     </header>
                     <CustomTable
                         header={header}
                         itens={itens}
+                        callBackEdit={callBackEdit}
+                        callBackDelete={callBackDelete}
                     />
                 </div>
             </section>
+            <CustomModal
+                visible={showModal}
+                title={"EDITAR"}
+                onOk={() => {}}
+                onCancel={setShowModal}
+                width={600}
+                okText={"LOGAR"}
+                cancelText={"FECHAR"}
+                centered={true}
+                body={<ModalBody entityEdit={entityEdit}/>}
+            />
         </>
     );
 }

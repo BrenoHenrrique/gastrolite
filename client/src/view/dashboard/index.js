@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Chart from "chart.js"
+import Chart from "chart.js";
 import "./style.css";
 
 export default function Dashboard() {

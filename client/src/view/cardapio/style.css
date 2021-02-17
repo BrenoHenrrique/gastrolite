@@ -5,6 +5,6 @@
     flex-direction: column;
 }
 
-.listaCardapio-container-pesquisa {
-
+.listaCardapio-container-customTable {
+    margin-bottom: 25px;
 }

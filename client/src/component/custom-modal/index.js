@@ -1,48 +1,30 @@
 import React from "react";
-import {GrFormClose} from "react-icons/gr"
-import "./style.css";
+import {Modal} from "antd";
 
-export default function CustomModal({open, title, modalBody, width, height}) {
+export default function CustomModal({body, visible, title, width, onCancel, cancelText, okText, afterClose, centered, onOk}) {
 
-    const handleClose = () => {
-        open(false);
+    const handleOk = () => {
+        onOk();
+        onCancel(false);
+    }
+
+    const handleCancel = () => {
+        onCancel(false);
     }
 
     return (
-        <section className={"customModal-container"}>
-            <>
-                <div
-                    className={"customModal-body"}
-                    style={{width: width, height: height}}
-                >
-                    <header className={"customModal-header"}>
-                        <GrFormClose
-                            onClick={() => handleClose()}
-                        />
-                        <div className={"customModal-container-title"}>
-                            <h2>{title}</h2>
-                        </div>
-                    </header>
-                    {modalBody.map((body, index) => {
-                        return (
-                            <div key={index} className={"customModal-container-fields"}>
-                                <label>{body.toUpperCase()}</label>
-                                <input key={index}/>
-                            </div>
-                        );
-                    })}
-                    <footer className={"customModal-footer"}>
-                        <button
-                            className={"customModal-footer-salvar"}
-                            onClick={() => {}}
-                        >SALVAR</button>
-                        <button
-                            className={"customModal-footer-cancelar"}
-                            onClick={() => handleClose()}
-                        >CANCELAR</button>
-                    </footer>
-                </div>
-            </>
-        </section>
+        <Modal
+            title={title}
+            visible={visible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            width={width}
+            cancelText={cancelText}
+            okText={okText}
+            afterClose={afterClose}
+            centered={centered}
+        >
+            {body}
+        </Modal>
     );
 }

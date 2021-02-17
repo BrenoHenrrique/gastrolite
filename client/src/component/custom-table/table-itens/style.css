@@ -14,10 +14,43 @@ table {
     border: 1px #bababa solid;
     padding: 7px 0;
     color: white;
-    background-color: #E31717;
+    background-color: #0069d9;
+    text-align: center;
 }
 
 .tableItens-body td {
     padding: 5px;
     border: 1px #bababa solid;
+}
+
+.tableItens-acoes {
+    border-top: none !important;
+    border-left: none !important;
+}
+
+.tableItens-acoes-cardapio {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tableItens-acoes-cardapio svg {
+    color: #0069d9;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.tableItens-acoes-cliente {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-left: none !important;
+    border-top: none !important;
+}
+
+.tableItens-acoes-cliente svg {
+    color: #0069d9;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 7px;
 }

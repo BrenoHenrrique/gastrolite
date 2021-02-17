@@ -13,33 +13,22 @@ body, html {
 }
 
 p, a, label, button, strong, input, h2 {
-    font-family: Inter, Helvetica, sans-serif;
+    font-family: Inter, Helvetica, sans-serif !important;
     font-size: 14px;
-    color: #222;
 }
 
-a, button, input {
-    cursor: pointer;
-    color: #222;
-    outline: 0;
-}
-
-input {
-    height: 25px;
-    border: 1px #BBB solid;
-    border-radius: 3px;
-}
-
-button {
+input, button {
     height: 30px;
-    border: 1px #D0D0D0 solid;
-    background-color: #E31717;
-    border-radius: 3px;
+    cursor: pointer;
 }
 
+td {
+  font-size: 16px !important;
+}
 
 .title-screen {
-    margin-left: 88px;
-    font-weight: normal;
-    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 88px !important;
+    font-weight: normal !important;
+    font-size: 25px !important;
 }
