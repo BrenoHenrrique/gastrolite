@@ -20,33 +20,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/service/serviceCardapio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/view/cardapio/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/CardapioController.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/Cardapio.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/services/restaurante/CardapioService.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/CardapioControllerSpec.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/CardapioServiceSpec.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/CardapioSpec.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/Alert/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/Alert/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/button-new/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/button-new/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/confirm-modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/confirm-modal/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/custom-modal/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/grails-app/services/restaurante/MensagemService.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/custom-modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/custom-modal/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/custom-table/header-table/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-table/header-table/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/custom-table/header-table/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-table/header-table/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/custom-table/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-table/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/custom-table/table-itens/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-table/table-itens/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/custom-table/table-itens/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/custom-table/table-itens/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/menu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/menu/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/menu/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/menu/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/service/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/service/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/service/serviceLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/service/serviceLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/service/serviceCardapio.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/service/serviceCardapio.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/cardapio/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/cardapio/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/cardapio/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/cardapio/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/dashboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/cardapio/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/cardapio/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-cliente/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-cliente/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-cliente/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-cliente/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/view/login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/login/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/perfil/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/perfil/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/CardapioController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/CardapioController.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/UrlMappings.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/UrlMappings.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/domain/restaurante/Cardapio.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/Cardapio.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_cs.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_da.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_de.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_fr.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_it.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_ja.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_nb.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_nl.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_pl.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_pt_BR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/i18n/messages_pt_BR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_pt_PT.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_sk.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_sv.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_th.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/i18n/messages_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/services/restaurante/CardapioService.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/services/restaurante/CardapioService.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +104,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/grails-app/services/restaurante" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -102,13 +121,14 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\server\grails-app\services\restaurante" />
+      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\service" />
+      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\view\cardapio" />
       <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\service" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\service" />
-      <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -154,7 +174,11 @@
       <workItem from="1613344010062" duration="10198000" />
       <workItem from="1613431525952" duration="13471000" />
       <workItem from="1613519814786" duration="9401000" />
-      <workItem from="1613530621759" duration="2604000" />
+      <workItem from="1613530621759" duration="2794000" />
+      <workItem from="1613604398676" duration="15485000" />
+      <workItem from="1613653993296" duration="105000" />
+      <workItem from="1613682374928" duration="109000" />
+      <workItem from="1613683463983" duration="19144000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -261,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613437383450</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feito ajustes no designer e implementado o custom modal.">
+      <created>1613533391894</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1613533391894</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -385,7 +416,8 @@
     <MESSAGE value="refeita estrutura de paginas" />
     <MESSAGE value="feito designer da tela de venda rapida" />
     <MESSAGE value="terminado layout do projeto" />
-    <option name="LAST_COMMIT_MESSAGE" value="terminado layout do projeto" />
+    <MESSAGE value="feito ajustes no designer e implementado o custom modal." />
+    <option name="LAST_COMMIT_MESSAGE" value="feito ajustes no designer e implementado o custom modal." />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="113" key="#Inspections" timestamp="1612749735807">
@@ -404,54 +436,62 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="545" y="237" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.870@0.0.1600.870" timestamp="1613012854068" />
-    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612917958610">
+    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613618682062">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1612917958610" />
-    <state x="555" y="138" key="#xdebugger.evaluate" timestamp="1613440310189">
+    <state x="530" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870@0.0.1600.870" timestamp="1613618682062" />
+    <state x="555" y="138" key="#xdebugger.evaluate" timestamp="1613703399058">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="555" y="138" key="#xdebugger.evaluate/0.0.1600.870@0.0.1600.870" timestamp="1613440310189" />
-    <state width="407" height="466" key="DebuggerActiveHint" timestamp="1612746505757">
+    <state x="555" y="138" key="#xdebugger.evaluate/0.0.1600.870@0.0.1600.870" timestamp="1613703399058" />
+    <state width="412" height="466" key="DebuggerActiveHint" timestamp="1613703556644">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="407" height="466" key="DebuggerActiveHint/0.0.1600.870@0.0.1600.870" timestamp="1612746505757" />
+    <state width="412" height="466" key="DebuggerActiveHint/0.0.1600.870@0.0.1600.870" timestamp="1613703556644" />
+    <state x="92" y="92" width="1416" height="686" key="DiffContextDialog" timestamp="1613700211404">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="92" y="92" width="1416" height="686" key="DiffContextDialog/0.0.1600.870@0.0.1600.870" timestamp="1613700211404" />
     <state x="580" y="190" key="FileChooserDialogImpl" timestamp="1613438509597">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="580" y="190" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1613438509597" />
-    <state width="1557" height="254" key="GridCell.Tab.0.bottom" timestamp="1613530802681">
+    <state width="1557" height="254" key="GridCell.Tab.0.bottom" timestamp="1613704475782">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1613530802681" />
-    <state width="1557" height="254" key="GridCell.Tab.0.center" timestamp="1613530802680">
+    <state width="1557" height="254" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1613704475782" />
+    <state width="1557" height="254" key="GridCell.Tab.0.center" timestamp="1613704475782">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1613530802680" />
-    <state width="1557" height="254" key="GridCell.Tab.0.left" timestamp="1613530802680">
+    <state width="1557" height="254" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1613704475782" />
+    <state width="1557" height="254" key="GridCell.Tab.0.left" timestamp="1613704475781">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1613530802680" />
-    <state width="1557" height="254" key="GridCell.Tab.0.right" timestamp="1613530802681">
+    <state width="1557" height="254" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1613704475781" />
+    <state width="1557" height="254" key="GridCell.Tab.0.right" timestamp="1613704475782">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1613530802681" />
-    <state width="1557" height="254" key="GridCell.Tab.1.bottom" timestamp="1613530802682">
+    <state width="1557" height="254" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1613704475782" />
+    <state width="1557" height="254" key="GridCell.Tab.1.bottom" timestamp="1613704475607">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.1.bottom/0.0.1600.870@0.0.1600.870" timestamp="1613530802682" />
-    <state width="1557" height="254" key="GridCell.Tab.1.center" timestamp="1613530802681">
+    <state width="1557" height="254" key="GridCell.Tab.1.bottom/0.0.1600.870@0.0.1600.870" timestamp="1613704475607" />
+    <state width="1557" height="254" key="GridCell.Tab.1.center" timestamp="1613704475607">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.1.center/0.0.1600.870@0.0.1600.870" timestamp="1613530802681" />
-    <state width="1557" height="254" key="GridCell.Tab.1.left" timestamp="1613530802681">
+    <state width="1557" height="254" key="GridCell.Tab.1.center/0.0.1600.870@0.0.1600.870" timestamp="1613704475607" />
+    <state width="1557" height="254" key="GridCell.Tab.1.left" timestamp="1613704475607">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.1.left/0.0.1600.870@0.0.1600.870" timestamp="1613530802681" />
-    <state width="1557" height="254" key="GridCell.Tab.1.right" timestamp="1613530802681">
+    <state width="1557" height="254" key="GridCell.Tab.1.left/0.0.1600.870@0.0.1600.870" timestamp="1613704475607" />
+    <state width="1557" height="254" key="GridCell.Tab.1.right" timestamp="1613704475607">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.1.right/0.0.1600.870@0.0.1600.870" timestamp="1613530802681" />
+    <state width="1557" height="254" key="GridCell.Tab.1.right/0.0.1600.870@0.0.1600.870" timestamp="1613704475607" />
+    <state x="380" y="178" key="IDE.errors.dialog" timestamp="1613687655159">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="380" y="178" key="IDE.errors.dialog/0.0.1600.870@0.0.1600.870" timestamp="1613687655159" />
     <state x="437" y="155" key="RollbackChangesDialog" timestamp="1613531811005">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -476,18 +516,18 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="686" y="350" key="VCS.EditChangelistDialog/0.0.1600.870@0.0.1600.870" timestamp="1612495441457" />
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1613437391652">
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1613606727999">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1613437391652" />
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1613606727999" />
     <state x="426" y="140" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1613438593088">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="426" y="140" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1600.870@0.0.1600.870" timestamp="1613438593088" />
-    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1613435526487">
+    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1613687067886">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.870@0.0.1600.870" timestamp="1613435526487" />
+    <state x="92" y="92" width="1416" height="686" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.870@0.0.1600.870" timestamp="1613687067886" />
     <state x="598" y="124" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1613520279127">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -496,18 +536,18 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="456" y="169" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1600.870@0.0.1600.870" timestamp="1613437556363" />
-    <state x="507" y="168" width="585" height="534" key="find.popup" timestamp="1613532271913">
+    <state x="507" y="168" width="585" height="534" key="find.popup" timestamp="1613691758038">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="507" y="168" width="585" height="534" key="find.popup/0.0.1600.870@0.0.1600.870" timestamp="1613532271913" />
+    <state x="507" y="168" width="585" height="534" key="find.popup/0.0.1600.870@0.0.1600.870" timestamp="1613691758038" />
     <state x="456" y="198" key="run.anything.popup" timestamp="1613337367561">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="456" y="198" key="run.anything.popup/0.0.1600.870@0.0.1600.870" timestamp="1613337367561" />
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1613438901315">
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1613695548876">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1613438901315" />
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1613695548876" />
     <state x="457" y="118" key="spring file set editor" timestamp="1612494747869">
       <screen x="0" y="0" width="1600" height="870" />
     </state>

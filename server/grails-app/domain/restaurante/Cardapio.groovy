@@ -2,10 +2,11 @@ package restaurante
 
 class Cardapio {
 
-    String nome
     String idProduto
+    String nome
     String preco
 
     static constraints = {
+        idProduto unique: true
     }
 }

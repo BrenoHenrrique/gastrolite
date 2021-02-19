@@ -1,0 +1,9 @@
+.buttonNew-container {
+    position: absolute;
+    right: 10%;
+    top: 20px;
+}
+
+.buttonNew-container button{
+    background-color: #0069d9 !important;
+}

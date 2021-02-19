@@ -7,16 +7,6 @@
     background-color: #f0f0f0;
 }
 
-.headerTable-container-botNovo {
-    position: absolute;
-    top: 80px;
-    right: 10%;
-}
-
-.headerTable-container-botNovo button {
-    font-weight: bold;
-}
-
 .headerTable-container-fields {
     margin: 50px auto;
     display: flex;
@@ -38,7 +28,6 @@
 
 .headerTable-container-bot button {
     margin-top: 25px;
-    font-weight: bold;
     color: white !important;
     background-color: #0069d9 !important;
 }

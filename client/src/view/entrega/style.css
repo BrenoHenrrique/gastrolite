@@ -6,8 +6,9 @@
 
 .entregas-div-superior {
     position: absolute;
-    width: 150px;
-    left: 82%;
+    width: 170px;
+    height: 100px;
+    right: 1%;
     top: 75px;
 }
 
@@ -23,7 +24,7 @@
     font-size: 30px;
     font-weight: bold;
     color: #E31717;
-    text-align: end;
+    text-align: start;
 }
 
 .entregas-container-produto {

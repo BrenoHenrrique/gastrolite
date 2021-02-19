@@ -1,4 +1,5 @@
 import React from "react";
+import {Input} from "antd";
 import "./style.css";
 
 export default function FormClientEntregas() {
@@ -10,7 +11,7 @@ export default function FormClientEntregas() {
         >
             <div className={"formClientEntregas-input-div-nome"}>
                 <label>Nome</label>
-                <input
+                <Input
                     className={"formClientEntregas-input-nome"}
                 />
             </div>
@@ -18,7 +19,7 @@ export default function FormClientEntregas() {
                 className={"formClientEntregas-input-div-celular"}
             >
                 <label>Celular</label>
-                <input
+                <Input
                     className={"formClientEntregas-input-celular"}
                     type={"number"}
                 />
@@ -27,7 +28,7 @@ export default function FormClientEntregas() {
                 className={"formClientEntregas-input-div-endereco"}
             >
                 <label>Endereço</label>
-                <input
+                <Input
                     className={"formClientEntregas-input-endereco"}
                 />
             </div>
@@ -35,7 +36,7 @@ export default function FormClientEntregas() {
                 className={"formClientEntregas-input-div-referencia"}
             >
                 <label>Referência</label>
-                <input
+                <Input
                     className={"formClientEntregas-input-referencia"}
                 />
             </div>

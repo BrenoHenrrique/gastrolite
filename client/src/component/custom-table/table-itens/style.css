@@ -1,7 +1,7 @@
 table {
     border-collapse: collapse;
-    overflow: hidden;
     font-family: Arial, sans-serif;
+    border: 1px #bababa solid;
 }
 
 .tableItens-container {
@@ -19,38 +19,22 @@ table {
 }
 
 .tableItens-body td {
-    padding: 5px;
+    padding: 0 5px;
     border: 1px #bababa solid;
 }
 
 .tableItens-acoes {
-    border-top: none !important;
-    border-left: none !important;
-}
-
-.tableItens-acoes-cardapio {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.tableItens-acoes-cardapio svg {
-    color: #0069d9;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.tableItens-acoes-cliente {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    border-bottom: none !important;
     border-left: none !important;
-    border-top: none !important;
+    border-right: none !important;
 }
 
-.tableItens-acoes-cliente svg {
+.tableItens-acoes svg {
     color: #0069d9;
     font-size: 22px;
     cursor: pointer;
-    padding: 7px;
+    margin: auto;
 }

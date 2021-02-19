@@ -26,14 +26,13 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
             </thead>
             <tbody className={"tableItens-body"}>
             {itens && itens.map((item, index) => {
-                const {idProduto, nome, preco} = item
                 return (
                     item.id ?
-                        <tr key={index}>
-                            <td>{idProduto}</td>
-                            <td>{nome.toUpperCase()}</td>
-                            <td>{`R$ ${preco.toUpperCase()}`}</td>
-                            <td className={"tableItens-acoes-cardapio"}>
+                        <tr key={item.index}>
+                            <td>{item.idProduto}</td>
+                            <td>{item.nome.toUpperCase()}</td>
+                            <td>{`R$ ${item.preco.toUpperCase()}`}</td>
+                            <td className={"tableItens-acoes"}>
                                 <BiEdit onClick={() => handleEdit(item)}/>
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
@@ -44,7 +43,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                             <td>{item.celular.toUpperCase()}</td>
                             <td>{item.endereco.toUpperCase()}</td>
                             <td>{item.referencia.toUpperCase()}</td>
-                            <td className={"tableItens-acoes-cliente"}>
+                            <td className={"tableItens-acoes"}>
                                 <BiEdit onClick={() => handleEdit(item)}/>
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>

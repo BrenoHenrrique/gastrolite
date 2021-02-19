@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, Input} from "antd";
 import "./style.css";
 
 export default function FormProdEntregas() {
@@ -10,14 +11,14 @@ export default function FormProdEntregas() {
         >
             <div className={"formProdEntregas-input-div-id"}>
                 <label>CÓDIGO</label>
-                <input
+                <Input
                     type={"number"}
                     className={"formProdEntregas-input-form-id"}
                 />
             </div>
             <div className={"formProdEntregas-input-div-nome"}>
                 <label>NOME</label>
-                <input
+                <Input
                     type={"text"}
                     className={"formProdEntregas-input-form-nome"}
                     readOnly={true}
@@ -26,14 +27,14 @@ export default function FormProdEntregas() {
             </div>
             <div className={"formProdEntregas-input-div-qtd"}>
                 <label>QTD</label>
-                <input
+                <Input
                     type={"number"}
                     className={"formProdEntregas-input-form-qtd"}
                 />
             </div>
             <div className={"formProdEntregas-input-div-valor"}>
                 <label>VALOR</label>
-                <input
+                <Input
                     type={"number"}
                     className={"formProdEntregas-input-form-valor"}
                     readOnly={true}
@@ -41,7 +42,9 @@ export default function FormProdEntregas() {
                 />
             </div>
             <div className={"formProdEntregas-container-submit"}>
-                <button>FINALIZAR</button>
+                <Button
+                    type={"primary"}
+                >FINALIZAR</Button>
             </div>
         </form>
     );

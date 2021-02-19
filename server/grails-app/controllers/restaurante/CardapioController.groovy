@@ -1,15 +1,30 @@
 package restaurante
 
 class CardapioController {
-	
+
+    CardapioService cardapioService
+
     def index() {
-        Map model = [:]
+        params.putAll(request.JSON as Map)
 
-        ArrayList<Cardapio> entities = Cardapio.list()
+        respond cardapioService.list(params.field, params.value)
+    }
 
-        model.put("columns", ["id", "nome", "preço"])
-        model.put("entities", entities.sort{entity -> entity.nome})
+    def save() {
+        params.putAll(request.JSON as Map)
 
-        respond model
+        respond cardapioService.save(params.entity)
+    }
+
+    def update() {
+        params.putAll(request.JSON as Map)
+
+        respond cardapioService.update(params.entity)
+    }
+
+    def delete() {
+        params.putAll(request.JSON as Map)
+
+        respond cardapioService.delete(params.id)
     }
 }
