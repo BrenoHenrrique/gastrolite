@@ -3,32 +3,38 @@ package restaurante
 import grails.gorm.transactions.Transactional
 
 @Transactional
-class CardapioService {
+class ClienteService {
 
     MensagemService mensagemService
 
     Map list(field, value) {
         Map model = [:]
-        ArrayList<Cardapio> entities = Cardapio.list()
-        model.put("columns", ["id Produto", "nome", "preço"])
-        ArrayList<Cardapio> filtro = []
+        List<Cliente> entities = Cliente.list()
+        model.put("columns", ["nome", "celular", "endereço", "referência"])
+        ArrayList<Cliente> filtro = []
 
         if (field) {
-            if (field == "id Produto") {
-                entities.each {entity ->
-                    if (entity.idProduto.indexOf(value) > -1) {
-                        filtro.add(entity)
-                    }
-                }
-            } else if (field == "nome") {
+            if (field == "nome") {
                 entities.each {entity ->
                     if (entity.nome.toUpperCase().indexOf(value.toUpperCase()) > -1) {
                         filtro.add(entity)
                     }
                 }
-            } else if (field == "preço") {
+            } else if (field == "celular") {
                 entities.each {entity ->
-                    if (entity.preco.toString().trim().indexOf(value) > -1) {
+                    if (entity.celular.indexOf(value) > -1) {
+                        filtro.add(entity)
+                    }
+                }
+            } else if (field == "endereço") {
+                entities.each {entity ->
+                    if (entity.endereco.toUpperCase().indexOf(value.toUpperCase()) > -1) {
+                        filtro.add(entity)
+                    }
+                }
+            } else if (field == "referência") {
+                entities.each {entity ->
+                    if (entity.referencia.toUpperCase().indexOf(value.toUpperCase()) > -1) {
                         filtro.add(entity)
                     }
                 }
@@ -44,14 +50,15 @@ class CardapioService {
 
     Map save(paramaters) {
         Map model = [:]
-        Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
+        Cliente cliente = Cliente.findByCelular(paramaters.celular)
 
-        if (cardapio == null) {
+        if (cliente == null) {
             try {
-                Cardapio entity = new Cardapio()
-                entity.idProduto = paramaters.idProduto
+                Cliente entity = new Cliente()
                 entity.nome = paramaters.nome
-                entity.preco = paramaters.preco.toString().trim()
+                entity.celular = paramaters.celular
+                entity.endereco = paramaters.endereco
+                entity.referencia = paramaters.referencia
                 entity.save(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.save"))
@@ -65,21 +72,22 @@ class CardapioService {
         }
 
         model.put("status", "error")
-        model.put("message", mensagemService.getMensagem("cardapio.error.save"))
+        model.put("message", mensagemService.getMensagem("cliente.error.save"))
         return model
     }
 
     Map update(paramaters) {
         Map model = [:]
-        Cardapio cardapio
-        cardapio = Cardapio.get(paramaters.id)
+        Cliente cliente
+        cliente = Cliente.get(paramaters.id)
 
-        if (cardapio) {
+        if (cliente) {
             try {
-                cardapio.idProduto = paramaters.idProduto
-                cardapio.nome = paramaters.nome
-                cardapio.preco = paramaters.preco.toString().trim()
-                cardapio.save(flush: true, failOnError: true)
+                cliente.nome = paramaters.nome
+                cliente.celular = paramaters.celular
+                cliente.endereco = paramaters.endereco
+                cliente.referencia = paramaters.referencia
+                cliente.save(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.update"))
                 return model
@@ -99,11 +107,11 @@ class CardapioService {
     Map delete(id) {
         Map model = [:]
 
-        Cardapio cardapio = Cardapio.get(id)
+        Cliente cliente = Cliente.get(id)
 
-        if (cardapio) {
+        if (cliente) {
             try {
-                cardapio.delete(flush: true, failOnError: true)
+                cliente.delete(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.delete"))
                 return model

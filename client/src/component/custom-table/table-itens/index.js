@@ -27,7 +27,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
             <tbody className={"tableItens-body"}>
             {itens && itens.map((item, index) => {
                 return (
-                    item.id ?
+                    item.preco ?
                         <tr key={item.index}>
                             <td>{item.idProduto}</td>
                             <td>{item.nome.toUpperCase()}</td>
