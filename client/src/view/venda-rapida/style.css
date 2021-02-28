@@ -5,7 +5,7 @@
 
 .vendaRapida-container-superior {
     position: absolute;
-    width: 150px;
+    width: 200px;
     left: 82%;
     top: 75px;
 }
@@ -22,7 +22,7 @@
     font-size: 30px;
     font-weight: bold;
     color: #E31717;
-    text-align: end;
+    text-align: start;
 }
 
 .vendaRapida-container-produto {

@@ -1,90 +1,50 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import FormProdEntregas from "../entrega/inputs-produto";
 import TableCompra from "../../component/table-compra";
+import {ServiceCardapio} from "../../service/serviceCardapio";
+import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import "./style.css";
 
 export default function VendaRapida() {
 
-    const columns = ["CODIGO", "ITEM", "QTD.", "VALOR UN.", "VALOR QTD."]
-    const itens = [
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
+    const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"];
+    const [idSale, setSale] = useState(null);
+    const [entity, setEntity] = useState(null);
+    const [idProduct, setIdproduct] = useState(null);
+    const [itens, setItens] = useState([]);
+    const [itemFound, setItemFound] = useState(null);
+
+    useEffect(() => {
+        createVenda();
+    }, []);
+
+    const createVenda = () => {
+        ServiceVendaRapida.create().then(response => {
+            sessionStorage.setItem("sale", JSON.stringify(response.id));
+            setSale(response.id);
+        });
+    }
+
+    async function searchProduct() {
+        let entity = {
+            field: "id Produto",
+            value: idProduct
         }
-    ]
+        await ServiceCardapio.list(entity).then(res => {
+            setItemFound(res.entities);
+        });
+    }
+
+    async function saveItem() {
+        let entitySave = {
+            idVenda: idSale,
+            ...entity
+        }
+        await ServiceVendaRapida.save(entitySave);
+        await ServiceVendaRapida.list(idSale).then(response => {
+            setItens(response.itens);
+        });
+    }
 
     return (
         <>
@@ -95,7 +55,13 @@ export default function VendaRapida() {
                     <p>R$ 171,20</p>
                 </div>
                 <div className={"vendaRapida-container-produto"}>
-                    <FormProdEntregas/>
+                    <FormProdEntregas
+                        saveItem={saveItem}
+                        handleId={setIdproduct}
+                        searchProduct={searchProduct}
+                        itemFound={itemFound}
+                        entityCallBack={setEntity}
+                    />
                 </div>
                 <div className={"vendaRapida-container-table"}>
                     <TableCompra

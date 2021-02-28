@@ -6,86 +6,8 @@ import TableCompra from "../../component/table-compra";
 
 export default function Entregas() {
 
-    const columns = ["CODIGO", "ITEM", "QTD.", "VALOR UN.", "VALOR QTD."]
-    const itens = [
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        },
-        {
-            id: "345678912",
-            nome: "AÇUCAR ESTRELA",
-            qtd: "2",
-            valorUni: "4,30",
-            valorQtd: "8,60"
-        },
-        {
-            id: "123456789",
-            nome: "ARROZ NAMORADO",
-            qtd: "3",
-            valorUni: "4,60",
-            valorQtd: "13,80"
-        },
-        {
-            id: "234567891",
-            nome: "FEIJÃO PAI JOÃO",
-            qtd: "4",
-            valorUni: "5,10",
-            valorQtd: "20,40"
-        }
-    ]
+    const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"]
+    const itens = []
 
     return (
         <main className={"entregas-container-principal"}>

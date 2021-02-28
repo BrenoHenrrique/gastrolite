@@ -9,9 +9,9 @@
 
 .customTable-column th {
     font-size: 12px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     font-family: "Times New Roman", Arial, sans-serif;
-
+    text-align: center;
 }
 
 .customTable-body td {

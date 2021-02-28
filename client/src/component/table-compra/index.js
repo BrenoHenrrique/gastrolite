@@ -8,20 +8,21 @@ export default function CustomTableCompra({columns, itens}) {
             <tr>
                 {columns.map((column, index) => {
                     return (
-                        <th key={index}>{column.toUpperCase()}</th>
+                        <th key={index} style={column === "ITEM" ? {width: "40%"} : {width: "auto"}}>{column.toUpperCase()}</th>
                     )
                 })}
             </tr>
             </thead>
             <tbody className={"customTable-body"}>
             {itens.map((item, index) => {
+                const {idProduto, nome, preco, quantidade} = item
                 return (
                     <tr key={index}>
-                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.id.toUpperCase()}</td>
-                        <td>{item.nome.toUpperCase()}</td>
-                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.qtd.toUpperCase()}</td>
-                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.valorUni.toUpperCase()}</td>
-                        <td style={{textAlign: "center", paddingRight: "10px"}}>{item.valorQtd.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{idProduto}</td>
+                        <td style={{width: "40%"}}>{nome.toUpperCase()}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{quantidade}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{`R$ ${preco}`}</td>
+                        <td style={{textAlign: "center", paddingRight: "10px"}}>{`R$ ${parseInt(quantidade) * parseInt(preco)}`}</td>
                     </tr>
                 )
             })}

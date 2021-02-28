@@ -16,7 +16,7 @@ class CardapioService {
         if (field) {
             if (field == "id Produto") {
                 entities.each {entity ->
-                    if (entity.idProduto.indexOf(value) > -1) {
+                    if (entity.idProduto == value) {
                         filtro.add(entity)
                     }
                 }
