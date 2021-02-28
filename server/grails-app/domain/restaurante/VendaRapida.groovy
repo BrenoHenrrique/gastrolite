@@ -5,14 +5,10 @@ class VendaRapida {
     Long idVenda
     String nome
 
-    static hasMany = [produtos: Cardapio]
-
-    static mapping = {
-
-    }
+    static hasMany = [vendaRapidaProdutos: VendaRapidaProdutos]
 
     static constraints = {
         nome nullable: true
-        produtos nullable: true
+        vendaRapidaProdutos nullable: true
     }
 }

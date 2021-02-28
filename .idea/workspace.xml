@@ -20,23 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/service/serviceVendaRapida.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/controllers/restaurante/VendaRapidaController.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/VendaRapida.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/grails-app/services/restaurante/VendaRapidaService.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/VendaRapidaControllerSpec.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/VendaRapidaServiceSpec.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/VendaRapidaSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/VendaRapidaProdutos.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/groovy/restaurante/VendaRapidaProdutosSpec.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/table-compra/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/table-compra/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/table-compra/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/table-compra/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/entrega/inputs-produto/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/venda-rapida/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/venda-rapida/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/view/venda-rapida/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/view/venda-rapida/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/grails-app/services/restaurante/CardapioService.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/services/restaurante/CardapioService.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/domain/restaurante/Cardapio.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/Cardapio.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/domain/restaurante/VendaRapida.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/domain/restaurante/VendaRapida.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +149,7 @@
       <workItem from="1614281579112" duration="9000" />
       <workItem from="1614307155844" duration="1983000" />
       <workItem from="1614347523379" duration="27000" />
-      <workItem from="1614547087217" duration="882000" />
+      <workItem from="1614547087217" duration="1746000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -289,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614193069940</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feito uma parte da venda rapida.">
+      <created>1614549509464</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1614549509464</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -562,7 +557,8 @@
     <MESSAGE value="feito ajustes no designer e implementado o custom modal." />
     <MESSAGE value="terminada tela de cardapio." />
     <MESSAGE value="terminado a tela de cliente" />
-    <option name="LAST_COMMIT_MESSAGE" value="terminado a tela de cliente" />
+    <MESSAGE value="feito uma parte da venda rapida." />
+    <option name="LAST_COMMIT_MESSAGE" value="feito uma parte da venda rapida." />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="113" key="#Inspections" timestamp="1612749735807">
@@ -601,22 +597,22 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="580" y="190" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1613438509597" />
-    <state width="1557" height="254" key="GridCell.Tab.0.bottom" timestamp="1614309141005">
+    <state width="1557" height="226" key="GridCell.Tab.0.bottom" timestamp="1614549654906">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1614309141005" />
-    <state width="1557" height="254" key="GridCell.Tab.0.center" timestamp="1614309141004">
+    <state width="1557" height="226" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1614549654906" />
+    <state width="1557" height="226" key="GridCell.Tab.0.center" timestamp="1614549654906">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1614309141004" />
-    <state width="1557" height="254" key="GridCell.Tab.0.left" timestamp="1614309141004">
+    <state width="1557" height="226" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1614549654906" />
+    <state width="1557" height="226" key="GridCell.Tab.0.left" timestamp="1614549654906">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1614309141004" />
-    <state width="1557" height="254" key="GridCell.Tab.0.right" timestamp="1614309141004">
+    <state width="1557" height="226" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1614549654906" />
+    <state width="1557" height="226" key="GridCell.Tab.0.right" timestamp="1614549654906">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state width="1557" height="254" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1614309141004" />
+    <state width="1557" height="226" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1614549654906" />
     <state width="1557" height="254" key="GridCell.Tab.1.bottom" timestamp="1614309141005">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
@@ -661,10 +657,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="686" y="350" key="VCS.EditChangelistDialog/0.0.1600.870@0.0.1600.870" timestamp="1612495441457" />
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1613706839264">
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1614549515667">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1613706839264" />
+    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1614549515667" />
     <state x="426" y="140" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1613438593088">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
