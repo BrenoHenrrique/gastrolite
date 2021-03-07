@@ -1,0 +1,13 @@
+import restaurante.Cardapio
+
+model {
+    String cardapio
+    String quantidade
+}
+
+json {
+    Cardapio idProduto
+    Cardapio nome
+    Cardapio preco
+    String quantidade
+}

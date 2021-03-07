@@ -24,4 +24,13 @@ class VendaRapidaController {
 
         respond model
     }
+
+    def delete() {
+        Map model = [:]
+
+        params.putAll(request.JSON as Map)
+        model.put("status", vendaRapidaService.delete(params.entity))
+
+        respond model
+    }
 }

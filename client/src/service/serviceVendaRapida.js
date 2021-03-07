@@ -22,7 +22,7 @@ export const ServiceVendaRapida = {
     },
 
     delete: (entity) => {
-        return api.delete(`/vendaRapida/delete/${entity.id}`).then(response => {
+        return api.post(`/vendaRapida/delete`, {entity}).then(response => {
             return response.data;
         });
     }

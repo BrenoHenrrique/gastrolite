@@ -22,8 +22,9 @@ export default function Menu() {
 
     useEffect(() => {
         window.addEventListener("click", function (event) {
-            if (event) {
-                if (event.path[0].id === "menu-icone-open" || event.path[1].id === "menu-icone-open") {
+            let path = event.path || (event.composedPath && event.composedPath());
+            if (path) {
+                if (path[0].id === "menu-icone-open" || path[1].id === "menu-icone-open") {
                     setOpenMenu(false);
                 } else {
                     setOpenMenu(true);

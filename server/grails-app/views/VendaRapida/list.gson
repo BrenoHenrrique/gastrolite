@@ -1,0 +1,7 @@
+model {
+    List itens
+}
+
+json {
+    itens g.render(template: "vendaRapidaProdutos", collection: itens, var: "itens")
+}

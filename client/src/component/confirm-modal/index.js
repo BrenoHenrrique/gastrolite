@@ -1,7 +1,7 @@
 import React from "react";
 import CustomModal from "../custom-modal";
 
-export default function ConfirmModal({visible, onCancel, onOk}) {
+export default function ConfirmModal({visible, onCancel, onOk, body}) {
     return (
       <CustomModal
         visible={visible}
@@ -12,7 +12,7 @@ export default function ConfirmModal({visible, onCancel, onOk}) {
         centered={true}
         title={"MODAL ESCOLHA"}
         width={500}
-        body={<p>Deseja concluir esta ação?</p>}
+        body={body ?? <p>Deseja concluir esta ação?</p>}
       />
     );
 }

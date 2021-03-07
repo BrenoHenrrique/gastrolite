@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import FormProdEntregas from "../entrega/inputs-produto";
 import TableCompra from "../../component/table-compra";
+import ConfirmModal from "../../component/confirm-modal";
 import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import "./style.css";
@@ -13,6 +14,9 @@ export default function VendaRapida() {
     const [idProduct, setIdproduct] = useState(null);
     const [itens, setItens] = useState([]);
     const [itemFound, setItemFound] = useState(null);
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [idRemove, setIdRemove] = useState(null);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         createVenda();
@@ -22,6 +26,12 @@ export default function VendaRapida() {
         ServiceVendaRapida.create().then(response => {
             sessionStorage.setItem("sale", JSON.stringify(response.id));
             setSale(response.id);
+        });
+    }
+
+    const listItens = async () => {
+        await ServiceVendaRapida.list(idSale).then(response => {
+            setItens(response.itens);
         });
     }
 
@@ -41,9 +51,22 @@ export default function VendaRapida() {
             ...entity
         }
         await ServiceVendaRapida.save(entitySave);
-        await ServiceVendaRapida.list(idSale).then(response => {
-            setItens(response.itens);
-        });
+        await listItens();
+    }
+
+    const handleClick = (id) => {
+        setShowConfirm(true);
+        setIdRemove(id);
+    }
+
+    const confirmOk = async () => {
+        let entityDelete = {idSale: idSale, idProduto: idRemove};
+        await ServiceVendaRapida.delete(entityDelete);
+        await listItens();
+    }
+
+    const handleTotal = (value) => {
+        setTotal(value);
     }
 
     return (
@@ -52,7 +75,7 @@ export default function VendaRapida() {
             <main className={"vendaRapida-container-principal"}>
                 <div className={"vendaRapida-container-superior"}>
                     <label>Total</label>
-                    <p>R$ 171,20</p>
+                    <p>{`R$ ${total}`}</p>
                 </div>
                 <div className={"vendaRapida-container-produto"}>
                     <FormProdEntregas
@@ -67,9 +90,17 @@ export default function VendaRapida() {
                     <TableCompra
                         columns={columns}
                         itens={itens}
+                        handleClick={handleClick}
+                        totalVenda={handleTotal}
                     />
                 </div>
             </main>
+            <ConfirmModal
+                visible={showConfirm}
+                onCancel={setShowConfirm}
+                onOk={() => confirmOk()}
+                body={<p>Deseja excluir este item?</p>}
+            />
         </>
     );
 }

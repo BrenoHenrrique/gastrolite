@@ -12,6 +12,7 @@
     padding: 10px 0;
     font-family: "Times New Roman", Arial, sans-serif;
     text-align: center;
+    border-bottom: 1px #999 dashed;
 }
 
 .customTable-body td {
@@ -19,4 +20,13 @@
     font-weight: normal;
     font-family: "Times New Roman", Arial, sans-serif;
     padding: 10px 0 10px 13px;
+}
+
+.customTable-rows {
+    cursor: pointer;
+}
+
+.customTable-rows:hover {
+    cursor: pointer;
+    border: 1px #999 solid;
 }

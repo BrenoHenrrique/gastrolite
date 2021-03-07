@@ -1,7 +1,6 @@
 package restaurante
 
 import grails.gorm.transactions.Transactional
-import org.springframework.scheduling.annotation.Async
 
 @Transactional
 class VendaRapidaService {
@@ -9,8 +8,28 @@ class VendaRapidaService {
     Map list(id) {
         Map model = [:]
 
-        VendaRapida venda = VendaRapida.findAllByIdVenda(id)
-        model.put("itens", venda.produtos)
+        VendaRapida vendaRapida = VendaRapida.findByIdVenda(id)
+        ArrayList<VendaRapidaProdutos> vendaProdutos = VendaRapidaProdutos.findAllByVendaRapida(vendaRapida)
+
+        ArrayList quantidades = []
+        ArrayList listaCardapio = []
+        ArrayList result = []
+
+        vendaProdutos.each { item ->
+            listaCardapio.add(item.cardapio)
+            quantidades.add(item.quantidade)
+        }
+
+        listaCardapio.eachWithIndex { item, index ->
+            result.add([
+                    idProduto : item.idProduto,
+                    nome      : item.nome,
+                    quantidade: quantidades[index],
+                    preco     : item.preco
+            ])
+        }
+
+        model.put("itens", result)
 
         return model
     }
@@ -23,22 +42,27 @@ class VendaRapidaService {
         if (last) {
             Long idVenda = last.idVenda + 1
             model.put("id", idVenda)
-            return model
         } else {
             model.put("id", 1)
-            return model
         }
+
+        VendaRapida venda = new VendaRapida()
+        venda.idVenda = model.get("id")
+        venda.save()
+
+        return model
     }
 
     String save(paramaters) {
-        nova(paramaters)
-
         Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
         VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
 
-        if (cardapio) {
-            venda.addToProdutos(cardapio)
-            venda.save(flush: true)
+        if (venda) {
+            VendaRapidaProdutos vendaProdutos = new VendaRapidaProdutos()
+            vendaProdutos.cardapio = cardapio
+            vendaProdutos.vendaRapida = venda
+            vendaProdutos.quantidade = paramaters.quantidade
+            vendaProdutos.save(flush: true)
 
             return "salvo com sucesso"
         }
@@ -46,15 +70,17 @@ class VendaRapidaService {
         return "Erro ao salvar"
     }
 
-    @Async
-    void nova(paramaters) {
-        VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
+    String delete(paramaters) {
+        VendaRapida venda = VendaRapida.get(paramaters.idSale)
+        Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
+        VendaRapidaProdutos item = VendaRapidaProdutos.findByVendaRapidaAndCardapio(venda, cardapio)
 
-        if (!venda) {
-            VendaRapida nova = new VendaRapida()
-            nova.idVenda = paramaters.idVenda
-            nova.quantidade = paramaters.quantidade
-            nova.save(flush: true, failOnError: true)
+        if (item) {
+            item.delete(flush: true)
+            item.save()
+            return "removido com sucesso"
         }
+
+        return "Erro ao remover item, tente novamente."
     }
 }
