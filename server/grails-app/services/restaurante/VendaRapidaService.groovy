@@ -57,6 +57,11 @@ class VendaRapidaService {
         Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
         VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
 
+        if (venda && paramaters.cliente) {
+            venda.nome = paramaters.cliente
+            venda.save(flush: true)
+        }
+
         if (venda) {
             VendaRapidaProdutos vendaProdutos = new VendaRapidaProdutos()
             vendaProdutos.cardapio = cardapio

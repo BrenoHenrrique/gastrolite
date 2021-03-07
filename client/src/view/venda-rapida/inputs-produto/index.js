@@ -8,20 +8,23 @@ export default function FormProdEntregas({handleFinalizar, handleId, searchProdu
     const [nome, setNome] = useState(null);
     const [quant, setQuant] = useState(null);
     const [preco, setPreco] = useState(null);
+    const [cliente, setCliente] = useState(null);
     const [entity, setEntity] = useState(null);
 
     useEffect(() => {
         if (itemFound) {
-            const {idProduto, nome, preco, quant} = itemFound[0];
+            const {idProduto, nome, preco, quant, cliente} = itemFound[0];
             setId(idProduto);
             setNome(nome);
             setPreco(preco);
             setQuant(quant);
+            setCliente(cliente);
         } else {
             setId(null);
             setNome(null);
             setPreco(null);
             setQuant(null);
+            setCliente(null);
         }
     }, [itemFound]);
 
@@ -29,8 +32,9 @@ export default function FormProdEntregas({handleFinalizar, handleId, searchProdu
         setEntity({
             idProduto: id,
             quantidade: quant,
+            cliente: cliente
         });
-    }, [id, quant]);
+    }, [id, quant, cliente]);
 
     useEffect(() => {
         if (entity) {
@@ -94,6 +98,16 @@ export default function FormProdEntregas({handleFinalizar, handleId, searchProdu
                     tabIndex={-1}
                     onChange={event => setPreco(event.target.value)}
                     value={preco}
+                />
+            </div>
+            <div className={"formProdEntregas-input-div-cliente"}>
+                <label>CLIENTE</label>
+                <Input
+                    className={"formProdEntregas-input-form-cliente"}
+                    tabIndex={-1}
+                    onChange={event => setCliente(event.target.value)}
+                    onPressEnter={() => handleOnPressQuant()}
+                    value={cliente}
                 />
             </div>
             <div className={"formProdEntregas-container-submit"}>

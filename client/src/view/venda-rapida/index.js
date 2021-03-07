@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import FormProdEntregas from "../entrega/inputs-produto";
+import FormProdEntregas from "../venda-rapida/inputs-produto";
 import TableCompra from "../../component/table-compra";
 import ConfirmModal from "../../component/confirm-modal";
 import {ServiceCardapio} from "../../service/serviceCardapio";
@@ -84,6 +84,7 @@ export default function VendaRapida() {
                         searchProduct={searchProduct}
                         itemFound={itemFound}
                         entityCallBack={setEntity}
+                        handleFinalizar={{}}
                     />
                 </div>
                 <div className={"vendaRapida-container-table"}>
