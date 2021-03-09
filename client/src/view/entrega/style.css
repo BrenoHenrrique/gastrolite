@@ -37,12 +37,12 @@
 .entregas-container-cliente {
     position: relative;
     margin: 25px auto 0 auto;
-    width: 70%;
+    width: 90%;
     height: 100%;
 }
 
 .entregas-div-table {
     position: absolute;
-    width: 60%;
+    width: 70%;
     padding: 15px 0 0 5px;
 }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import FormProdEntregas from "../venda-rapida/inputs-produto";
+import FormProdRapida from "../venda-rapida/inputs-produto";
 import TableCompra from "../../component/table-compra";
 import ConfirmModal from "../../component/confirm-modal";
 import {ServiceCardapio} from "../../service/serviceCardapio";
@@ -78,7 +78,7 @@ export default function VendaRapida() {
                     <p>{`R$ ${total}`}</p>
                 </div>
                 <div className={"vendaRapida-container-produto"}>
-                    <FormProdEntregas
+                    <FormProdRapida
                         saveItem={saveItem}
                         handleId={setIdproduct}
                         searchProduct={searchProduct}

@@ -18,7 +18,7 @@ export default function CustomTableCompra({columns, itens, handleClick, totalVen
     }, [itens]);
 
     useEffect(() => {
-        totalVenda(totalSoma);
+        totalVenda(totalSoma ?? 0);
     }, [totalSoma]);
 
     return (

@@ -27,22 +27,22 @@ input[type=number] {
 }
 
 .formProdEntregas-input-div-id {
-    width: 75px;
+    width: 100px;
     margin: auto 20px auto 20px;
 }
 
 .formProdEntregas-input-div-id input {
-    width: 75px;
+    width: 100px;
     margin: 15px auto 0 auto;
 }
 
 .formProdEntregas-input-div-nome {
-    width: 300px;
+    width: 350px;
     margin: auto 20px auto 20px;
 }
 
 .formProdEntregas-input-div-nome input {
-    width: 300px;
+    width: 350px;
     margin: 15px auto 0 auto;
 }
 
