@@ -87,7 +87,7 @@ export default function Login() {
                             className={"login-bot-submit"}
                         >ENTRAR
                         </button>
-                        {auth && <Redirect to={"/"}/>}
+                        {auth && <Redirect to={"/cardapio"}/>}
                     </form>
                 </div>
             </div>
