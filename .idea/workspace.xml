@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/grails-app/conf/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/conf/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +171,10 @@
       <workItem from="1615125401646" duration="598000" />
       <workItem from="1615126140620" duration="3421000" />
       <workItem from="1615290642330" duration="7643000" />
-      <workItem from="1616382424287" duration="345000" />
+      <workItem from="1616382424287" duration="545000" />
+      <workItem from="1616383011498" duration="28000" />
+      <workItem from="1616418367108" duration="19000" />
+      <workItem from="1616539766918" duration="757000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -319,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615309546603</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="commit">
+      <created>1616382938629</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1616382938629</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -509,7 +520,8 @@
     <MESSAGE value="feito uma parte da venda rapida." />
     <MESSAGE value="feito métodos de total, recebimento dos itens e remoção de itens." />
     <MESSAGE value="feito algumas alteração e inicio do pagamento." />
-    <option name="LAST_COMMIT_MESSAGE" value="feito algumas alteração e inicio do pagamento." />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
