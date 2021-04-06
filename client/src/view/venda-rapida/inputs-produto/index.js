@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Input} from "antd";
 import "./style.css";
 
-export default function FormProdRapida({handleFinalizar, handleId, searchProduct, itemFound, entityCallBack, saveItem}) {
+export default function FormProdRapida({handleFinalizar, handleId, searchProduct, itemFound, entityCallBack, saveItem, disabledButton}) {
 
     const [id, setId] = useState(null);
     const [nome, setNome] = useState(null);
@@ -114,6 +114,7 @@ export default function FormProdRapida({handleFinalizar, handleId, searchProduct
                 <Button
                     type={"primary"}
                     onClick={() => handleFinalizar()}
+                    disabled={disabledButton}
                 >FINALIZAR</Button>
             </div>
         </section>

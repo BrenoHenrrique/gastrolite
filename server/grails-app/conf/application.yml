@@ -103,7 +103,7 @@ dataSources:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         username: root
         password: "Over@@lord13"
-        url: jdbc:mysql://localhost:3306/whatsgo?autoReconnect=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/gastrolite?autoReconnect=true&useSSL=false
         dbCreate: update
 
 environments:
@@ -111,17 +111,17 @@ environments:
         dataSources:
             dataSource:
                 dbCreate: update
-                url: jdbc:mysql://localhost:3306/whatsgo?autoReconnect=true&useSSL=false
+                url: jdbc:mysql://localhost:3306/gastrolite?autoReconnect=true&useSSL=false
     test:
         dataSources:
             dataSource:
                 dbCreate: update
-                url: jdbc:mysql://localhost:3306/whatsgo?autoReconnect=true&useSSL=false
+                url: jdbc:mysql://localhost:3306/gastrolite?autoReconnect=true&useSSL=false
     production:
         dataSources:
             dataSource:
                 dbCreate: update
-                url: jdbc:mysql://localhost:3306/whatsgo?autoReconnect=true&useSSL=false
+                url: jdbc:mysql://localhost:3306/gastrolite?autoReconnect=true&useSSL=false
                 properties:
                     jmxEnabled: true
                     initialSize: 5

@@ -5,6 +5,7 @@ import ConfirmModal from "../../component/confirm-modal";
 import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import "./style.css";
+import HandleMessage from "../../component/Alert";
 
 export default function VendaRapida() {
 
@@ -16,6 +17,7 @@ export default function VendaRapida() {
     const [itemFound, setItemFound] = useState(null);
     const [showConfirm, setShowConfirm] = useState(false);
     const [idRemove, setIdRemove] = useState(null);
+    const [response, setResponse] = useState(null);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function VendaRapida() {
 
     const listItens = async () => {
         await ServiceVendaRapida.list(idSale).then(response => {
-            setItens(response.itens);
+            setItens(response.entities);
         });
     }
 
@@ -50,8 +52,10 @@ export default function VendaRapida() {
             idVenda: idSale,
             ...entity
         }
-        await ServiceVendaRapida.save(entitySave);
-        await listItens();
+        await ServiceVendaRapida.save(entitySave).then(async (res) => {
+            setResponse(res);
+            await listItens();
+        });
     }
 
     const handleClick = (id) => {
@@ -61,8 +65,10 @@ export default function VendaRapida() {
 
     const confirmOk = async () => {
         let entityDelete = {idSale: idSale, idProduto: idRemove};
-        await ServiceVendaRapida.delete(entityDelete);
-        await listItens();
+        await ServiceVendaRapida.delete(entityDelete).then(async (res) => {
+            setResponse(res);
+            await listItens();
+        });
     }
 
     const handleTotal = (value) => {
@@ -72,6 +78,7 @@ export default function VendaRapida() {
     return (
         <>
             <h2 className={"title-screen"}>Venda Rápida</h2>
+            <HandleMessage response={response}/>
             <main className={"vendaRapida-container-principal"}>
                 <div className={"vendaRapida-container-superior"}>
                     <label>Total</label>
@@ -85,6 +92,7 @@ export default function VendaRapida() {
                         itemFound={itemFound}
                         entityCallBack={setEntity}
                         handleFinalizar={{}}
+                        disabledButton={!itens?.length}
                     />
                 </div>
                 <div className={"vendaRapida-container-table"}>

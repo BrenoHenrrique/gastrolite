@@ -13,11 +13,11 @@ export default function Routes() {
     return (
         <Switch>
             <Route exact path={"/login"} component={Login}/>
-            {/*<PrivateRoute exact path={"/"} component={Dashboard}/>*/}
+            <PrivateRoute exact path={"/"} component={Dashboard}/>
             <PrivateRoute exact path={"/cardapio"} component={Cardapio}/>
-            {/*<PrivateRoute exact path={"/entregas"} component={Entregas}/>*/}
-            {/*<PrivateRoute exact path={"/vendaRapida"} component={VendaRapida}/>*/}
-            {/*<PrivateRoute exact path={"/clientes"} component={Clientes}/>*/}
+            <PrivateRoute exact path={"/entregas"} component={Entregas}/>
+            <PrivateRoute exact path={"/vendaRapida"} component={VendaRapida}/>
+            <PrivateRoute exact path={"/clientes"} component={Clientes}/>
         </Switch>
     );
 }

@@ -1,7 +1,7 @@
 model {
-    List itens
+    List entities
 }
 
 json {
-    itens g.render(template: "vendaRapidaProdutos", collection: itens, var: "itens")
+    entities g.render(template: "vendaRapidaProdutos", collection: entities, var: "itens")
 }

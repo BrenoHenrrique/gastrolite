@@ -17,20 +17,15 @@ class VendaRapidaController {
     }
 
     def save() {
-        Map model = [:]
-
         params.putAll(request.JSON as Map)
-        model.put("status", vendaRapidaService.save(params.entity))
 
-        respond model
+        respond vendaRapidaService.save(params.entity)
     }
 
     def delete() {
-        Map model = [:]
-
         params.putAll(request.JSON as Map)
-        model.put("status", vendaRapidaService.delete(params.entity))
+        def paramaters = params.entity
 
-        respond model
+        respond vendaRapidaService.delete(paramaters.idSale, paramaters.idProduto)
     }
 }

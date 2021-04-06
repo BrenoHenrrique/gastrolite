@@ -1,13 +1,12 @@
-import restaurante.Cardapio
+import dtos.VendaRapidaItensDTO
 
 model {
-    String cardapio
-    String quantidade
+    VendaRapidaItensDTO vendaRapidaItensDTO
 }
 
 json {
-    Cardapio idProduto
-    Cardapio nome
-    Cardapio preco
-    String quantidade
+    idProduto vendaRapidaItensDTO.idProduto
+    nome vendaRapidaItensDTO.nome
+    quantidade vendaRapidaItensDTO.quantidade
+    preco vendaRapidaItensDTO.preco
 }

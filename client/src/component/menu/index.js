@@ -71,14 +71,14 @@ export default function Menu() {
                 </div>
             </div>
             <div className={openMenu ? "menu-itens" : "menu-itens-drop"}>
-                {/*<Link to={"/"}>PAINEL DE CONTROLE</Link>*/}
-                <Link to={"/cardapio"}>CARDÁPIO</Link>
-                {/*<Link to={"/entregas"}>ENTREGAS</Link>*/}
-                {/*<Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>*/}
-                {/*<Link to={"/clientes"}>CLIENTES</Link>*/}
+                <Link to={"/"}>PAINEL DE CONTROLE</Link>
                 {/*<Link to={"/mesas"}>MESAS</Link>*/}
+                <Link to={"/cardapio"}>CARDÁPIO</Link>
+                <Link to={"/entregas"}>ENTREGAS</Link>
+                <Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>
+                <Link to={"/clientes"}>CLIENTES</Link>
                 {/*<Link to={"/estatisticas"}>ESTATÍSTICAS</Link>*/}
-                {/*<Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>*/}
+                <Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>
             </div>
             {showPerfil && <Perfil status={setShowPerfil}/>}
         </header>

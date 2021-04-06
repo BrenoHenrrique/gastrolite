@@ -1,9 +1,12 @@
 package restaurante
 
+import dtos.VendaRapidaItensDTO
 import grails.gorm.transactions.Transactional
 
 @Transactional
 class VendaRapidaService {
+
+    MensagemService mensagemService
 
     Map list(id) {
         Map model = [:]
@@ -11,9 +14,9 @@ class VendaRapidaService {
         VendaRapida vendaRapida = VendaRapida.findByIdVenda(id)
         ArrayList<VendaRapidaProdutos> vendaProdutos = VendaRapidaProdutos.findAllByVendaRapida(vendaRapida)
 
-        ArrayList quantidades = []
+        ArrayList<Integer> quantidades = []
         ArrayList listaCardapio = []
-        ArrayList result = []
+        ArrayList<VendaRapidaItensDTO> result = []
 
         vendaProdutos.each { item ->
             listaCardapio.add(item.cardapio)
@@ -21,15 +24,15 @@ class VendaRapidaService {
         }
 
         listaCardapio.eachWithIndex { item, index ->
-            result.add([
-                    idProduto : item.idProduto,
+            result.add(new VendaRapidaItensDTO([
+                    idProduto : item.idProduto as Long,
                     nome      : item.nome,
-                    quantidade: quantidades[index],
-                    preco     : item.preco
-            ])
+                    quantidade: quantidades[index] as Integer,
+                    preco     : item.preco as BigDecimal
+            ]))
         }
 
-        model.put("itens", result)
+        model.put("entities", result)
 
         return model
     }
@@ -53,7 +56,8 @@ class VendaRapidaService {
         return model
     }
 
-    String save(paramaters) {
+    Map save(paramaters) {
+        Map model = [:]
         Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
         VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
 
@@ -68,24 +72,32 @@ class VendaRapidaService {
             vendaProdutos.vendaRapida = venda
             vendaProdutos.quantidade = paramaters.quantidade
             vendaProdutos.save(flush: true)
-
-            return "salvo com sucesso"
+            model.put("status", "success")
+            model.put("message", mensagemService.getMensagem("default.success.save"))
+            return model
         }
 
-        return "Erro ao salvar"
+        model.put("status", "error")
+        model.put("message", mensagemService.getMensagem("default.error"))
+        return model
     }
 
-    String delete(paramaters) {
-        VendaRapida venda = VendaRapida.get(paramaters.idSale)
-        Cardapio cardapio = Cardapio.findByIdProduto(paramaters.idProduto)
+    Map delete(Long idSale, Long idProduto) {
+        Map model = [:]
+        VendaRapida venda = VendaRapida.findByIdVenda(idSale)
+        Cardapio cardapio = Cardapio.findByIdProduto(idProduto)
         VendaRapidaProdutos item = VendaRapidaProdutos.findByVendaRapidaAndCardapio(venda, cardapio)
 
         if (item) {
             item.delete(flush: true)
             item.save()
-            return "removido com sucesso"
+            model.put("status", "success")
+            model.put("message", mensagemService.getMensagem("default.success.delete"))
+            return model
         }
 
-        return "Erro ao remover item, tente novamente."
+        model.put("status", "error")
+        model.put("message", mensagemService.getMensagem("default.error"))
+        return model
     }
 }
