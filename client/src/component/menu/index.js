@@ -77,7 +77,7 @@ export default function Menu() {
                 <Link to={"/entregas"}>ENTREGAS</Link>
                 <Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>
                 <Link to={"/clientes"}>CLIENTES</Link>
-                {/*<Link to={"/estatisticas"}>ESTATÍSTICAS</Link>*/}
+                <Link to={"/locais"}>LOCAIS</Link>
                 <Link to={"/funcionarios"}>FUNCIONÁRIOS</Link>
             </div>
             {showPerfil && <Perfil status={setShowPerfil}/>}

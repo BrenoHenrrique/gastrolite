@@ -16,7 +16,6 @@ export const ServiceCliente = {
     },
 
     update: (entity) => {
-        console.log(entity)
         return api.put(`/cliente/update/${entity.id}`, {entity}).then(response => {
             return response.data;
         });

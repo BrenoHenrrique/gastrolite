@@ -27,8 +27,8 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
             <tbody className={"tableItens-body"}>
             {itens && itens.map((item, index) => {
                 return (
-                    item.preco ?
-                        <tr key={item.index}>
+                    item.preco &&
+                        <tr key={index}>
                             <td>{item.idProduto}</td>
                             <td>{item.nome.toUpperCase()}</td>
                             <td>{`R$ ${item.preco.toUpperCase()}`}</td>
@@ -36,8 +36,8 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiEdit onClick={() => handleEdit(item)}/>
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
-                        </tr>
-                        :
+                        </tr> ||
+                    item.celular &&
                         <tr key={index}>
                             <td>{item.nome.toUpperCase()}</td>
                             <td>{item.celular.toUpperCase()}</td>
@@ -47,7 +47,16 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiEdit onClick={() => handleEdit(item)}/>
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
-                        </tr>
+                        </tr> ||
+                    item.taxa &&
+                    <tr key={index}>
+                        <td>{item.nome.toUpperCase()}</td>
+                        <td>{item.taxa.replace(".", ",")}</td>
+                        <td className={"tableItens-acoes"}>
+                            <BiEdit onClick={() => handleEdit(item)}/>
+                            <BiTrashAlt onClick={() => handleDelete(item)}/>
+                        </td>
+                    </tr>
                 )
             })}
             </tbody>
