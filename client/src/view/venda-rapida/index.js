@@ -6,6 +6,7 @@ import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import "./style.css";
 import HandleMessage from "../../component/Alert";
+import {ServiceImprimir} from "../../service/serviceImprimir";
 
 export default function VendaRapida() {
 
@@ -71,6 +72,12 @@ export default function VendaRapida() {
         });
     }
 
+    const finalizarCompra = async () => {
+        await ServiceImprimir.imprimir({idVenda: idSale}).then(async (res) => {
+            setResponse(res);
+        });
+    }
+
     const handleTotal = (value) => {
         setTotal(value);
     }
@@ -91,8 +98,8 @@ export default function VendaRapida() {
                         searchProduct={searchProduct}
                         itemFound={itemFound}
                         entityCallBack={setEntity}
-                        handleFinalizar={{}}
                         disabledButton={!itens?.length}
+                        handleFinalizar={() => finalizarCompra()}
                     />
                 </div>
                 <div className={"vendaRapida-container-table"}>
