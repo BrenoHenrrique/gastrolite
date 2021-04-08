@@ -37,7 +37,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
                         </tr> ||
-                    item.celular &&
+                    item.celular && item.referencia &&
                         <tr key={index}>
                             <td>{item.nome.toUpperCase()}</td>
                             <td>{item.celular.toUpperCase()}</td>
@@ -52,6 +52,17 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                     <tr key={index}>
                         <td>{item.nome.toUpperCase()}</td>
                         <td>{item.taxa.replace(".", ",")}</td>
+                        <td className={"tableItens-acoes"}>
+                            <BiEdit onClick={() => handleEdit(item)}/>
+                            <BiTrashAlt onClick={() => handleDelete(item)}/>
+                        </td>
+                    </tr> ||
+                    item.funcao &&
+                    <tr key={index}>
+                        <td>{item.nome.toUpperCase()}</td>
+                        <td>{item.celular.toUpperCase()}</td>
+                        <td>{item.endereco.toUpperCase()}</td>
+                        <td>{item.funcao.toUpperCase()}</td>
                         <td className={"tableItens-acoes"}>
                             <BiEdit onClick={() => handleEdit(item)}/>
                             <BiTrashAlt onClick={() => handleDelete(item)}/>

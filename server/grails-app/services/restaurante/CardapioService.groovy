@@ -34,7 +34,7 @@ class CardapioService {
                 }
             }
 
-            model.put("entities", filtro.sort{entity -> entity.nome.toUpperCase()})
+            model.put("entities", filtro.size() ? filtro.sort { entity -> entity.nome.toUpperCase() } : entities)
             return model
         }
 

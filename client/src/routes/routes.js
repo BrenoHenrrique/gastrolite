@@ -9,6 +9,7 @@ import Entregas from "../view/entrega";
 import VendaRapida from "../view/venda-rapida";
 import Clientes from "../view/clientes";
 import Locais from "../view/locais";
+import Funcionarios from "../view/funcionarios";
 
 export default function Routes() {
     return (
@@ -20,6 +21,7 @@ export default function Routes() {
             <PrivateRoute exact path={"/vendaRapida"} component={VendaRapida}/>
             <PrivateRoute exact path={"/clientes"} component={Clientes}/>
             <PrivateRoute exact path={"/locais"} component={Locais}/>
+            <PrivateRoute exact path={"/funcionarios"} component={Funcionarios}/>
         </Switch>
     );
 }

@@ -3,15 +3,15 @@ package restaurante
 import grails.gorm.transactions.Transactional
 
 @Transactional
-class ClienteService {
+class FuncionariosService {
 
     MensagemService mensagemService
 
     Map list(field, value) {
         Map model = [:]
-        List<Cliente> entities = Cliente.list()
-        model.put("columns", ["nome", "celular", "endereço", "referência"])
-        ArrayList<Cliente> filtro = []
+        List<Funcionarios> entities = Funcionarios.list()
+        model.put("columns", ["nome", "celular", "endereço", "função"])
+        ArrayList<Funcionarios> filtro = []
 
         if (field) {
             if (field == "nome") {
@@ -32,15 +32,15 @@ class ClienteService {
                         filtro.add(entity)
                     }
                 }
-            } else if (field == "referência") {
+            } else if (field == "função") {
                 entities.each {entity ->
-                    if (entity.referencia.toUpperCase().indexOf(value.toUpperCase()) > -1) {
+                    if (entity.funcao.toUpperCase().indexOf(value.toUpperCase()) > -1) {
                         filtro.add(entity)
                     }
                 }
             }
 
-            model.put("entities", filtro.size() ? filtro.sort { entity -> entity.nome.toUpperCase() } : entities)
+            model.put("entities", filtro.size() > 0 ? filtro.sort { entity -> entity.nome.toUpperCase() } : entities)
             return model
         }
 
@@ -50,15 +50,15 @@ class ClienteService {
 
     Map save(paramaters) {
         Map model = [:]
-        Cliente cliente = Cliente.findByCelular(paramaters.celular)
+        Funcionarios funcionario = Funcionarios.findByCelular(paramaters.celular)
 
-        if (cliente == null) {
+        if (funcionario == null) {
             try {
-                Cliente entity = new Cliente()
+                Funcionarios entity = new Funcionarios()
                 entity.nome = paramaters.nome
                 entity.celular = paramaters.celular
                 entity.endereco = paramaters.endereco
-                entity.referencia = paramaters.referencia
+                entity.funcao = paramaters.funcao
                 entity.save(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.save"))
@@ -78,16 +78,16 @@ class ClienteService {
 
     Map update(paramaters) {
         Map model = [:]
-        Cliente cliente
-        cliente = Cliente.get(paramaters.id)
+        Funcionarios funcionario
+        funcionario = Funcionarios.get(paramaters.id)
 
-        if (cliente) {
+        if (funcionario) {
             try {
-                cliente.nome = paramaters.nome
-                cliente.celular = paramaters.celular
-                cliente.endereco = paramaters.endereco
-                cliente.referencia = paramaters.referencia
-                cliente.save(flush: true, failOnError: true)
+                funcionario.nome = paramaters.nome
+                funcionario.celular = paramaters.celular
+                funcionario.endereco = paramaters.endereco
+                funcionario.funcao = paramaters.funcao
+                funcionario.save(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.update"))
                 return model
@@ -107,11 +107,11 @@ class ClienteService {
     Map delete(id) {
         Map model = [:]
 
-        Cliente cliente = Cliente.get(id)
+        Funcionarios funcionario = Funcionarios.get(id)
 
-        if (cliente) {
+        if (funcionario) {
             try {
-                cliente.delete(flush: true, failOnError: true)
+                funcionario.delete(flush: true, failOnError: true)
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.delete"))
                 return model
