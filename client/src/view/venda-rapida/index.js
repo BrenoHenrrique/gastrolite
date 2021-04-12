@@ -4,9 +4,9 @@ import TableCompra from "../../component/table-compra";
 import ConfirmModal from "../../component/confirm-modal";
 import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
-import "./style.css";
 import HandleMessage from "../../component/Alert";
 import {ServiceImprimir} from "../../service/serviceImprimir";
+import "./style.css";
 
 export default function VendaRapida() {
 
@@ -83,7 +83,7 @@ export default function VendaRapida() {
     }
 
     return (
-        <>
+        <main>
             <h2 className={"title-screen"}>Venda Rápida</h2>
             <HandleMessage response={response}/>
             <main className={"vendaRapida-container-principal"}>
@@ -117,6 +117,6 @@ export default function VendaRapida() {
                 onOk={() => confirmOk()}
                 body={<p>Deseja excluir este item?</p>}
             />
-        </>
+        </main>
     );
 }

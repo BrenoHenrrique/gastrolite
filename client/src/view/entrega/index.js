@@ -1,36 +1,45 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import FormProdEntregas from "./inputs-produto";
 import FormClientEntregas from "./inputs-cliente";
 import TableCompra from "../../component/table-compra";
 import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import {ServiceCardapio} from "../../service/serviceCardapio";
+import {ServiceImprimir} from "../../service/serviceImprimir";
+import {ServiceCliente} from "../../service/serviceCliente";
+import ConfirmModal from "../../component/confirm-modal";
+import HandleMessage from "../../component/Alert";
 import "./style.css";
 
 export default function Entregas() {
 
-    const [showConfirm, setShowConfirm] = useState(false);
-    const [idRemove, setIdRemove] = useState(null);
-    const [idProduct, setIdproduct] = useState(null);
-    const [itemFound, setItemFound] = useState(null);
+    const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"];
     const [idSale, setSale] = useState(null);
     const [entity, setEntity] = useState(null);
-    const [total, setTotal] = useState(0);
+    const [idProduct, setIdproduct] = useState(null);
+    const [cellphone, setCellphone] = useState(null);
     const [itens, setItens] = useState([]);
-    const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"]
+    const [itemFound, setItemFound] = useState(null);
+    const [clientFound, setClientFound] = useState(null);
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [idRemove, setIdRemove] = useState(null);
+    const [response, setResponse] = useState(null);
+    const [total, setTotal] = useState(0);
 
-    const listItens = async () => {
-        await ServiceVendaRapida.list(idSale).then(response => {
-            setItens(response.itens);
+    useEffect(() => {
+        createVenda();
+    }, []);
+
+    const createVenda = () => {
+        ServiceVendaRapida.create().then(response => {
+            sessionStorage.setItem("sale", JSON.stringify(response.id));
+            setSale(response.id);
         });
     }
 
-    async function saveItem() {
-        let entitySave = {
-            idVenda: idSale,
-            ...entity
-        }
-        await ServiceVendaRapida.save(entitySave);
-        await listItens();
+    const listItens = async () => {
+        await ServiceVendaRapida.list(idSale).then(response => {
+            setItens(response.entities);
+        });
     }
 
     async function searchProduct() {
@@ -43,21 +52,57 @@ export default function Entregas() {
         });
     }
 
+    async function searchClient() {
+        let entity = {
+            field: "celular",
+            value: cellphone
+        }
+        await ServiceCliente.list(entity).then(res => {
+            setClientFound(res.entities);
+        });
+    }
+
+    async function saveItem() {
+        let entitySave = {
+            idVenda: idSale,
+            ...entity
+        }
+        await ServiceVendaRapida.save(entitySave).then(async (res) => {
+            setResponse(res);
+            await listItens();
+        });
+    }
+
     const handleClick = (id) => {
         setShowConfirm(true);
         setIdRemove(id);
     }
 
+    const confirmOk = async () => {
+        let entityDelete = {idSale: idSale, idProduto: idRemove};
+        await ServiceVendaRapida.delete(entityDelete).then(async (res) => {
+            setResponse(res);
+            await listItens();
+        });
+    }
+
+    const finalizarCompra = async () => {
+        await ServiceImprimir.imprimir({idVenda: idSale}).then(async (res) => {
+            setResponse(res);
+        });
+    }
+
     const handleTotal = (value) => {
-        setTotal(value ?? 0);
+        setTotal(value);
     }
 
     return (
         <main className={"entregas-container-principal"}>
             <h2 className={"title-screen"}>Entregas</h2>
+            <HandleMessage response={response}/>
             <div className={"entregas-div-superior"}>
                 <label>Total</label>
-                <p>R$ 373,77</p>
+                <p>{`R$ ${total}`}</p>
             </div>
             <div className={"entregas-container-produto"}>
                 <FormProdEntregas
@@ -66,7 +111,8 @@ export default function Entregas() {
                     searchProduct={searchProduct}
                     itemFound={itemFound}
                     entityCallBack={setEntity}
-                    handleFinalizar={{}}
+                    disabledButton={!itens?.length}
+                    handleFinalizar={() => finalizarCompra()}
                 />
             </div>
             <div className={"entregas-container-cliente"}>
@@ -78,8 +124,20 @@ export default function Entregas() {
                         totalVenda={handleTotal}
                     />
                 </div>
-                <FormClientEntregas/>
+                <FormClientEntregas
+                    handleCell={setCellphone}
+                    searchClient={searchClient}
+                    clientFound={clientFound}
+                    entityCallBack={setEntity}
+                    disabledButton={!itens?.length}
+                />
             </div>
+            <ConfirmModal
+                visible={showConfirm}
+                onCancel={setShowConfirm}
+                onOk={() => confirmOk()}
+                body={<p>Deseja excluir este item?</p>}
+            />
         </main>
     )
 }

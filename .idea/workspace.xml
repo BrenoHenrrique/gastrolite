@@ -24,7 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b6da121-9a60-4859-976a-718acac11be0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/grails-app/conf/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/grails-app/conf/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -97,6 +96,8 @@
       <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Breno\IdeaProjects\restaurante-online\client\src" />
+      <recent name="C:\Users\Breno\IdeaProjects\restaurante-online\client\src\component\messages" />
       <recent name="$PROJECT_DIR$/server/grails-app/views/vendaRapida" />
       <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\view\cardapio" />
       <recent name="C:\Users\Breno\Documents\GitHub\restaurante-online\client\src\service" />
@@ -174,7 +175,16 @@
       <workItem from="1616382424287" duration="545000" />
       <workItem from="1616383011498" duration="28000" />
       <workItem from="1616418367108" duration="19000" />
-      <workItem from="1616539766918" duration="757000" />
+      <workItem from="1616539766918" duration="986000" />
+      <workItem from="1616587055313" duration="458000" />
+      <workItem from="1617664890070" duration="3278000" />
+      <workItem from="1617713012792" duration="25000" />
+      <workItem from="1617740777838" duration="5307000" />
+      <workItem from="1617798507367" duration="158000" />
+      <workItem from="1617824360541" duration="4814000" />
+      <workItem from="1617885787861" duration="84000" />
+      <workItem from="1617911795371" duration="3866000" />
+      <workItem from="1617972256351" duration="483000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1612320609818</created>
@@ -330,7 +340,42 @@
       <option name="project" value="LOCAL" />
       <updated>1616382938629</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="commit">
+      <created>1616541346641</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1616541346641</updated>
+    </task>
+    <task id="LOCAL-00024" summary="ajustado tudo da tela de venda rapida, função finalizar ainda não está feita.">
+      <created>1617668158435</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617668158435</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feito método de imprimir, ainda precisa de mais testes.">
+      <created>1617824838251</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617824838251</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feito back e front da tela locais.">
+      <created>1617828864303</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1617828864303</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feito a tela de funcionarios.">
+      <created>1617914914297</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617914914297</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TraitInjectorService">
@@ -521,22 +566,10 @@
     <MESSAGE value="feito métodos de total, recebimento dos itens e remoção de itens." />
     <MESSAGE value="feito algumas alteração e inicio do pagamento." />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/grails-app/services/restaurante/ClienteService.groovy</url>
-          <line>100</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/grails-app/controllers/restaurante/ClienteController.groovy</url>
-          <line>9</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="ajustado tudo da tela de venda rapida, função finalizar ainda não está feita." />
+    <MESSAGE value="feito método de imprimir, ainda precisa de mais testes." />
+    <MESSAGE value="feito back e front da tela locais." />
+    <MESSAGE value="feito a tela de funcionarios." />
+    <option name="LAST_COMMIT_MESSAGE" value="feito a tela de funcionarios." />
   </component>
 </project>
