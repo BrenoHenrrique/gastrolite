@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import FormProdEntregas from "./inputs-produto";
 import FormClientEntregas from "./inputs-cliente";
 import TableCompra from "../../component/table-compra";
-import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
+import {ServiceEntrega} from "../../service/serviceEntrega";
 import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceImprimir} from "../../service/serviceImprimir";
 import {ServiceCliente} from "../../service/serviceCliente";
@@ -15,6 +15,7 @@ export default function Entregas() {
     const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"];
     const [idSale, setSale] = useState(null);
     const [entity, setEntity] = useState(null);
+    const [cliente, setCliente] = useState(null);
     const [idProduct, setIdproduct] = useState(null);
     const [cellphone, setCellphone] = useState(null);
     const [itens, setItens] = useState([]);
@@ -30,14 +31,14 @@ export default function Entregas() {
     }, []);
 
     const createVenda = () => {
-        ServiceVendaRapida.create().then(response => {
+        ServiceEntrega.create().then(response => {
             sessionStorage.setItem("sale", JSON.stringify(response.id));
             setSale(response.id);
         });
     }
 
     const listItens = async () => {
-        await ServiceVendaRapida.list(idSale).then(response => {
+        await ServiceEntrega.list(idSale).then(response => {
             setItens(response.entities);
         });
     }
@@ -67,7 +68,7 @@ export default function Entregas() {
             idVenda: idSale,
             ...entity
         }
-        await ServiceVendaRapida.save(entitySave).then(async (res) => {
+        await ServiceEntrega.save(entitySave).then(async (res) => {
             setResponse(res);
             await listItens();
         });
@@ -80,7 +81,7 @@ export default function Entregas() {
 
     const confirmOk = async () => {
         let entityDelete = {idSale: idSale, idProduto: idRemove};
-        await ServiceVendaRapida.delete(entityDelete).then(async (res) => {
+        await ServiceEntrega.delete(entityDelete).then(async (res) => {
             setResponse(res);
             await listItens();
         });
@@ -128,7 +129,7 @@ export default function Entregas() {
                     handleCell={setCellphone}
                     searchClient={searchClient}
                     clientFound={clientFound}
-                    entityCallBack={setEntity}
+                    entityCallBack={setCliente}
                     disabledButton={!itens?.length}
                 />
             </div>

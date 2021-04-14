@@ -1,0 +1,12 @@
+import dtos.EntregaItensDTO
+
+model {
+    EntregaItensDTO entregaItensDTO
+}
+
+json {
+    idProduto entregaItensDTO.idProduto
+    nome entregaItensDTO.nome
+    quantidade entregaItensDTO.quantidade
+    preco entregaItensDTO.preco
+}

@@ -6,7 +6,7 @@ class Cardapio {
     String nome
     String preco
 
-    static hasMany = [vendaRapidaProdutos: VendaRapidaProdutos]
+    static hasMany = [vendaRapidaProdutos: VendaRapidaProdutos, entregaProdutos: EntregaProdutos]
 
     static constraints = {
         idProduto unique: true

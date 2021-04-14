@@ -1,0 +1,7 @@
+model {
+    List entities
+}
+
+json {
+    entities g.render(template: "entregaProdutos", collection: entities, var: "itens")
+}

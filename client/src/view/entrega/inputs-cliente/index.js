@@ -52,7 +52,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
                 <Input
                     className={"formClientEntregas-input-nome"}
                     onChange={e => setNome(e.target.value)}
-                    value={nome.toUpperCase()}
+                    value={nome?.toUpperCase()}
                 />
             </div>
             <div className={"formClientEntregas-input-div-celular"}>
@@ -70,7 +70,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
                 <Input
                     className={"formClientEntregas-input-endereco"}
                     onChange={e => setEndereco(e.target.value)}
-                    value={endereco.toUpperCase()}
+                    value={endereco?.toUpperCase()}
                 />
             </div>
             <div className={"formClientEntregas-input-div-referencia"}>
@@ -78,7 +78,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
                 <Input
                     className={"formClientEntregas-input-referencia"}
                     onChange={e => setReferencia(e.target.value)}
-                    value={referencia.toUpperCase()}
+                    value={referencia?.toUpperCase()}
                 />
             </div>
         </section>

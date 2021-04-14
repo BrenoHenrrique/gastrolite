@@ -7,6 +7,7 @@ class Cliente {
     String endereco
     String referencia
 
-    static constraints = {
-    }
+    static hasMany = [entregaProdutos: EntregaProdutos]
+
+    static constraints = {}
 }
