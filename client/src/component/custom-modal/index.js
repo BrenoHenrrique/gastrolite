@@ -1,7 +1,7 @@
 import React from "react";
 import {Modal} from "antd";
 
-export default function CustomModal({body, visible, title, width, onCancel, cancelText, okText, afterClose, centered, onOk}) {
+export default function CustomModal({body, visible, title, width, onCancel, cancelText, okText, afterClose, centered, onOk, maskClosable = true}) {
 
     const handleOk = () => {
         onOk();
@@ -23,6 +23,7 @@ export default function CustomModal({body, visible, title, width, onCancel, canc
             okText={okText}
             afterClose={afterClose}
             centered={centered}
+            maskClosable={maskClosable}
         >
             {body}
         </Modal>

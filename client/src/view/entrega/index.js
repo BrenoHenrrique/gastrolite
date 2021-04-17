@@ -8,6 +8,8 @@ import {ServiceImprimir} from "../../service/serviceImprimir";
 import {ServiceCliente} from "../../service/serviceCliente";
 import ConfirmModal from "../../component/confirm-modal";
 import HandleMessage from "../../component/Alert";
+import CustomModal from "../../component/custom-modal";
+import ModalBody from "./modal-body/utils";
 import "./style.css";
 
 export default function Entregas() {
@@ -15,7 +17,6 @@ export default function Entregas() {
     const columns = ["CODIGO", "ITEM", "QUANTIDADE", "VALOR UNIDADE", "VALOR SOMA"];
     const [idSale, setSale] = useState(null);
     const [entity, setEntity] = useState(null);
-    const [cliente, setCliente] = useState(null);
     const [idProduct, setIdproduct] = useState(null);
     const [cellphone, setCellphone] = useState(null);
     const [itens, setItens] = useState([]);
@@ -25,6 +26,9 @@ export default function Entregas() {
     const [idRemove, setIdRemove] = useState(null);
     const [response, setResponse] = useState(null);
     const [total, setTotal] = useState(0);
+    const [showPayment, setShowPayment] = useState(false);
+    const [entregador, setEntregador] = useState(null);
+    const [pago, setPago] = useState(null);
 
     useEffect(() => {
         createVenda();
@@ -39,7 +43,8 @@ export default function Entregas() {
 
     const listItens = async () => {
         await ServiceEntrega.list(idSale).then(response => {
-            setItens(response.entities);
+            const {entities} = response;
+            setItens(entities);
         });
     }
 
@@ -87,8 +92,26 @@ export default function Entregas() {
         });
     }
 
+    const showModalPayment = () => {
+        if (clientFound) {
+            if (clientFound[0]?.nome && itens.length) {
+                setShowPayment(true);
+            } else {
+                setResponse({status: "error", message: "Venda ao menos um item para finalizar a compra."});
+            }
+        } else {
+            setResponse({status: "error", message: "Dados do cliente não pode ser vazio."});
+        }
+    }
+
     const finalizarCompra = async () => {
-        await ServiceImprimir.imprimir({idVenda: idSale}).then(async (res) => {
+        let entity = {
+            idVenda: idSale,
+            tipo: "entrega",
+            entregador: entregador,
+            pago: pago
+        }
+        await ServiceImprimir.imprimir(entity).then(async (res) => {
             setResponse(res);
         });
     }
@@ -113,7 +136,7 @@ export default function Entregas() {
                     itemFound={itemFound}
                     entityCallBack={setEntity}
                     disabledButton={!itens?.length}
-                    handleFinalizar={() => finalizarCompra()}
+                    handleFinalizar={() => showModalPayment()}
                 />
             </div>
             <div className={"entregas-container-cliente"}>
@@ -129,7 +152,7 @@ export default function Entregas() {
                     handleCell={setCellphone}
                     searchClient={searchClient}
                     clientFound={clientFound}
-                    entityCallBack={setCliente}
+                    entityCallBack={() => {}}
                     disabledButton={!itens?.length}
                 />
             </div>
@@ -139,6 +162,25 @@ export default function Entregas() {
                 onOk={() => confirmOk()}
                 body={<p>Deseja excluir este item?</p>}
             />
+            {showPayment && <CustomModal
+                visible={showPayment}
+                title={"FINALIZAR ENTREGA"}
+                onOk={() => finalizarCompra()}
+                onCancel={setShowPayment}
+                width={600}
+                okText={"FINALIZAR"}
+                cancelText={"CANCELAR"}
+                centered={true}
+                maskClosable={false}
+                body={
+                    <ModalBody
+                        cliente={clientFound[0]}
+                        total={total}
+                        entregador={setEntregador}
+                        pagoCompra={setPago}
+                    />
+                }
+            />}
         </main>
     )
 }

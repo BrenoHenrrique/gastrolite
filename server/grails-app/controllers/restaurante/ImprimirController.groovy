@@ -33,8 +33,20 @@ class ImprimirController {
 
         try {
             VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
-            if (venda) {
-                List<VendaRapidaProdutos> produtos = VendaRapidaProdutos.findAllByVendaRapida(venda)
+            Entrega entrega = Entrega.findByIdEntrega(paramaters.idVenda)
+
+            def entidade = paramaters.tipo == "vendaRapida" ? venda : entrega
+
+            if (entidade) {
+
+                def produtos
+
+                if (paramaters.tipo == "vendaRapida") {
+                    produtos = VendaRapidaProdutos.findAllByVendaRapida(entidade)
+                } else {
+                    produtos = EntregaProdutos.findAllByEntrega(entidade)
+                }
+
                 if (produtos.size()) {
                     String nomeProduto
                     String quantProd
@@ -64,6 +76,11 @@ class ImprimirController {
                         }
                     }
 
+                    String itens = ""
+                    arrayParametros.each{Object entry ->
+                        itens = itens + entry.toString().replace("[", "").replace("]", "")
+                    }
+
                     String pagamentoVendaRapida = """ VALOR TOTAL: ${total} \n\r"""
 
                     String pagamentoEntrega =
@@ -78,9 +95,9 @@ class ImprimirController {
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
                     impressaoCupom("""               POPO LANCHES              \n\r
-                                        Data e Hora: data - hora\n\r
+                                        Data: ${data} as ${hora}\n\r
                                         Endereco:Rua 11 Residencial Maracanau/Cagaado\n\r
-                                        N 28A\n\r"
+                                        N 28A\n\r
                                         Celular: (85) 98726 4195 / (85) 98631 5889   \n\r
                                         ---------------------------------------------\n\r
                                                         CUPOM NAO FISCAL             \n\r
@@ -88,7 +105,7 @@ class ImprimirController {
                                                          LISTA DE ITENS              \n\r
                                         ---------------------------------------------\n\r
                                         DESCRICAO                     PRECO     QT   \n\r
-                                        ${arrayParametros.toString().replace("[", "").replace("]", "")} \n\r
+                                        ${itens} \n\r
                                         ---------------------------------------------\n\r
                                         ${paramaters.tipo == "vendaRapida" ? pagamentoVendaRapida : pagamentoEntrega}
                                         ---------------------------------------------\n\r

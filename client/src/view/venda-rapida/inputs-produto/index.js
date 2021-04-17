@@ -101,7 +101,7 @@ export default function FormProdRapida({handleFinalizar, handleId, searchProduct
                 />
             </div>
             <div className={"formProdRapida-input-div-cliente"}>
-                <label>CLIENTE</label>
+                <label>OBSERVAÇÕES</label>
                 <Input
                     className={"formProdRapida-input-form-cliente"}
                     tabIndex={-1}

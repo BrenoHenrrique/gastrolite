@@ -62,7 +62,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
                     type={"number"}
                     onPressEnter={() => searchClient(celular)}
                     onChange={e => handleCelular(e.target.value)}
-                    value={celular}
+                    value={celular ? celular : 9}
                 />
             </div>
             <div className={"formClientEntregas-input-div-endereco"}>

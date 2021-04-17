@@ -1,0 +1,15 @@
+.utils-entrega-label-valores {
+    color: black;
+    font-weight: bold;
+    font-size: 20px
+}
+
+.utils-entrega-valores {
+    color: #007bff;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 19px;
+}

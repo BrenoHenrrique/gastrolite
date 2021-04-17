@@ -73,7 +73,7 @@ export default function VendaRapida() {
     }
 
     const finalizarCompra = async () => {
-        await ServiceImprimir.imprimir({idVenda: idSale}).then(async (res) => {
+        await ServiceImprimir.imprimir({idVenda: idSale, tipo: "vendaRapida"}).then(async (res) => {
             setResponse(res);
         });
     }
