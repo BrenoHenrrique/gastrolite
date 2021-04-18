@@ -58,7 +58,7 @@ class ImprimirController {
                         if (nomeProduto.length() > 26) {
                             nomeProduto = nomeProduto.substring(0, 26)
 
-                            parametros = nomeProduto + "  RS" + valorProd + "     " + quantProd + "  " + "\n\r"
+                            parametros = nomeProduto.toString().toUpperCase() + "  RS" + valorProd + "     " + quantProd + "  " + "\n\r"
 
                             arrayParametros.add(parametros)
 
@@ -66,7 +66,7 @@ class ImprimirController {
                             nomeProduto = (String.format("%-26s", nomeProduto))
                             nomeProduto = nomeProduto.substring(0, 26)
 
-                            parametros = nomeProduto + " RS" + valorProd + "     " + quantProd + "  " + "\n\r"
+                            parametros = nomeProduto.toString().toUpperCase() + " RS" + valorProd + "     " + quantProd + "  " + "\n\r"
 
                             arrayParametros.add(parametros)
                         }
@@ -77,14 +77,30 @@ class ImprimirController {
                         itens = itens + entry.toString().replace("[", "").replace("]", "")
                     }
 
-                    Object cliente = params?.cliente
+                    String observacoes = params?.observacoes?.toString()?.toUpperCase()
+
+                    Object objetoCliente = params?.cliente
+
+                    Cliente cliente = Cliente.findByCelular(objetoCliente.celular)
+
+                    if (!cliente) {
+                        Cliente.withTransaction {
+                            Cliente novoCliente = new Cliente()
+                            novoCliente.nome = objetoCliente.nome.toString().toUpperCase()
+                            novoCliente.celular = objetoCliente.celular
+                            novoCliente.endereco = objetoCliente.endereco.toString().toUpperCase()
+                            novoCliente.referencia = objetoCliente.referencia.toString().toUpperCase()
+                            novoCliente.save(flush: true)
+                        }
+                    }
+
                     String dadosCliente =
                             "             DADOS DO COMPROVANTE            \n\r" +
                             "---------------------------------------------\n\r" +
-                            "      NOME: ${cliente.nome}                  \n\r" +
-                            "   CELULAR: ${cliente.celular}               \n\r" +
-                            "  ENDERECO: ${cliente.endereco}              \n\r" +
-                            "REFERENCIA: ${cliente.referencia}                "
+                            "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
+                            "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
+                            "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
+                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
 
                     String pagamentoVendaRapida = "VALOR TOTAL: " + total + "\n\r"
 
@@ -100,10 +116,10 @@ class ImprimirController {
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
                     impressaoCupom("                POPO LANCHES \n\r"
-                                 + "Data: ${data} as ${hora} \n\r"
-                                 + "Endereco:Rua 11 Residencial Maracanau/Cagaado\n\r"
+                                 + "DATA: ${data} as ${hora} \n\r"
+                                 + "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r"
                                  + "N 28A\n\r"
-                                 + "Celular: (85) 98726 4195 / (85) 98631 5889   \n\r"
+                                 + "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r"
                                  + "---------------------------------------------\n\r"
                                  + "               CUPOM NAO FISCAL              \n\r"
                                  + "---------------------------------------------\n\r"
@@ -112,16 +128,15 @@ class ImprimirController {
                                  + "DESCRICAO                  PRECO      QT     \n\r"
                                  + "${itens}                                     \n\r"
                                  + "---------------------------------------------\n\r"
-                                 + "OBSERVACOES: ${params.observacoes}           \n\r"
+                                 + "OBSERVACOES: ${observacoes}           \n\r"
                                  + "---------------------------------------------\n\r"
-                                 + "${cliente?.nome ? dadosCliente : ""}         \n\r"
+                                 + "${objetoCliente?.nome ? dadosCliente : ""}         \n\r"
                                  + "---------------------------------------------\n\r"
                                  + "             DADOS DO COMPROVANTE            \n\r"
                                  + "---------------------------------------------\n\r"
                                  + "${params.tipo == "vendaRapida" ? pagamentoVendaRapida : pagamentoEntrega}"
                                  + "---------------------------------------------\n\r"
-                                 + "OBS:So e feita a troca de produtos com este  \n\r"
-                                 + "cupom em maos.                               \n\r"
+                                 + "OBS:SO E FEITA A TROCA COM ESTE CUPOM EM MAOS\n\r"
                                  + "---------------------------------------------\n\r"
                                  + "          OBRIGADO PELA PREFERENCIA!         \n\r"
                                  + "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"

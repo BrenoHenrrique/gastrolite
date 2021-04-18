@@ -41,7 +41,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
             endereco: endereco,
             referencia: referencia
         });
-    }, [celular]);
+    }, [nome, celular, endereco, referencia]);
 
     useEffect(() => {
         if (entity) {
@@ -65,7 +65,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
                 />
             </div>
             <div className={"formClientEntregas-input-div-celular"}>
-                <label>Celular</label>
+                <label>Celular<span style={{color: "red"}}> * Utilize o 9 na frete.</span></label>
                 <Input
                     className={"formClientEntregas-input-celular"}
                     type={"number"}

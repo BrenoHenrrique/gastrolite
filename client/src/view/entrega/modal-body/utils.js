@@ -94,7 +94,7 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
                     <label>CLIENTE</label>
                 </Col>
                 <Col>
-                    <Input readOnly={true} value={cliente.nome}/>
+                    <Input readOnly={true} value={cliente.nome.toUpperCase()}/>
                 </Col>
             </Col>
             <Col span={2}/>

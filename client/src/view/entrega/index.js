@@ -31,6 +31,7 @@ export default function Entregas() {
     const [pago, setPago] = useState(null);
     const [taxa, setTaxa] = useState(null);
     const [clearFieldsForm, setClearFieldsForm] = useState(false);
+    const [callBackCliente, setCallBackCliente] = useState(null);
 
     useEffect(() => {
         createVenda();
@@ -67,7 +68,11 @@ export default function Entregas() {
             value: cellphone
         }
         await ServiceCliente.list(entity).then(res => {
-            setClientFound(res.entities);
+            if (res.entities.length === 1) {
+                setClientFound(res.entities[0]);
+            } else {
+                setResponse({status: "error", message: "Não foi encontrado nenhum cliente com esse celular."});
+            }
         });
     }
 
@@ -96,8 +101,9 @@ export default function Entregas() {
     }
 
     const showModalPayment = () => {
-        if (clientFound) {
-            if (clientFound[0]?.nome && itens.length) {
+        let cliente = clientFound ?? callBackCliente;
+        if (cliente) {
+            if (cliente.nome  && itens.length) {
                 setShowPayment(true);
             } else {
                 setResponse({status: "error", message: "Venda ao menos um item para finalizar a compra."});
@@ -107,8 +113,9 @@ export default function Entregas() {
         }
     }
 
+    console.log(callBackCliente)
     const finalizarCompra = async () => {
-        let cliente = clientFound[0];
+        let cliente = clientFound ?? callBackCliente;
         let entity = {
             idVenda: idSale,
             tipo: "entrega",
@@ -145,6 +152,7 @@ export default function Entregas() {
         setTotal(0.0);
         setIdproduct(null);
         setClearFieldsForm(true);
+        setCallBackCliente(null);
     }
 
     return (
@@ -179,7 +187,7 @@ export default function Entregas() {
                     handleCell={setCellphone}
                     searchClient={searchClient}
                     clientFound={clientFound}
-                    entityCallBack={() => {}}
+                    entityCallBack={setCallBackCliente}
                     disabledButton={!itens?.length}
                     clearFieldsForm={clearFieldsForm}
                 />
@@ -202,7 +210,7 @@ export default function Entregas() {
                 maskClosable={false}
                 body={
                     <ModalBody
-                        cliente={clientFound[0]}
+                        cliente={clientFound ?? callBackCliente}
                         total={total}
                         entregador={setEntregador}
                         pagoCompra={setPago}
