@@ -5,7 +5,7 @@ import {ServiceLocais} from "../../../service/serviceLocais";
 import {ServiceFuncionarios} from "../../../service/serviceFuncionarios";
 import "./style.css";
 
-export default function ModalBody({cliente, total, entregador, pagoCompra}) {
+export default function ModalBody({cliente, total, entregador, pagoCompra, taxaEntrega}) {
 
     const {Option} = Select;
     const [pago, setPago] = useState(null);
@@ -32,6 +32,7 @@ export default function ModalBody({cliente, total, entregador, pagoCompra}) {
 
     const handleLocais = (taxa) => {
         let total = totalCompra + parseFloat(taxa);
+        taxaEntrega(taxa)
         setTotalCompra(total);
     }
 

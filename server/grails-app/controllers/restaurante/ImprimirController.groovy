@@ -18,30 +18,26 @@ class ImprimirController {
 
     def imprimir() {
         params.putAll(request.JSON as Map)
-        def paramaters = params.entities
 
         Map model = [:]
         List arrayParametros = []
         String parametros
 
         BigDecimal total = 0
-        BigDecimal dinheiro = 0
-        BigDecimal troco = 0
-        BigDecimal pago = 0
-        BigDecimal debito = 0
-        BigDecimal credito = 0
+        BigDecimal pago = params.pago as BigDecimal
+        BigDecimal taxa = params.taxa as BigDecimal
 
         try {
-            VendaRapida venda = VendaRapida.findByIdVenda(paramaters.idVenda)
-            Entrega entrega = Entrega.findByIdEntrega(paramaters.idVenda)
+            VendaRapida venda = VendaRapida.findByIdVenda(params.idVenda)
+            Entrega entrega = Entrega.findByIdEntrega(params.idVenda)
 
-            def entidade = paramaters.tipo == "vendaRapida" ? venda : entrega
+            def entidade = params.tipo == "vendaRapida" ? venda : entrega
 
             if (entidade) {
 
                 def produtos
 
-                if (paramaters.tipo == "vendaRapida") {
+                if (params.tipo == "vendaRapida") {
                     produtos = VendaRapidaProdutos.findAllByVendaRapida(entidade)
                 } else {
                     produtos = EntregaProdutos.findAllByEntrega(entidade)
@@ -81,39 +77,54 @@ class ImprimirController {
                         itens = itens + entry.toString().replace("[", "").replace("]", "")
                     }
 
-                    String pagamentoVendaRapida = """ VALOR TOTAL: ${total} \n\r"""
+                    Object cliente = params?.cliente
+                    String dadosCliente =
+                            "             DADOS DO COMPROVANTE            \n\r" +
+                            "---------------------------------------------\n\r" +
+                            "      NOME: ${cliente.nome}                  \n\r" +
+                            "   CELULAR: ${cliente.celular}               \n\r" +
+                            "  ENDERECO: ${cliente.endereco}              \n\r" +
+                            "REFERENCIA: ${cliente.referencia}                "
+
+                    String pagamentoVendaRapida = "VALOR TOTAL: " + total + "\n\r"
 
                     String pagamentoEntrega =
-                            """ VALOR TOTAL: ${total} \n\r
-                           DINHEIRO: ${dinheiro} \n\r
-                            CREDITO: ${credito} \n\r
-                             DEBITO: ${debito} \n\r
-                           RECEBIDO: ${pago} \n\r
-                              TROCO: ${troco} \n\r"""
+                         "VALOR PRODUTOS: ${total} \n\r" +
+                               "RECEBIDO: ${pago} \n\r" +
+                                  "TROCO: ${pago - (total + taxa)} \n\r" +
+                           "TAXA ENTREGA: ${taxa} \n\r" +
+                         "==============\n\r" +
+                           "TOTAL COMPRA: ${total + taxa} \n\r"
 
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
-                    impressaoCupom("""               POPO LANCHES              \n\r
-                                        Data: ${data} as ${hora}\n\r
-                                        Endereco:Rua 11 Residencial Maracanau/Cagaado\n\r
-                                        N 28A\n\r
-                                        Celular: (85) 98726 4195 / (85) 98631 5889   \n\r
-                                        ---------------------------------------------\n\r
-                                                        CUPOM NAO FISCAL             \n\r
-                                        ---------------------------------------------\n\r
-                                                         LISTA DE ITENS              \n\r
-                                        ---------------------------------------------\n\r
-                                        DESCRICAO                     PRECO     QT   \n\r
-                                        ${itens} \n\r
-                                        ---------------------------------------------\n\r
-                                        ${paramaters.tipo == "vendaRapida" ? pagamentoVendaRapida : pagamentoEntrega}
-                                        ---------------------------------------------\n\r
-                                        OBS:So e feita a troca de produtos com este
-                                        cupom em maos.\n\r
-                                        ---------------------------------------------\n\r
-                                                   OBRIGADO PELA PREFERENCIA!        \n\r
-                                        \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"""
+                    impressaoCupom("                POPO LANCHES \n\r"
+                                 + "Data: ${data} as ${hora} \n\r"
+                                 + "Endereco:Rua 11 Residencial Maracanau/Cagaado\n\r"
+                                 + "N 28A\n\r"
+                                 + "Celular: (85) 98726 4195 / (85) 98631 5889   \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "               CUPOM NAO FISCAL              \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "                LISTA DE ITENS               \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "DESCRICAO                  PRECO      QT     \n\r"
+                                 + "${itens}                                     \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "OBSERVACOES: ${params.observacoes}           \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "${cliente?.nome ? dadosCliente : ""}         \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "             DADOS DO COMPROVANTE            \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "${params.tipo == "vendaRapida" ? pagamentoVendaRapida : pagamentoEntrega}"
+                                 + "---------------------------------------------\n\r"
+                                 + "OBS:So e feita a troca de produtos com este  \n\r"
+                                 + "cupom em maos.                               \n\r"
+                                 + "---------------------------------------------\n\r"
+                                 + "          OBRIGADO PELA PREFERENCIA!         \n\r"
+                                 + "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
                     )
                 }
             }

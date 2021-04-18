@@ -29,6 +29,7 @@ export default function Entregas() {
     const [showPayment, setShowPayment] = useState(false);
     const [entregador, setEntregador] = useState(null);
     const [pago, setPago] = useState(null);
+    const [taxa, setTaxa] = useState(null);
 
     useEffect(() => {
         createVenda();
@@ -105,11 +106,19 @@ export default function Entregas() {
     }
 
     const finalizarCompra = async () => {
+        let cliente = clientFound[0];
         let entity = {
             idVenda: idSale,
             tipo: "entrega",
             entregador: entregador,
-            pago: pago
+            pago: pago,
+            taxa: taxa,
+            cliente: {
+                nome: cliente.nome,
+                celular: cliente.celular,
+                endereco: cliente.endereco,
+                referencia: cliente.referencia
+            }
         }
         await ServiceImprimir.imprimir(entity).then(async (res) => {
             setResponse(res);
@@ -178,6 +187,7 @@ export default function Entregas() {
                         total={total}
                         entregador={setEntregador}
                         pagoCompra={setPago}
+                        taxaEntrega={setTaxa}
                     />
                 }
             />}
