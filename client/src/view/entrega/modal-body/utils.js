@@ -22,6 +22,8 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
             setEntregadores(response.entities);
         });
         setTotalCompra(total);
+        setPago(null);
+        setObservacoes(null);
     }, []);
 
     useEffect(() => {

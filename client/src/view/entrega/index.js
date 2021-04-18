@@ -25,11 +25,12 @@ export default function Entregas() {
     const [showConfirm, setShowConfirm] = useState(false);
     const [idRemove, setIdRemove] = useState(null);
     const [response, setResponse] = useState(null);
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState(0.0);
     const [showPayment, setShowPayment] = useState(false);
     const [entregador, setEntregador] = useState(null);
     const [pago, setPago] = useState(null);
     const [taxa, setTaxa] = useState(null);
+    const [clearFieldsForm, setClearFieldsForm] = useState(false);
 
     useEffect(() => {
         createVenda();
@@ -39,6 +40,7 @@ export default function Entregas() {
         ServiceEntrega.create().then(response => {
             sessionStorage.setItem("sale", JSON.stringify(response.id));
             setSale(response.id);
+            setClearFieldsForm(false);
         });
     }
 
@@ -123,10 +125,26 @@ export default function Entregas() {
         await ServiceImprimir.imprimir(entity).then(async (res) => {
             setResponse(res);
         });
+        resetStates();
+        createVenda();
     }
 
     const handleTotal = (value) => {
         setTotal(value);
+    }
+
+    const resetStates = () => {
+        setPago(null);
+        setTaxa(null);
+        setCellphone(null);
+        setItemFound(null);
+        setItens([]);
+        setEntity(null);
+        setEntregador(null);
+        setIdRemove(null);
+        setTotal(0.0);
+        setIdproduct(null);
+        setClearFieldsForm(true);
     }
 
     return (
@@ -163,6 +181,7 @@ export default function Entregas() {
                     clientFound={clientFound}
                     entityCallBack={() => {}}
                     disabledButton={!itens?.length}
+                    clearFieldsForm={clearFieldsForm}
                 />
             </div>
             <ConfirmModal

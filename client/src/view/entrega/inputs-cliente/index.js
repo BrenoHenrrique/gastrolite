@@ -2,13 +2,22 @@ import React, {useEffect, useState} from "react";
 import {Input} from "antd";
 import "./style.css";
 
-export default function FormClientEntregas({handleCell, searchClient, clientFound, entityCallBack}) {
+export default function FormClientEntregas({handleCell, searchClient, clientFound, entityCallBack, clearFieldsForm}) {
 
     const [nome, setNome] = useState(null);
     const [celular, setCelular] = useState(null);
     const [endereco, setEndereco] = useState(null);
     const [referencia, setReferencia] = useState(null);
     const [entity, setEntity] = useState(null);
+
+    useEffect(() => {
+        if (clearFieldsForm) {
+            setNome(null);
+            setCelular(null);
+            setEndereco(null);
+            setReferencia(null);
+        }
+    }, [clearFieldsForm]);
 
     useEffect(() => {
         if (clientFound) {

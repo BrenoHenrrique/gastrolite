@@ -90,9 +90,9 @@ class ImprimirController {
 
                     String pagamentoEntrega =
                          "VALOR PRODUTOS: ${total} \n\r" +
+                           "TAXA ENTREGA: ${taxa} \n\r" +
                                "RECEBIDO: ${pago} \n\r" +
                                   "TROCO: ${pago - (total + taxa)} \n\r" +
-                           "TAXA ENTREGA: ${taxa} \n\r" +
                          "==============\n\r" +
                            "TOTAL COMPRA: ${total + taxa} \n\r"
 
