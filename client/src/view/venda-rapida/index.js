@@ -76,10 +76,21 @@ export default function VendaRapida() {
         await ServiceImprimir.imprimir({idVenda: idSale, tipo: "vendaRapida"}).then(async (res) => {
             setResponse(res);
         });
+        resetStates();
+        createVenda();
     }
 
     const handleTotal = (value) => {
         setTotal(value);
+    }
+
+    const resetStates = () => {
+        setItemFound(null);
+        setItens([]);
+        setEntity(null);
+        setIdRemove(null);
+        setTotal(0.0);
+        setIdproduct(null);
     }
 
     return (
