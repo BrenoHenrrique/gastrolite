@@ -102,7 +102,7 @@ export default function Entregas() {
 
     const showModalPayment = () => {
         let cliente = clientFound ?? callBackCliente;
-        if (cliente) {
+        if (cliente.nome) {
             if (cliente.nome  && itens.length) {
                 setShowPayment(true);
             } else {
@@ -113,7 +113,6 @@ export default function Entregas() {
         }
     }
 
-    console.log(callBackCliente)
     const finalizarCompra = async () => {
         let cliente = clientFound ?? callBackCliente;
         let entity = {

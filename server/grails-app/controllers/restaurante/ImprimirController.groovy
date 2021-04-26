@@ -81,9 +81,9 @@ class ImprimirController {
 
                     Object objetoCliente = params?.cliente
 
-                    Cliente cliente = Cliente.findByCelular(objetoCliente.celular)
+                    Cliente cliente = Cliente.findByCelular(objetoCliente?.celular)
 
-                    if (!cliente) {
+                    if (!cliente && params.tipo != "vendaRapida") {
                         Cliente.withTransaction {
                             Cliente novoCliente = new Cliente()
                             novoCliente.nome = objetoCliente.nome.toString().toUpperCase()
@@ -94,23 +94,23 @@ class ImprimirController {
                         }
                     }
 
-                    String dadosCliente =
+                    String dadosCliente = params.tipo != "vendaRapida" ?
                             "             DADOS DO COMPROVANTE            \n\r" +
                             "---------------------------------------------\n\r" +
                             "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
                             "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
                             "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
-                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
+                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          " : ""
 
                     String pagamentoVendaRapida = "VALOR TOTAL: " + total + "\n\r"
 
-                    String pagamentoEntrega =
+                    String pagamentoEntrega = params.tipo != "vendaRapida" ?
                          "VALOR PRODUTOS: ${total} \n\r" +
                            "TAXA ENTREGA: ${taxa} \n\r" +
                                "RECEBIDO: ${pago} \n\r" +
                                   "TROCO: ${pago - (total + taxa)} \n\r" +
                          "==============\n\r" +
-                           "TOTAL COMPRA: ${total + taxa} \n\r"
+                           "TOTAL COMPRA: ${total + taxa} \n\r" : ""
 
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
@@ -149,6 +149,9 @@ class ImprimirController {
             respond model
         } catch (Exception ex) {
             ex.printStackTrace()
+            model.put("status", "error")
+            model.put("message", "Erro ao imprimir tente novamente. Se persistir entre em contato com o administrador.")
+            respond model
         }
     }
 

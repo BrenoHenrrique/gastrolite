@@ -21,7 +21,7 @@ export default function FormClientEntregas({handleCell, searchClient, clientFoun
 
     useEffect(() => {
         if (clientFound) {
-            const {nome, celular, endereco, referencia} = clientFound[0];
+            const {nome, celular, endereco, referencia} = clientFound;
             setNome(nome);
             setCelular(celular);
             setEndereco(endereco);
