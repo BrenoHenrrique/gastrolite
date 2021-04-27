@@ -9,22 +9,25 @@ export default function FormProdRapida({handleFinalizar, handleId, searchProduct
     const [quant, setQuant] = useState(null);
     const [preco, setPreco] = useState(null);
     const [cliente, setCliente] = useState(null);
+    const [observacoes, setObservacoes] = useState(null);
     const [entity, setEntity] = useState(null);
 
     useEffect(() => {
         if (itemFound) {
-            const {idProduto, nome, preco, quant, cliente} = itemFound[0];
+            const {idProduto, nome, preco, quant, cliente, observacoes} = itemFound[0];
             setId(idProduto);
             setNome(nome);
             setPreco(preco);
             setQuant(quant);
             setCliente(cliente);
+            setObservacoes(observacoes);
         } else {
             setId(null);
             setNome(null);
             setPreco(null);
             setQuant(null);
             setCliente(null);
+            setObservacoes(null);
         }
     }, [itemFound]);
 
@@ -32,9 +35,10 @@ export default function FormProdRapida({handleFinalizar, handleId, searchProduct
         setEntity({
             idProduto: id,
             quantidade: quant,
-            cliente: cliente
+            cliente: cliente,
+            observacoes: observacoes
         });
-    }, [id, quant, cliente]);
+    }, [id, quant, cliente, observacoes]);
 
     useEffect(() => {
         if (entity) {
@@ -101,13 +105,21 @@ export default function FormProdRapida({handleFinalizar, handleId, searchProduct
                 />
             </div>
             <div className={"formProdRapida-input-div-cliente"}>
-                <label>OBSERVAÇÕES</label>
+                <label>CLIENTE</label>
                 <Input
                     className={"formProdRapida-input-form-cliente"}
                     tabIndex={-1}
                     onChange={event => setCliente(event.target.value)}
-                    onPressEnter={() => handleOnPressQuant()}
                     value={cliente}
+                />
+            </div>
+            <div className={"formProdRapida-input-div-cliente"}>
+                <label>OBSERVAÇÕES</label>
+                <Input
+                    className={"formProdRapida-input-form-cliente"}
+                    tabIndex={-1}
+                    onChange={event => setObservacoes(event.target.value)}
+                    value={observacoes}
                 />
             </div>
             <div className={"formProdRapida-container-submit"}>

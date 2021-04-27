@@ -81,7 +81,7 @@ class ImprimirController {
 
                     Object objetoCliente = params?.cliente
 
-                    Cliente cliente = Cliente.findByCelular(objetoCliente?.celular)
+                    Cliente cliente = Cliente.findByCelular(params.tipo != "vendaRapida" ? objetoCliente?.celular : "")
 
                     if (!cliente && params.tipo != "vendaRapida") {
                         Cliente.withTransaction {
@@ -102,6 +102,7 @@ class ImprimirController {
                             "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
                             "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          " : ""
 
+
                     String pagamentoVendaRapida = "VALOR TOTAL: " + total + "\n\r"
 
                     String pagamentoEntrega = params.tipo != "vendaRapida" ?
@@ -116,7 +117,7 @@ class ImprimirController {
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
                     impressaoCupom("                POPO LANCHES \n\r"
-                                 + "DATA: ${data} as ${hora} \n\r"
+                                 + "DATA: ${data} AS ${hora} \n\r"
                                  + "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r"
                                  + "N 28A\n\r"
                                  + "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r"
@@ -128,9 +129,9 @@ class ImprimirController {
                                  + "DESCRICAO                  PRECO      QT     \n\r"
                                  + "${itens}                                     \n\r"
                                  + "---------------------------------------------\n\r"
-                                 + "OBSERVACOES: ${observacoes}           \n\r"
+                                 + "OBSERVACOES: ${observacoes ?: ""}           \n\r"
                                  + "---------------------------------------------\n\r"
-                                 + "${objetoCliente?.nome ? dadosCliente : ""}         \n\r"
+                                 + "${params.tipo != "vendaRapida" ? dadosCliente : "CLIENTE: ${params.cliente}"}         \n\r"
                                  + "---------------------------------------------\n\r"
                                  + "             DADOS DO COMPROVANTE            \n\r"
                                  + "---------------------------------------------\n\r"

@@ -34,7 +34,8 @@ export default function VendaRapida() {
 
     const listItens = async () => {
         await ServiceVendaRapida.list(idSale).then(response => {
-            setItens(response.entities);
+            const {entities} = response;
+            setItens(entities);
         });
     }
 
@@ -73,7 +74,13 @@ export default function VendaRapida() {
     }
 
     const finalizarCompra = async () => {
-        await ServiceImprimir.imprimir({idVenda: idSale, tipo: "vendaRapida"}).then(async (res) => {
+        await ServiceImprimir.imprimir(
+            {
+                idVenda: idSale,
+                tipo: "vendaRapida",
+                cliente: entity.cliente,
+                observacoes: entity.observacoes
+            }).then(async (res) => {
             setResponse(res);
         });
         resetStates();
