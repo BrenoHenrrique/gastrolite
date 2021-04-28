@@ -100,48 +100,57 @@ class ImprimirController {
                             "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
                             "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
                             "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
-                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          " : ""
+                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
+                            :  "CLIENTE: ${params.cliente.toString().toUpperCase()} \n\r"
 
-
-                    String pagamentoVendaRapida = "VALOR TOTAL: " + total + "\n\r"
-
-                    String pagamentoEntrega = params.tipo != "vendaRapida" ?
+                    String pagamento = params.tipo != "vendaRapida" ?
+                         "TIPO PAGAMENTO: ${params.tipoPagamento} \n\r" +
                          "VALOR PRODUTOS: ${total} \n\r" +
                            "TAXA ENTREGA: ${taxa} \n\r" +
                                "RECEBIDO: ${pago} \n\r" +
                                   "TROCO: ${pago - (total + taxa)} \n\r" +
                          "==============\n\r" +
-                           "TOTAL COMPRA: ${total + taxa} \n\r" : ""
+                           "TOTAL COMPRA: ${total + taxa} \n\r"
+                            : "VALOR TOTAL: " + total + "\n\r"
 
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
-                    impressaoCupom("                POPO LANCHES \n\r"
-                                 + "DATA: ${data} AS ${hora} \n\r"
-                                 + "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r"
-                                 + "N 28A\n\r"
-                                 + "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "               CUPOM NAO FISCAL              \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "                LISTA DE ITENS               \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "DESCRICAO                  PRECO      QT     \n\r"
-                                 + "${itens}                                     \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "OBSERVACOES: ${observacoes ?: ""}           \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "${params.tipo != "vendaRapida" ? dadosCliente : "CLIENTE: ${params.cliente}"}         \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "             DADOS DO COMPROVANTE            \n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "${params.tipo == "vendaRapida" ? pagamentoVendaRapida : pagamentoEntrega}"
-                                 + "---------------------------------------------\n\r"
-                                 + "OBS:SO E FEITA A TROCA COM ESTE CUPOM EM MAOS\n\r"
-                                 + "---------------------------------------------\n\r"
-                                 + "          OBRIGADO PELA PREFERENCIA!         \n\r"
-                                 + "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
-                    )
+                    String dadosCupom =
+                      "              POPO LANCHES                   \n\r" +
+                      "DATA: ${data} AS ${hora}                     \n\r" +
+                      "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r" +
+                      "N 28A                                        \n\r" +
+                      "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "               CUPOM NAO FISCAL              \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "                LISTA DE ITENS               \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "DESCRICAO                  PRECO      QT     \n\r" +
+                      "${itens}                                     \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "OBSERVACOES: ${observacoes ?: ""}            \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "${dadosCliente}                              \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "             DADOS DO COMPROVANTE            \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "${pagamento}                                 \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "OBS:SO E FEITA A TROCA COM ESTE CUPOM EM MAOS\n\r" +
+                      "---------------------------------------------\n\r" +
+                      "          OBRIGADO PELA PREFERENCIA!         \n\r" +
+                      "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
+
+                    for(int i = 0; i < 2; i++) {
+                        if (params.tipo == "entrega") {
+                            impressaoCupom(dadosCupom)
+                        } else {
+                            impressaoCupom(dadosCupom)
+                            break
+                        }
+                    }
                 }
             }
             arrayParametros.clear()

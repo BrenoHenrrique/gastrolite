@@ -37,7 +37,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
                         </tr> ||
-                    item.celular && item.referencia &&
+                    item.celular && item.endereco &&
                         <tr key={index}>
                             <td>{item.nome.toUpperCase()}</td>
                             <td>{item.celular.toUpperCase()}</td>

@@ -6,14 +6,12 @@ export default function CustomTable({header, itens, callBackEdit, callBackDelete
 
     return (
         <section className={"customTable-container-principal"}>
-            <section className={"customTable-container-body"}>
-                <TableItens
-                    columns={header}
-                    itens={itens}
-                    callBackEdit={callBackEdit}
-                    callBackDelete={callBackDelete}
-                />
-            </section>
+            <TableItens
+                columns={header}
+                itens={itens}
+                callBackEdit={callBackEdit}
+                callBackDelete={callBackDelete}
+            />
         </section>
     );
 }

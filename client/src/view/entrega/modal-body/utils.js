@@ -5,14 +5,14 @@ import {ServiceLocais} from "../../../service/serviceLocais";
 import {ServiceFuncionarios} from "../../../service/serviceFuncionarios";
 import "./style.css";
 
-export default function ModalBody({cliente, total, entregador, pagoCompra, taxaEntrega}) {
+export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, observacoes, tipoPagamento}) {
 
     const {Option} = Select;
     const [pago, setPago] = useState(null);
     const [locais, setLocais] = useState(null);
     const [entregadores, setEntregadores] = useState(null);
-    const [observacoes, setObservacoes] = useState(null);
     const [totalCompra, setTotalCompra] = useState(0.0);
+    const [handleTipoPag, setHandleTipoPag] = useState(null);
 
     useEffect(() => {
         ServiceLocais.list({}).then((response) => {
@@ -23,7 +23,6 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
         });
         setTotalCompra(total);
         setPago(null);
-        setObservacoes(null);
     }, []);
 
     useEffect(() => {
@@ -32,14 +31,23 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
         }
     }, [pago]);
 
+    useEffect(() => {
+        handleTipoPag && handleTipoPag !== "DINHEIRO" && setPago(totalCompra);
+    }, [handleTipoPag, totalCompra])
+
     const handleLocais = (taxa) => {
         let total = totalCompra + parseFloat(taxa);
         taxaEntrega(taxa)
         setTotalCompra(total);
     }
 
-    const handleentregador = (nome) => {
+    const handleEntregador = (nome) => {
         entregador(nome);
+    }
+
+    const handleTipoCompra = (value) => {
+        tipoPagamento(value);
+        setHandleTipoPag(value);
     }
 
     return (
@@ -68,7 +76,7 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
                     {entregadores &&
                     <Select
                         style={{width: "100%", marginBottom: "10px"}}
-                        onChange={handleentregador}
+                        onChange={handleEntregador}
                     >
                         {entregadores.map((entregador) => {
                             return (
@@ -86,15 +94,22 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
                 <Col>
                     <TextArea
                         style={{width: "100%", marginBottom: "10px"}}
-                        onChange={e => setObservacoes(e.target.value)}
-                        value={observacoes}
+                        onChange={e => observacoes(e.target.value)}
                     />
                 </Col>
                 <Col style={{marginBottom: "5px"}}>
-                    <label>CLIENTE</label>
+                    <label>TIPO COMPRA</label>
                 </Col>
-                <Col>
-                    <Input readOnly={true} value={cliente.nome.toUpperCase()}/>
+                <Col style={{marginBottom: "5px"}}>
+                    <Select
+                        style={{width: "100%", marginBottom: "10px"}}
+                        placeholder={"FORMA DE PAGAMENTO"}
+                        onChange={handleTipoCompra}
+                    >
+                        <Option value={"DINHEIRO"}>DINHEIRO</Option>
+                        <Option value={"CARTAO"}>CARTÃO</Option>
+                        <Option value={"PIX"}>PIX</Option>
+                    </Select>
                 </Col>
             </Col>
             <Col span={2}/>
@@ -117,7 +132,9 @@ export default function ModalBody({cliente, total, entregador, pagoCompra, taxaE
                         style={{color: "green"}}
                         type={"number"}
                         className={"utils-entrega-valores"}
+                        readOnly={handleTipoPag !== "DINHEIRO"}
                         onChange={e => setPago(parseFloat(e.target.value))}
+                        value={pago}
                     />
                 </Col>
                 <Col style={{marginBottom: "5px"}}>

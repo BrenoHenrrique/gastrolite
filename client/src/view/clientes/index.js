@@ -87,21 +87,22 @@ export default function Clientes() {
             <h2 className={"title-screen"}>Clientes</h2>
             <HandleMessage response={response}/>
             <section className={"clientes-container-principal"}>
-                <ButtonNew onClick={openNewModal}/>
-                <header>
-                    <ButtonNew onClick={openNewModal}/>
-                    <HeaderTable
-                        headerBody={header}
-                        widthInput={window.innerWidth < 1300 ? 150 : window.innerWidth > 1400 && window.innerWidth < 1500 ? 200 : 250}
-                        onClick={setValue}
+                <div className={"clientes-container-customTable"}>
+                    <header>
+                        <ButtonNew onClick={openNewModal}/>
+                        <HeaderTable
+                            headerBody={header}
+                            widthInput={window.innerWidth < 1300 ? 150 : window.innerWidth > 1400 && window.innerWidth < 1500 ? 200 : 250}
+                            onClick={setValue}
+                        />
+                    </header>
+                    <CustomTable
+                        header={header}
+                        itens={itens}
+                        callBackEdit={callBackEdit}
+                        callBackDelete={callBackDelete}
                     />
-                </header>
-                <CustomTable
-                    header={header}
-                    itens={itens}
-                    callBackEdit={callBackEdit}
-                    callBackDelete={callBackDelete}
-                />
+                </div>
             </section>
             {showModal && <CustomModal
                 visible={showModal}

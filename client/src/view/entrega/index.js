@@ -32,6 +32,8 @@ export default function Entregas() {
     const [taxa, setTaxa] = useState(null);
     const [clearFieldsForm, setClearFieldsForm] = useState(false);
     const [callBackCliente, setCallBackCliente] = useState(null);
+    const [observacoes, setObservacoes] = useState(null);
+    const [tipoPagamento, setTipoPagamento] = useState(null);
 
     useEffect(() => {
         createVenda();
@@ -121,6 +123,8 @@ export default function Entregas() {
             entregador: entregador,
             pago: pago,
             taxa: taxa,
+            observacoes: observacoes,
+            tipoPagamento: tipoPagamento,
             cliente: {
                 nome: cliente.nome,
                 celular: cliente.celular,
@@ -214,6 +218,8 @@ export default function Entregas() {
                         entregador={setEntregador}
                         pagoCompra={setPago}
                         taxaEntrega={setTaxa}
+                        observacoes={setObservacoes}
+                        tipoPagamento={setTipoPagamento}
                     />
                 }
             />}

@@ -34,11 +34,11 @@ class CardapioService {
                 }
             }
 
-            model.put("entities", filtro.size() ? filtro.sort { entity -> entity.nome.toUpperCase() } : entities)
+            model.put("entities", filtro.size() ? filtro.sort {entity -> Integer.parseInt(entity.idProduto)} : entities)
             return model
         }
 
-        model.put("entities", entities.sort{entity -> entity.nome.toUpperCase()})
+        model.put("entities", entities.sort{entity -> Integer.parseInt(entity.idProduto)})
         return model
     }
 
