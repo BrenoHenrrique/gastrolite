@@ -24,6 +24,7 @@ export default function CustomModal({body, visible, title, width, onCancel, canc
             afterClose={afterClose}
             centered={centered}
             maskClosable={maskClosable}
+            destroyOnClose={true}
         >
             {body}
         </Modal>

@@ -113,6 +113,8 @@ class ImprimirController {
                            "TOTAL COMPRA: ${total + taxa} \n\r"
                             : "VALOR TOTAL: " + total + "\n\r"
 
+                    String bairro = "BAIRRO: ${params.bairro}"
+
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
@@ -135,6 +137,8 @@ class ImprimirController {
                       "${dadosCliente}                              \n\r" +
                       "---------------------------------------------\n\r" +
                       "             DADOS DO COMPROVANTE            \n\r" +
+                      "---------------------------------------------\n\r" +
+                      "${params.tipo != entrega ? bairro : ""}      \n\r" +
                       "---------------------------------------------\n\r" +
                       "${pagamento}                                 \n\r" +
                       "---------------------------------------------\n\r" +

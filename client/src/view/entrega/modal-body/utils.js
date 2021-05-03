@@ -5,13 +5,14 @@ import {ServiceLocais} from "../../../service/serviceLocais";
 import {ServiceFuncionarios} from "../../../service/serviceFuncionarios";
 import "./style.css";
 
-export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, observacoes, tipoPagamento}) {
+export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, observacoes, tipoPagamento, bairro}) {
 
     const {Option} = Select;
+    const [obs, setObs] = useState(null);
     const [pago, setPago] = useState(null);
     const [locais, setLocais] = useState(null);
-    const [entregadores, setEntregadores] = useState(null);
     const [totalCompra, setTotalCompra] = useState(0.0);
+    const [entregadores, setEntregadores] = useState(null);
     const [handleTipoPag, setHandleTipoPag] = useState(null);
 
     useEffect(() => {
@@ -23,6 +24,7 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
         });
         setTotalCompra(total);
         setPago(null);
+        setObs(null);
     }, []);
 
     useEffect(() => {
@@ -32,12 +34,17 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
     }, [pago]);
 
     useEffect(() => {
+        observacoes(obs);
+    }, [obs]);
+
+    useEffect(() => {
         handleTipoPag && handleTipoPag !== "DINHEIRO" && setPago(totalCompra);
     }, [handleTipoPag, totalCompra])
 
     const handleLocais = (taxa) => {
         let total = totalCompra + parseFloat(taxa);
-        taxaEntrega(taxa)
+        taxaEntrega(taxa);
+        bairro(document.querySelector("#id-local").title);
         setTotalCompra(total);
     }
 
@@ -60,11 +67,12 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
                     {locais &&
                     <Select
                         style={{width: "100%", marginBottom: "10px"}}
+                        placeholder={"ESCOLHA O BAIRRO"}
                         onChange={handleLocais}
                     >
                         {locais.map((local) => {
                             return (
-                                <Option key={local.id} value={local.taxa}>{local.nome.toUpperCase()}</Option>
+                                <Option id={"id-local"} key={local.id} value={local.taxa}>{local.nome.toUpperCase()}</Option>
                             )
                         })}
                     </Select>}
@@ -72,7 +80,10 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
                 <Col style={{marginBottom: "5px"}}>
                     <label>ENTREGADOR</label>
                 </Col>
-                <Col style={{marginBottom: "5px"}}>
+                <Col
+                    style={{marginBottom: "5px"}}
+                    placeholder={"ENTREGADOR"}
+                >
                     {entregadores &&
                     <Select
                         style={{width: "100%", marginBottom: "10px"}}
@@ -89,15 +100,6 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
                     </Select>}
                 </Col>
                 <Col style={{marginBottom: "5px"}}>
-                    <label>OBSERVAÇÕES</label>
-                </Col>
-                <Col>
-                    <TextArea
-                        style={{width: "100%", marginBottom: "10px"}}
-                        onChange={e => observacoes(e.target.value)}
-                    />
-                </Col>
-                <Col style={{marginBottom: "5px"}}>
                     <label>TIPO COMPRA</label>
                 </Col>
                 <Col style={{marginBottom: "5px"}}>
@@ -110,6 +112,15 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
                         <Option value={"CARTAO"}>CARTÃO</Option>
                         <Option value={"PIX"}>PIX</Option>
                     </Select>
+                </Col>
+                <Col style={{marginBottom: "5px"}}>
+                    <label>OBSERVAÇÕES</label>
+                </Col>
+                <Col>
+                    <TextArea
+                        style={{width: "100%", marginBottom: "10px"}}
+                        onChange={e => setObs(e.target.value)}
+                    />
                 </Col>
             </Col>
             <Col span={2}/>

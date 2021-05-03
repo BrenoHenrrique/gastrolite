@@ -30,6 +30,7 @@ export default function Entregas() {
     const [entregador, setEntregador] = useState(null);
     const [pago, setPago] = useState(null);
     const [taxa, setTaxa] = useState(null);
+    const [bairro, setBairro] = useState(null);
     const [clearFieldsForm, setClearFieldsForm] = useState(false);
     const [callBackCliente, setCallBackCliente] = useState(null);
     const [observacoes, setObservacoes] = useState(null);
@@ -123,6 +124,7 @@ export default function Entregas() {
             entregador: entregador,
             pago: pago,
             taxa: taxa,
+            bairro: bairro,
             observacoes: observacoes,
             tipoPagamento: tipoPagamento,
             cliente: {
@@ -156,6 +158,8 @@ export default function Entregas() {
         setIdproduct(null);
         setClearFieldsForm(true);
         setCallBackCliente(null);
+        setClientFound(null);
+        setBairro(null);
     }
 
     return (
@@ -220,6 +224,7 @@ export default function Entregas() {
                         taxaEntrega={setTaxa}
                         observacoes={setObservacoes}
                         tipoPagamento={setTipoPagamento}
+                        bairro={setBairro}
                     />
                 }
             />}
