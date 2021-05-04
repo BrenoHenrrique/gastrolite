@@ -104,16 +104,7 @@ export default function Entregas() {
     }
 
     const showModalPayment = () => {
-        let cliente = clientFound ?? callBackCliente;
-        if (cliente.nome) {
-            if (cliente.nome  && itens.length) {
-                setShowPayment(true);
-            } else {
-                setResponse({status: "error", message: "Venda ao menos um item para finalizar a compra."});
-            }
-        } else {
-            setResponse({status: "error", message: "Dados do cliente não pode ser vazio."});
-        }
+        setShowPayment(true);
     }
 
     const finalizarCompra = async () => {

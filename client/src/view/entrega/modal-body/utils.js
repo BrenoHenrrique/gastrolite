@@ -10,6 +10,7 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
     const {Option} = Select;
     const [obs, setObs] = useState(null);
     const [pago, setPago] = useState(null);
+    const [entryLocal, setEntryLocal] = useState(null);
     const [locais, setLocais] = useState(null);
     const [totalCompra, setTotalCompra] = useState(0.0);
     const [entregadores, setEntregadores] = useState(null);
@@ -41,10 +42,18 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
         handleTipoPag && handleTipoPag !== "DINHEIRO" && setPago(totalCompra);
     }, [handleTipoPag, totalCompra])
 
-    const handleLocais = (taxa) => {
-        let total = totalCompra + parseFloat(taxa);
-        taxaEntrega(taxa);
-        bairro(document.querySelector("#id-local").title);
+    useEffect(() => {
+        if (entryLocal) {
+            setTotalCompra(total + parseFloat(entryLocal.taxa));
+        }
+    }, [entryLocal]);
+
+    const handleLocais = (id) => {
+        let entry = locais.find((local) => local.id === id);
+        let total = totalCompra + parseFloat(entry.taxa);
+        setEntryLocal(entry);
+        taxaEntrega(entry.taxa);
+        bairro(entry.nome);
         setTotalCompra(total);
     }
 
@@ -72,7 +81,10 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
                     >
                         {locais.map((local) => {
                             return (
-                                <Option id={"id-local"} key={local.id} value={local.taxa}>{local.nome.toUpperCase()}</Option>
+                                <Option
+                                    key={local.id}
+                                    value={local.id}
+                                >{local.nome.toUpperCase()}</Option>
                             )
                         })}
                     </Select>}
