@@ -40,6 +40,19 @@ class ClienteService {
                 }
             }
 
+            if (filtro.size() > 1) {
+                Object item
+                if (filtro[0].nome && filtro[0].endereco) {
+                    item = filtro[0]
+                    filtro.clear()
+                    filtro.add(item)
+                } else {
+                    item = filtro[1]
+                    filtro.clear()
+                    filtro.add(item)
+                }
+            }
+
             model.put("entities", filtro.size() ? filtro.sort { entity -> entity.nome.toUpperCase() } : entities)
             return model
         }

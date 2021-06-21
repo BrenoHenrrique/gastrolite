@@ -95,13 +95,13 @@ class ImprimirController {
                     }
 
                     String dadosCliente = params.tipo != "vendaRapida" ?
-                            "             DADOS DO COMPROVANTE            \n\r" +
+                            "               DADOS DO CLIENTE              \n\r" +
                             "---------------------------------------------\n\r" +
                             "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
                             "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
                             "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
                             "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
-                            :  "CLIENTE: ${params.cliente.toString().toUpperCase()} \n\r"
+                            :  "CLIENTE: ${params.cliente.toString().toUpperCase()}"
 
                     String pagamento = params.tipo != "vendaRapida" ?
                          "TIPO PAGAMENTO: ${params.tipoPagamento} \n\r" +
@@ -111,9 +111,11 @@ class ImprimirController {
                                   "TROCO: ${pago - (total + taxa)} \n\r" +
                          "==============\n\r" +
                            "TOTAL COMPRA: ${total + taxa} \n\r"
-                            : "VALOR TOTAL: " + total + "\n\r"
+                            : "VALOR TOTAL: " + total
 
                     String bairro = "BAIRRO: ${params.bairro}"
+
+                    String tipoDeVenda = params.tipo == "entrega" ? bairro : "RETIRADA NA LOJA"
 
                     String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
@@ -136,9 +138,9 @@ class ImprimirController {
                       "---------------------------------------------\n\r" +
                       "${dadosCliente}                              \n\r" +
                       "---------------------------------------------\n\r" +
-                      "             DADOS DO COMPROVANTE            \n\r" +
+                      "               DADOS DA VENDA                \n\r" +
                       "---------------------------------------------\n\r" +
-                      "${params.tipo != entrega ? bairro : ""}      \n\r" +
+                      "${tipoDeVenda}                               \n\r" +
                       "---------------------------------------------\n\r" +
                       "${pagamento}                                 \n\r" +
                       "---------------------------------------------\n\r" +
