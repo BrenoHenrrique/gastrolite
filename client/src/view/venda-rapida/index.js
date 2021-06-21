@@ -27,7 +27,7 @@ export default function VendaRapida() {
 
     const createVenda = () => {
         ServiceVendaRapida.create().then(response => {
-            sessionStorage.setItem("sale", JSON.stringify(response.id));
+            localStorage.setItem("sale", JSON.stringify(response.id));
             setSale(response.id);
         });
     }

@@ -38,12 +38,6 @@ export default function Menu() {
         setIsLogged(false);
     }
 
-    function handleScreen() {
-        if (window.location.pathname === "/entregas") {
-            window.open("http://localhost:5000/entregas", "_blank");
-        }
-    }
-
     return (
         <header className={"menu-header"}>
             <div className={"menu-container-principal"}>
@@ -79,7 +73,7 @@ export default function Menu() {
             <div className={openMenu ? "menu-itens" : "menu-itens-drop"}>
                 {/*<Link to={"/"}>PAINEL DE CONTROLE</Link>*/}
                 <Link to={"/cardapio"}>CARDÁPIO</Link>
-                <Link to={"/entregas"} onClick={() => handleScreen()}>ENTREGAS</Link>
+                <Link to={"/entregas"}>ENTREGAS</Link>
                 <Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>
                 <Link to={"/clientes"}>CLIENTES</Link>
                 <Link to={"/locais"}>LOCAIS</Link>

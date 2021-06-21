@@ -22,7 +22,7 @@ export default function Login() {
     }, [auth]);
 
     useEffect(() => {
-        sessionStorage.removeItem("auth");
+        localStorage.removeItem("auth");
     }, []);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Login() {
                 await ServiceLogin.validate(entity).then(response => {
                     const {entityInstance} = response;
                     if (entityInstance) {
-                        sessionStorage.setItem("auth", JSON.stringify(entityInstance));
+                        localStorage.setItem("auth", JSON.stringify(entityInstance));
                     }
                 });
                 if (isAuthenticated()) {

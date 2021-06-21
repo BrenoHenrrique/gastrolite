@@ -40,9 +40,10 @@ export default function Entregas() {
         createVenda();
     }, []);
 
+    console.log(idSale)
     const createVenda = () => {
         ServiceEntrega.create().then(response => {
-            sessionStorage.setItem("sale", JSON.stringify(response.id));
+            localStorage.setItem("sale", JSON.stringify(response.id));
             setSale(response.id);
             setClearFieldsForm(false);
         });
