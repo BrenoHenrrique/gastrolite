@@ -40,7 +40,6 @@ export default function Entregas() {
         createVenda();
     }, []);
 
-    console.log(idSale)
     const createVenda = () => {
         ServiceEntrega.create().then(response => {
             localStorage.setItem("sale", JSON.stringify(response.id));
