@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Tooltip} from "antd";
-import {AiOutlineEye} from "react-icons/all";
+import {BsGraphUp, IoNewspaperOutline} from "react-icons/all";
 import CustomModal from "../../../component/custom-modal";
 import ModalBody from "./utils";
 import "./style.css";
@@ -14,8 +14,14 @@ export default function Hoje({totalHoje}) {
             <p>SEUS GANHOS HOJE</p>
             <label>{totalHoje}</label>
             <div className={"dashboard-tootip-view"}>
-                <Tooltip title={"Visualizar estatísticas"}>
-                    <AiOutlineEye
+                <Tooltip title={"Imprimir Estatísticas"}>
+                    <IoNewspaperOutline
+                        size={35}
+                        onClick={() => setShowModal(true)}
+                    />
+                </Tooltip>
+                <Tooltip title={"Visualizar Estatísticas"}>
+                    <BsGraphUp
                         size={35}
                         onClick={() => setShowModal(true)}
                     />

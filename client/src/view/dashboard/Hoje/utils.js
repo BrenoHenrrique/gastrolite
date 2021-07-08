@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import CustomTable from "../../../component/custom-table";
 import {ServiceDashboard} from "../../../service/serviceDashboard";
-import {FaFileInvoice} from "react-icons/all";
 
 export default function ModalBody() {
 

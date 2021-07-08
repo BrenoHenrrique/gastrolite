@@ -3,4 +3,7 @@
     right: 10px;
     bottom: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
 }
