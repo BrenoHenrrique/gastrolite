@@ -7,4 +7,11 @@ export const ServiceImprimir = {
             }
         );
     },
+
+    imprimirGanhosHoje: (entities) => {
+        return api.post(`/imprimir/imprimirGanhosHoje`, {entities: entities}).then(response => {
+                return response.data;
+            }
+        );
+    }
 }

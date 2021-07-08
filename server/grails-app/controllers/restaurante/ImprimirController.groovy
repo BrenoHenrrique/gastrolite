@@ -171,6 +171,12 @@ class ImprimirController {
         }
     }
 
+    def imprimirGanhosHoje() {
+        params.putAll(request.JSON as Map)
+        params
+        respond
+    }
+
     def impressaoCupom(String dados) {
         println(dados)
         try {
