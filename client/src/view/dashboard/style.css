@@ -22,12 +22,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10%; /*Remover essa linha ao colocar novos graficos*/
 }
 
 .today-card-container p {
     font-size: 25px;
     font-weight: bold;
     margin: 0;
+    padding-top: 15px; /*Remover essa linha ao colocar novos graficos*/
 }
 
 .today-card-container label {

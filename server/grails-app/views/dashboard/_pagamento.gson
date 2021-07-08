@@ -1,0 +1,17 @@
+import restaurante.Pagamento
+
+model {
+    Pagamento pagamento
+}
+
+json {
+    id pagamento.id
+    pago pagamento.pago
+    taxa pagamento.taxa
+    troco pagamento.troco
+    total pagamento.total
+    tipoDePagamento pagamento.tipoDePagamento
+    data pagamento.data.toLocaleString()
+    vendaRapida pagamento?.vendaRapida?.id
+    entrega pagamento?.entrega?.id
+}

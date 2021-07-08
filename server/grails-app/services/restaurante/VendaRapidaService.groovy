@@ -51,6 +51,7 @@ class VendaRapidaService {
 
         VendaRapida venda = new VendaRapida()
         venda.idVenda = model.get("id")
+        venda.data = new Date()
         venda.save()
 
         return model

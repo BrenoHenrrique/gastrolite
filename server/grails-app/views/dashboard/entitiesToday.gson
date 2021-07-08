@@ -1,0 +1,11 @@
+import restaurante.Pagamento
+
+model {
+    List<Pagamento> pagamentosHoje
+    List<String> header
+}
+
+json {
+    pagamentosHoje g.render(template: "pagamento", collection: pagamentosHoje, var: "pagamento")
+    header header
+}

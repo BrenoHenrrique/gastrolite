@@ -52,7 +52,8 @@ export default function ModalBody({total, entregador, pagoCompra, taxaEntrega, o
         let entry = locais.find((local) => local.id === id);
         let total = totalCompra + parseFloat(entry.taxa);
         setEntryLocal(entry);
-        taxaEntrega(entry.taxa);
+        const taxa = parseFloat(entry.taxa)
+        taxaEntrega(taxa);
         bairro(entry.nome);
         setTotalCompra(total);
     }

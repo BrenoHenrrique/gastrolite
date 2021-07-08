@@ -1,5 +1,6 @@
 import React from "react";
-import {BiEdit, BiTrashAlt} from "react-icons/bi";
+import {BiEdit, BiTrashAlt} from "react-icons/all";
+import moment from "moment";
 import "./style.css";
 
 export default function TableItens({columns, itens, callBackEdit, callBackDelete}) {
@@ -9,7 +10,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
     }
 
     const handleDelete = (entity) => {
-        callBackDelete(entity)
+        callBackDelete(entity);
     }
 
     return (
@@ -21,7 +22,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                         <th key={index}>{column.toUpperCase()}</th>
                     )
                 })}
-                <th className={"tableItens-column-acoes"}>AÇÕES</th>
+                {itens && itens[0]?.tipoDePagamento !== undefined && itens[0]?.tipoDePagamento !== null ? <></> : <th className={"tableItens-column-acoes"}>AÇÕES</th>}
             </tr>
             </thead>
             <tbody className={"tableItens-body"}>
@@ -37,7 +38,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
                         </tr> ||
-                    item.celular && item.endereco &&
+                    (item.celular || item.endereco) &&
                         <tr key={index}>
                             <td>{item.nome.toUpperCase()}</td>
                             <td>{item.celular.toUpperCase()}</td>
@@ -48,7 +49,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
                             </td>
                         </tr> ||
-                    item.taxa &&
+                    item.taxa && item.nome &&
                     <tr key={index}>
                         <td>{item.nome.toUpperCase()}</td>
                         <td>{item.taxa.replace(".", ",")}</td>
@@ -67,8 +68,17 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                             <BiEdit onClick={() => handleEdit(item)}/>
                             <BiTrashAlt onClick={() => handleDelete(item)}/>
                         </td>
+                    </tr> ||
+                    item.pago !== null && item.taxa !== null &&
+                    <tr key={index}>
+                        <td>{item.pago?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td>{item.taxa?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td>{item.troco?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td>{item.total?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td>{item.tipoDePagamento?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td>{moment(item?.data).format("HH:mm:ss")}</td>
                     </tr>
-                )
+                );
             })}
             </tbody>
         </table>

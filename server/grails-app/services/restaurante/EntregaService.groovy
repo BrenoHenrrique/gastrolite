@@ -51,6 +51,7 @@ class EntregaService {
 
         Entrega entrega = new Entrega()
         entrega.idEntrega = model.get("id")
+        entrega.data = new Date()
         entrega.save()
 
         return model

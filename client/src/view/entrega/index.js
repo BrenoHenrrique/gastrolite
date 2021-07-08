@@ -6,6 +6,7 @@ import {ServiceEntrega} from "../../service/serviceEntrega";
 import {ServiceCardapio} from "../../service/serviceCardapio";
 import {ServiceImprimir} from "../../service/serviceImprimir";
 import {ServiceCliente} from "../../service/serviceCliente";
+import {ServicePagamento} from "../../service/servicePagamento";
 import ConfirmModal from "../../component/confirm-modal";
 import HandleMessage from "../../component/Alert";
 import CustomModal from "../../component/custom-modal";
@@ -128,6 +129,7 @@ export default function Entregas() {
         await ServiceImprimir.imprimir(entity).then(async (res) => {
             setResponse(res);
         });
+        await ServicePagamento.save(entity);
         resetStates();
         createVenda();
     }

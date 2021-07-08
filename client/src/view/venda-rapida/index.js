@@ -7,6 +7,7 @@ import {ServiceVendaRapida} from "../../service/serviceVendaRapida";
 import HandleMessage from "../../component/Alert";
 import {ServiceImprimir} from "../../service/serviceImprimir";
 import "./style.css";
+import {ServicePagamento} from "../../service/servicePagamento";
 
 export default function VendaRapida() {
 
@@ -74,15 +75,18 @@ export default function VendaRapida() {
     }
 
     const finalizarCompra = async () => {
-        await ServiceImprimir.imprimir(
-            {
-                idVenda: idSale,
-                tipo: "vendaRapida",
-                cliente: entity.cliente,
-                observacoes: entity.observacoes
-            }).then(async (res) => {
+        const entity = {
+            idVenda: idSale,
+            tipo: "vendaRapida",
+            cliente: entity?.cliente,
+            observacoes: entity?.observacoes
+        }
+        await ServiceImprimir.imprimir(entity).then(async (res) => {
             setResponse(res);
         });
+
+        await ServicePagamento.save(entity);
+
         resetStates();
         createVenda();
     }
