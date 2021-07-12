@@ -12,24 +12,7 @@ export default function Hoje({totalHoje}) {
     const [showModal, setShowModal] = useState(false);
 
     const imprimir = async () => {
-        await ServiceDashboard.entitiesToday().then(async (response) => {
-            const {pagamentosHoje} = response;
-            let vendas = []
-            pagamentosHoje.forEach((item) => {
-                if (item.entrega) {
-                    vendas.push({
-                        tipo: "entrega",
-                        id: item.entrega
-                    });
-                } else {
-                    vendas.push({
-                        tipo: "vendaRapida",
-                        id: item.vendaRapida
-                    });
-                }
-            });
-            await ServiceImprimir.imprimirGanhosHoje(vendas);
-        });
+        await ServiceImprimir.imprimirGanhosHoje();
     }
 
     return (
@@ -55,7 +38,7 @@ export default function Hoje({totalHoje}) {
                 visible={showModal}
                 onCancel={setShowModal}
                 maskClosable={false}
-                width={600}
+                width={800}
                 okText={"OK"}
                 cancelText={"SAIR"}
                 centered={true}

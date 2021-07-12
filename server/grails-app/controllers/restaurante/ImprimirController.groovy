@@ -1,6 +1,9 @@
 package restaurante
 
+import enums.TipoDePagamento
+
 import java.sql.Date
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import javax.print.DocFlavor
 import javax.print.DocPrintJob
@@ -15,6 +18,8 @@ import javax.print.attribute.standard.MediaSizeName
 import javax.print.attribute.standard.OrientationRequested
 
 class ImprimirController {
+
+    DashboardService dashboardService
 
     def imprimir() {
         params.putAll(request.JSON as Map)
@@ -73,7 +78,7 @@ class ImprimirController {
                     }
 
                     String itens = ""
-                    arrayParametros.each{Object entry ->
+                    arrayParametros.each { Object entry ->
                         itens = itens + entry.toString().replace("[", "").replace("]", "")
                     }
 
@@ -96,21 +101,21 @@ class ImprimirController {
 
                     String dadosCliente = params.tipo != "vendaRapida" ?
                             "               DADOS DO CLIENTE              \n\r" +
-                            "---------------------------------------------\n\r" +
-                            "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
-                            "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
-                            "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
-                            "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
-                            :  "CLIENTE: ${params.cliente.toString().toUpperCase()}"
+                                    "---------------------------------------------\n\r" +
+                                    "      NOME: ${objetoCliente.nome.toString().toUpperCase()}            \n\r" +
+                                    "   CELULAR: ${objetoCliente.celular.toString().toUpperCase()}         \n\r" +
+                                    "  ENDERECO: ${objetoCliente.endereco.toString().toUpperCase()}        \n\r" +
+                                    "REFERENCIA: ${objetoCliente.referencia.toString().toUpperCase()}          "
+                            : "CLIENTE: ${params.cliente.toString().toUpperCase()}"
 
                     String pagamento = params.tipo != "vendaRapida" ?
-                         "TIPO PAGAMENTO: ${params.tipoPagamento} \n\r" +
-                         "VALOR PRODUTOS: ${total} \n\r" +
-                           "TAXA ENTREGA: ${taxa} \n\r" +
-                               "RECEBIDO: ${pago} \n\r" +
-                                  "TROCO: ${pago - (total + taxa)} \n\r" +
-                         "==============\n\r" +
-                           "TOTAL COMPRA: ${total + taxa} \n\r"
+                            "TIPO PAGAMENTO: ${params.tipoPagamento} \n\r" +
+                                    "VALOR PRODUTOS: ${total} \n\r" +
+                                    "TAXA ENTREGA: ${taxa} \n\r" +
+                                    "RECEBIDO: ${pago} \n\r" +
+                                    "TROCO: ${pago - (total + taxa)} \n\r" +
+                                    "==============\n\r" +
+                                    "TOTAL COMPRA: ${total + taxa} \n\r"
                             : "VALOR TOTAL: " + total
 
                     String bairro = "BAIRRO: ${params.bairro}"
@@ -121,35 +126,35 @@ class ImprimirController {
                     String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
 
                     String dadosCupom =
-                      "              POPO LANCHES                   \n\r" +
-                      "DATA: ${data} AS ${hora}                     \n\r" +
-                      "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r" +
-                      "N 28A                                        \n\r" +
-                      "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "               CUPOM NAO FISCAL              \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "                LISTA DE ITENS               \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "DESCRICAO                  PRECO      QT     \n\r" +
-                      "${itens}                                     \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "OBSERVACOES: ${observacoes ?: ""}            \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "${dadosCliente}                              \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "               DADOS DA VENDA                \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "${tipoDeVenda}                               \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "${pagamento}                                 \n\r" +
-                      "---------------------------------------------\n\r" +
-                      "OBS:SO E FEITA A TROCA COM ESTE CUPOM EM MAOS\n\r" +
-                      "---------------------------------------------\n\r" +
-                      "          OBRIGADO PELA PREFERENCIA!         \n\r" +
-                      "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
+                            "              POPO LANCHES                   \n\r" +
+                                    "DATA: ${data} AS ${hora}                     \n\r" +
+                                    "ENDERECO:RUA 11 RESIDENCIAL MARACANAU/CAGAADO\n\r" +
+                                    "N 28A                                        \n\r" +
+                                    "CELULAR: (85) 98726 4195 / (85) 98631 5889   \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "               CUPOM NAO FISCAL              \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "                LISTA DE ITENS               \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "DESCRICAO                  PRECO      QT     \n\r" +
+                                    "${itens}                                     \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "OBSERVACOES: ${observacoes ?: ""}            \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "${dadosCliente}                              \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "               DADOS DA VENDA                \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "${tipoDeVenda}                               \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "${pagamento}                                 \n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "OBS:SO E FEITA A TROCA COM ESTE CUPOM EM MAOS\n\r" +
+                                    "---------------------------------------------\n\r" +
+                                    "          OBRIGADO PELA PREFERENCIA!         \n\r" +
+                                    "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
 
-                    for(int i = 0; i < 2; i++) {
+                    for (int i = 0; i < 2; i++) {
                         if (params.tipo == "entrega") {
                             impressaoCupom(dadosCupom)
                         } else {
@@ -172,9 +177,85 @@ class ImprimirController {
     }
 
     def imprimirGanhosHoje() {
-        params.putAll(request.JSON as Map)
-        params
-        respond
+        Map model = [:]
+
+        Long incPix = 0
+        Long incCartao = 0
+        Long incDinheiro = 0
+        Long qtdEntregas = 0
+        Long qtdVendasRapida = 0
+        BigDecimal valorEntregas = 0
+        BigDecimal valorVendaRapida = 0
+        BigDecimal valorPix = 0
+        BigDecimal valorCartao = 0
+        BigDecimal valorDinheiro = 0
+
+        try {
+            List<Pagamento> pagamentos = dashboardService.getVendasHoje()
+
+            pagamentos.forEach {
+                if (it.tipoDePagamento == TipoDePagamento.PIX) {
+                    incPix += 1
+                    valorPix += it.total
+                }
+                if (it.tipoDePagamento == TipoDePagamento.CARTAO) {
+                    incCartao += 1
+                    valorCartao += it.total
+                }
+                if (it.tipoDePagamento == TipoDePagamento.DINHEIRO) {
+                    incDinheiro += 1
+                    valorDinheiro += it.total
+                }
+                if (it.entrega) {
+                    qtdEntregas += 1
+                    valorEntregas += it.total
+                }
+                if (it.vendaRapida) {
+                    qtdVendasRapida += 1
+                    valorVendaRapida += it.total
+                }
+            }
+
+            Long totalIncVenda = incPix + incCartao + incDinheiro
+            BigDecimal totalValorVenda = valorPix + valorCartao + valorDinheiro
+
+            String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
+            String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
+
+            String dadosCupom = "             FECHAMENTO DE CAIXA         \n\r\n\r" +
+                    " DATA: $data AS $hora                        \n\r" +
+                    "---------------------------------------------\n\r" +
+                    "            VENDAS POR PAGAMENTO             \n\r" +
+                    "---------------------------------------------\n\r" +
+                    " QTD. PIX: $incPix VENDAS                    \n\r" +
+                    " VALOR PIX: ${NumberFormat.getCurrencyInstance().format(valorPix)}\n\r" +
+                    " QTD. CARTAO: $incCartao VENDAS              \n\r" +
+                    " VALOR CARTAO: ${NumberFormat.getCurrencyInstance().format(valorCartao)}\n\r" +
+                    " QTD. DINHEIRO: $incDinheiro VENDAS          \n\r" +
+                    " VALOR DINHEIRO: ${NumberFormat.getCurrencyInstance().format(valorDinheiro)}\n\r" +
+                    " ==============================              \n\r" +
+                    " TOTAL qtd. VENDAS: $totalIncVenda     \n\r" +
+                    " TOTAL VALOR VENDAS: ${NumberFormat.getCurrencyInstance().format(totalValorVenda)}\n\r" +
+                    "---------------------------------------------\n\r" +
+                    "               VENDAS POR TIPO               \n\r" +
+                    "---------------------------------------------\n\r" +
+                    " VENDAS TIPO ENTREGA: $qtdEntregas           \n\r" +
+                    " VALOR TIPO ENTREGA: ${NumberFormat.getCurrencyInstance().format(valorEntregas)}\n\r" +
+                    " VENDAS TIPO VENDA RAPIDA: $qtdVendasRapida  \n\r" +
+                    " VALOR TIPO VENDA RAPIDA: ${NumberFormat.getCurrencyInstance().format(valorVendaRapida)}\n\r" +
+                    "---------------------------------------------\n\r" +
+                    "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
+
+            impressaoCupom(dadosCupom)
+            model.put("status", "success")
+            model.put("message", "Impresso com sucesso!")
+            respond model
+        } catch (Exception ex) {
+            ex.printStackTrace()
+            model.put("status", "error")
+            model.put("message", "Erro ao imprimir tente novamente. Se persistir entre em contato com o administrador.")
+            respond model
+        }
     }
 
     def impressaoCupom(String dados) {

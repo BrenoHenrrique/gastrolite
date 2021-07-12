@@ -8,8 +8,8 @@ export const ServiceImprimir = {
         );
     },
 
-    imprimirGanhosHoje: (entities) => {
-        return api.post(`/imprimir/imprimirGanhosHoje`, {entities: entities}).then(response => {
+    imprimirGanhosHoje: () => {
+        return api.get(`/imprimir/imprimirGanhosHoje`).then(response => {
                 return response.data;
             }
         );
