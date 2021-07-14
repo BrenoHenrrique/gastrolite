@@ -20,7 +20,7 @@ class DashboardController {
 
         List<Pagamento> pagamentosHoje = dashboardService.getVendasHoje()
 
-        model.put("pagamentosHoje", pagamentosHoje)
+        model.put("entities", pagamentosHoje)
         model.put("header", ["PAGO", "TAXA", "TROCO", "TOTAL", "TIPO", "DATA"])
 
         respond model

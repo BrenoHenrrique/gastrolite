@@ -234,7 +234,7 @@ class ImprimirController {
                     " QTD. DINHEIRO: $incDinheiro VENDAS          \n\r" +
                     " VALOR DINHEIRO: ${NumberFormat.getCurrencyInstance().format(valorDinheiro)}\n\r" +
                     " ==============================              \n\r" +
-                    " TOTAL qtd. VENDAS: $totalIncVenda     \n\r" +
+                    " TOTAL QTD. VENDAS: $totalIncVenda     \n\r" +
                     " TOTAL VALOR VENDAS: ${NumberFormat.getCurrencyInstance().format(totalValorVenda)}\n\r" +
                     "---------------------------------------------\n\r" +
                     "               VENDAS POR TIPO               \n\r" +
@@ -243,6 +243,8 @@ class ImprimirController {
                     " VALOR TIPO ENTREGA: ${NumberFormat.getCurrencyInstance().format(valorEntregas)}\n\r" +
                     " VENDAS TIPO VENDA RAPIDA: $qtdVendasRapida  \n\r" +
                     " VALOR TIPO VENDA RAPIDA: ${NumberFormat.getCurrencyInstance().format(valorVendaRapida)}\n\r" +
+                    " ==============================              \n\r" +
+                    " VALOR TOTAL VENDAS: ${NumberFormat.getCurrencyInstance().format(totalValorVenda)}\n\r" +
                     "---------------------------------------------\n\r" +
                     "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
 

@@ -3,7 +3,6 @@ import {Tooltip} from "antd";
 import {BsGraphUp, IoNewspaperOutline} from "react-icons/all";
 import CustomModal from "../../../component/custom-modal";
 import {ServiceImprimir} from "../../../service/serviceImprimir";
-import {ServiceDashboard} from "../../../service/serviceDashboard";
 import ModalBody from "./utils";
 import "./style.css";
 
@@ -42,9 +41,8 @@ export default function Hoje({totalHoje}) {
                 okText={"OK"}
                 cancelText={"SAIR"}
                 centered={true}
-
                 body={
-                    <ModalBody/>
+                    <ModalBody totalHoje={totalHoje}/>
                 }
             />
         </>

@@ -37,7 +37,7 @@ class PagamentoService {
                 Float quantidade = Float.parseFloat(it.quantidade)
                 total += preco * quantidade
             }
-            pagamento.pago = 0
+            pagamento.pago = total
             pagamento.taxa = 0
             pagamento.troco = 0
             pagamento.total = total

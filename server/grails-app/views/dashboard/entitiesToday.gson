@@ -1,11 +1,11 @@
 import restaurante.Pagamento
 
 model {
-    List<Pagamento> pagamentosHoje
+    List<Pagamento> entities
     List<String> header
 }
 
 json {
-    pagamentosHoje g.render(template: "pagamento", collection: pagamentosHoje, var: "pagamento")
+    entities g.render(template: "pagamento", collection: entities, var: "pagamento")
     header header
 }

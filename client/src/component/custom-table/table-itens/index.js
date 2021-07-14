@@ -76,7 +76,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                         <td>{item.troco?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
                         <td>{item.total?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
                         <td>{item.tipoDePagamento?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
-                        <td>{moment(item?.data).format("HH:mm:ss")}</td>
+                        <td>{item?.data}</td>
                     </tr>
                 );
             })}

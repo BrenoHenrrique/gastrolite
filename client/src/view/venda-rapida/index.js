@@ -75,17 +75,17 @@ export default function VendaRapida() {
     }
 
     const finalizarCompra = async () => {
-        const entity = {
+        const entidade = {
             idVenda: idSale,
             tipo: "vendaRapida",
             cliente: entity?.cliente,
             observacoes: entity?.observacoes
         }
-        await ServiceImprimir.imprimir(entity).then(async (res) => {
+        await ServiceImprimir.imprimir(entidade).then(async (res) => {
             setResponse(res);
         });
 
-        await ServicePagamento.save(entity);
+        await ServicePagamento.save(entidade);
 
         resetStates();
         createVenda();

@@ -7,3 +7,25 @@
     justify-content: space-around;
     width: 100px;
 }
+
+.modalBody-fields-values {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modalBody-fields-values label {
+    display: block;
+    font-size: 20px;
+}
+
+.modalBody-fields-values strong {
+    display: block;
+    font-size: 24px;
+    color: blue;
+    text-align: center;
+}
+
+.modalBody-table {
+    height: 400px;
+    overflow-y: auto;
+}
