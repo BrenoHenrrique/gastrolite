@@ -1,0 +1,10 @@
+.listaInsumos-container-principal {
+    width: 80%;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.listaInsumos-container-customTable {
+    margin-bottom: 25px;
+}

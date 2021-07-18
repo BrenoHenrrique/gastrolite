@@ -1,0 +1,9 @@
+.buttonHistory-container {
+    position: absolute;
+    right: 17%;
+    top: 20px;
+}
+
+.buttonHistory-container button{
+    background-color: #0069d9 !important;
+}

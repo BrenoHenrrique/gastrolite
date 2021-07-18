@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from "react";
-import CustomTable from "../../component/custom-table";
-import HeaderTable from "../../component/custom-table/header-table";
-import {ServiceCardapio} from "../../service/serviceCardapio";
-import CustomModal from "../../component/custom-modal";
-import ButtonNew from "../../component/button-new";
-import ModalBody from "./utils";
-import {Spin} from "antd";
 import HandleMessage from "../../component/Alert";
+import ButtonNew from "../../component/button-new";
+import ButtonHistory from "../../component/button-history";
+import HeaderTable from "../../component/custom-table/header-table";
+import CustomTable from "../../component/custom-table";
+import CustomModal from "../../component/custom-modal";
 import ConfirmModal from "../../component/confirm-modal";
+import {ServiceInsumos} from "../../service/serviceInsumos";
+import ModalBodyStock from "./utilsDownStock";
+import ModalBody from "./utilsModalNew";
+import {Spin} from "antd";
 import "./style.css";
 
-export default function Cardapio() {
+export default function Insumos() {
 
     const [header, setHeader] = useState(null);
     const [itens, setItens] = useState(null);
@@ -19,9 +21,13 @@ export default function Cardapio() {
     const [showModal, setShowModal] = useState(false);
     const [entityEdit, setEntityEdit] = useState(null);
     const [entityDelete, setEntitydelete] = useState(null);
+    const [entityDownStock, setEntityDownStock] = useState(null);
     const [entity, setEntity] = useState(null);
     const [response, setResponse] = useState(null);
     const [showConfirm, setShowConfirm] = useState(false);
+    const [unidades, setUnidades] = useState([]);
+    const [showModalDownStock, setShowModalDownStock] = useState(false);
+    const [callBackStock, setCallBackStock] = useState(null);
 
     useEffect(() => {
         getList("");
@@ -35,9 +41,11 @@ export default function Cardapio() {
     }, [value]);
 
     async function getList() {
-        await ServiceCardapio.list(value).then(res => {
-            setHeader(res.columns);
-            setItens(res.entities);
+        await ServiceInsumos.list(value).then(res => {
+            const {columns, entities, unidades} = res;
+            setHeader(columns);
+            setItens(entities);
+            setUnidades(unidades);
             setLoading(false);
         });
     }
@@ -52,14 +60,20 @@ export default function Cardapio() {
         setShowConfirm(true);
     }
 
+    const callDownStock = (entity) => {
+        setEntityDownStock(entity);
+        setShowModalDownStock(true);
+    }
+
     const openNewModal = () => {
         setShowModal(true);
         setEntityEdit(null);
         setEntity(null);
+        setEntityDownStock(null);
     }
 
     async function handleSubmit() {
-        await ServiceCardapio.save(entity).then(res => {
+        await ServiceInsumos.save(entity).then(res => {
             getList();
             setResponse(res);
             setLoading(true);
@@ -67,7 +81,7 @@ export default function Cardapio() {
     }
 
     async function handleEdit() {
-        await ServiceCardapio.update({id: entityEdit.id, ...entity}).then(res => {
+        await ServiceInsumos.update({id: entityEdit.id, ...entity}).then(res => {
             getList();
             setResponse(res);
             setLoading(true);
@@ -75,24 +89,29 @@ export default function Cardapio() {
     }
 
     async function handleDelete(entity) {
-        await ServiceCardapio.delete(entity).then(res => {
+        await ServiceInsumos.delete(entity).then(res => {
             getList();
             setResponse(res);
             setLoading(true);
         });
     }
 
+    async function handleDownStock() {
+        console.log(callBackStock)
+    }
+
     return (
         <Spin spinning={loading}>
-            <h2 className={"title-screen"}>Cardápio</h2>
+            <h2 className={"title-screen"}>Insumos</h2>
             <HandleMessage response={response}/>
-            <section className={"listaCardapio-container-principal"}>
-                <div className={"listaCardapio-container-customTable"}>
+            <section className={"listaInsumos-container-principal"}>
+                <div className={"listaInsumos-container-customTable"}>
                     <header className={"customTable-container-header"}>
+                        <ButtonHistory onClick={() => {}}/>
                         <ButtonNew onClick={openNewModal}/>
                         <HeaderTable
-                            headerBody={header}
-                            widthInput={window.innerWidth < 1300 ? 200 : window.innerWidth > 1400 && window.innerWidth < 1500 ? 250 : 300}
+                            headerBody={header ? [header[0]] : []}
+                            widthInput={750}
                             onClick={setValue}
                         />
                     </header>
@@ -101,9 +120,11 @@ export default function Cardapio() {
                         itens={itens}
                         callBackEdit={callBackEdit}
                         callBackDelete={callBackDelete}
+                        callDownStock={callDownStock}
                     />
                 </div>
             </section>
+
             {showModal && <CustomModal
                 visible={showModal}
                 title={entityEdit ? "EDITAR" : "NOVO"}
@@ -115,8 +136,26 @@ export default function Cardapio() {
                 centered={true}
                 body={
                     <ModalBody
+                        unidades={unidades}
                         entityEdit={entityEdit}
                         entity={setEntity}
+                    />
+                }
+            />}
+
+            {showModalDownStock && <CustomModal
+                visible={showModalDownStock}
+                title={"BAIXA NO ESTOQUE"}
+                onOk={() => handleDownStock()}
+                onCancel={setShowModalDownStock}
+                width={600}
+                okText={"SALVAR"}
+                cancelText={"CANCELAR"}
+                centered={true}
+                body={
+                    <ModalBodyStock
+                        entityDownStock={entityDownStock}
+                        callBackStock={setCallBackStock}
                     />
                 }
             />}

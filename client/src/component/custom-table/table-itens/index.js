@@ -1,9 +1,8 @@
 import React from "react";
-import {BiEdit, BiTrashAlt} from "react-icons/all";
-import moment from "moment";
+import {BiEdit, BiTrashAlt, FaCartArrowDown} from "react-icons/all";
 import "./style.css";
 
-export default function TableItens({columns, itens, callBackEdit, callBackDelete}) {
+export default function TableItens({columns, itens, callBackEdit, callBackDelete, callDownStock}) {
 
     const handleEdit = (entity) => {
         callBackEdit(entity);
@@ -11,6 +10,15 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
 
     const handleDelete = (entity) => {
         callBackDelete(entity);
+    }
+
+    const handleDownStock = (entity) => {
+        const entitidade = {
+            nome: entity.nome,
+            quantidade: entity.quantidade,
+            valorUnidade: entity.valorUnidade
+        };
+        callDownStock(entitidade);
     }
 
     return (
@@ -65,6 +73,19 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                         <td>{item.endereco.toUpperCase()}</td>
                         <td>{item.funcao.toUpperCase()}</td>
                         <td className={"tableItens-acoes"}>
+                            <BiEdit onClick={() => handleEdit(item)}/>
+                            <BiTrashAlt onClick={() => handleDelete(item)}/>
+                        </td>
+                    </tr> ||
+                    item.unidade !== null && item.valorUnidade !== null &&
+                    <tr key={index}>
+                        <td>{item.nome}</td>
+                        <td style={{textAlign: "center"}}>{item.unidade}</td>
+                        <td style={{textAlign: "center"}}>{item.valorUnidade.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td style={{textAlign: "center"}}>{item.quantidade}</td>
+                        <td style={{textAlign: "center"}}>{item.valorTotal.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td className={"tableItens-acoes"}>
+                            <FaCartArrowDown onClick={() => handleDownStock(item)}/>
                             <BiEdit onClick={() => handleEdit(item)}/>
                             <BiTrashAlt onClick={() => handleDelete(item)}/>
                         </td>

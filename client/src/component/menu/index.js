@@ -73,6 +73,7 @@ export default function Menu() {
             <div className={openMenu ? "menu-itens" : "menu-itens-drop"}>
                 <Link to={"/"}>PAINEL DE CONTROLE</Link>
                 <Link to={"/cardapio"}>CARDÁPIO</Link>
+                <Link to={"/insumos"}>INSUMOS</Link>
                 <Link to={"/entregas"}>ENTREGAS</Link>
                 <Link to={"/vendaRapida"}>VENDA RÁPIDA</Link>
                 <Link to={"/clientes"}>CLIENTES</Link>
