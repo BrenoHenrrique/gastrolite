@@ -20,6 +20,19 @@
     font-weight: bold;
 }
 
+.headerTable-container-fields-date {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerTable-container-fields-date label {
+    display: block;
+    padding: 0 0 5px 5px;
+    width: 150px;
+    font-weight: bold;
+}
+
 .headerTable-container-bot {
     display: flex;
     align-items: center;

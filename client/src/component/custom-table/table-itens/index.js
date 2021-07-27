@@ -13,12 +13,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
     }
 
     const handleDownStock = (entity) => {
-        const entitidade = {
-            nome: entity.nome,
-            quantidade: entity.quantidade,
-            valorUnidade: entity.valorUnidade
-        };
-        callDownStock(entitidade);
+        callDownStock(entity);
     }
 
     return (
@@ -30,7 +25,9 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                         <th key={index}>{column.toUpperCase()}</th>
                     )
                 })}
-                {itens && itens[0]?.tipoDePagamento !== undefined && itens[0]?.tipoDePagamento !== null ? <></> : <th className={"tableItens-column-acoes"}>AÇÕES</th>}
+                {itens &&
+                (itens[0]?.tipoDePagamento !== undefined ||
+                itens[0]?.quantidadeBaixa !== undefined) ? <></> : <th className={"tableItens-column-acoes"}>AÇÕES</th>}
             </tr>
             </thead>
             <tbody className={"tableItens-body"}>
@@ -40,7 +37,7 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                         <tr key={index}>
                             <td>{item.idProduto}</td>
                             <td>{item.nome.toUpperCase()}</td>
-                            <td>{`R$ ${item.preco.toUpperCase()}`}</td>
+                            <td>{parseFloat(item.preco)?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
                             <td className={"tableItens-acoes"}>
                                 <BiEdit onClick={() => handleEdit(item)}/>
                                 <BiTrashAlt onClick={() => handleDelete(item)}/>
@@ -77,18 +74,26 @@ export default function TableItens({columns, itens, callBackEdit, callBackDelete
                             <BiTrashAlt onClick={() => handleDelete(item)}/>
                         </td>
                     </tr> ||
-                    item.unidade !== null && item.valorUnidade !== null &&
+                    item.unidade &&
                     <tr key={index}>
                         <td>{item.nome}</td>
                         <td style={{textAlign: "center"}}>{item.unidade}</td>
-                        <td style={{textAlign: "center"}}>{item.valorUnidade.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td style={{textAlign: "center"}}>{item.valorUnidade?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
                         <td style={{textAlign: "center"}}>{item.quantidade}</td>
-                        <td style={{textAlign: "center"}}>{item.valorTotal.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td style={{textAlign: "center"}}>{item.valorTotal?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
                         <td className={"tableItens-acoes"}>
                             <FaCartArrowDown onClick={() => handleDownStock(item)}/>
                             <BiEdit onClick={() => handleEdit(item)}/>
                             <BiTrashAlt onClick={() => handleDelete(item)}/>
                         </td>
+                    </tr> ||
+                    item.data && item.valorUnidade &&
+                    <tr key={index}>
+                        <td>{item.nome}</td>
+                        <td style={{textAlign: "center"}}>{item.valorUnidade?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td style={{textAlign: "center"}}>{item.quantidadeBaixa}</td>
+                        <td style={{textAlign: "center"}}>{item.total?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</td>
+                        <td style={{textAlign: "center"}}>{item.data}</td>
                     </tr> ||
                     item.pago !== null && item.taxa !== null &&
                     <tr key={index}>

@@ -7,10 +7,8 @@ class DashboardController {
     def list() {
         Map model = [:]
 
-        List<Pagamento> pagamentosHoje = dashboardService.getVendasHoje()
-        BigDecimal totalHoje = pagamentosHoje.sum{it.total}
-
-        model.put("totalHoje", totalHoje)
+        model.put("totalHoje", dashboardService.getVendasHoje().sum{it.total})
+        model.put("gastosHoje", dashboardService.getGastosHoje().sum{it.valor})
 
         respond model
     }
@@ -18,9 +16,7 @@ class DashboardController {
     def entitiesToday() {
         Map model = [:]
 
-        List<Pagamento> pagamentosHoje = dashboardService.getVendasHoje()
-
-        model.put("entities", pagamentosHoje)
+        model.put("entities", dashboardService.getVendasHoje())
         model.put("header", ["PAGO", "TAXA", "TROCO", "TOTAL", "TIPO", "DATA"])
 
         respond model

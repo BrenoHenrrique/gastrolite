@@ -218,6 +218,7 @@ class ImprimirController {
 
             Long totalIncVenda = incPix + incCartao + incDinheiro
             BigDecimal totalValorVenda = valorPix + valorCartao + valorDinheiro
+            BigDecimal gastosHoje = dashboardService.getGastosHoje().sum{it.valor}
 
             String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))
             String hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()))
@@ -245,6 +246,13 @@ class ImprimirController {
                     " VALOR TIPO VENDA RAPIDA: ${NumberFormat.getCurrencyInstance().format(valorVendaRapida)}\n\r" +
                     " ==============================              \n\r" +
                     " VALOR TOTAL VENDAS: ${NumberFormat.getCurrencyInstance().format(totalValorVenda)}\n\r" +
+                    "---------------------------------------------\n\r" +
+                    "                 SALDO DO DIA                \n\r" +
+                    "---------------------------------------------\n\r" +
+                    " LUCRO HOJE: ${NumberFormat.getCurrencyInstance().format(totalValorVenda)}\n\r" +
+                    " GASTOS HOJE: ${NumberFormat.getCurrencyInstance().format(gastosHoje)}\n\r" +
+                    " ==============================              \n\r" +
+                    " SALDO HOJE: ${NumberFormat.getCurrencyInstance().format(totalValorVenda - gastosHoje)}\n\r"
                     "---------------------------------------------\n\r" +
                     "\n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r \n\r\f"
 

@@ -33,4 +33,10 @@ class InsumosController {
 
         respond insumosService.downStock(params.entity)
     }
+
+    def listDownStock() {
+        params.putAll(request.JSON as Map)
+
+        respond insumosService.listDownStock(params.field, params.value)
+    }
 }

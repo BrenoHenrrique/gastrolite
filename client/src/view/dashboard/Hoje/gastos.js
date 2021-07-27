@@ -1,13 +1,11 @@
 import React, {useState} from "react";
+import {ServiceImprimir} from "../../../service/serviceImprimir";
 import {Tooltip} from "antd";
 import {BsGraphUp, IoNewspaperOutline} from "react-icons/all";
 import CustomModal from "../../../component/custom-modal";
-import {ServiceImprimir} from "../../../service/serviceImprimir";
 import ModalBody from "./utils";
-import "./style.css";
 
-export default function Hoje({totalHoje}) {
-
+export default function GastosHoje({gastosHoje}) {
     const [showModal, setShowModal] = useState(false);
 
     const imprimir = async () => {
@@ -16,20 +14,20 @@ export default function Hoje({totalHoje}) {
 
     return (
         <>
-            <p>SEUS GANHOS HOJE</p>
-            <label>{totalHoje}</label>
+            <p>SEUS GASTOS HOJE</p>
+            <label id={"label-gastos"}>{gastosHoje}</label>
             <div className={"dashboard-tootip-view"}>
                 <Tooltip title={"Imprimir Estatísticas"}>
-                    <IoNewspaperOutline
-                        size={35}
-                        onClick={() => imprimir()}
-                    />
+                    {/*<IoNewspaperOutline*/}
+                    {/*    size={35}*/}
+                    {/*    onClick={() => imprimir()}*/}
+                    {/*/>*/}
                 </Tooltip>
                 <Tooltip title={"Visualizar Estatísticas"}>
-                    <BsGraphUp
-                        size={35}
-                        onClick={() => setShowModal(true)}
-                    />
+                    {/*<BsGraphUp*/}
+                    {/*    size={35}*/}
+                    {/*    onClick={() => setShowModal(true)}*/}
+                    {/*/>*/}
                 </Tooltip>
             </div>
             <CustomModal
@@ -42,7 +40,7 @@ export default function Hoje({totalHoje}) {
                 cancelText={"SAIR"}
                 centered={true}
                 body={
-                    <ModalBody totalHoje={totalHoje}/>
+                    <ModalBody totalHoje={gastosHoje}/>
                 }
             />
         </>

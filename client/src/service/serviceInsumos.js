@@ -26,5 +26,17 @@ export const ServiceInsumos = {
         return api.delete(`/insumos/delete/${entity.id}`).then(response => {
             return response.data;
         });
+    },
+
+    listDownStock: (entity) => {
+        return api.post(`/insumos/listDownStock/`, {entity}).then(response => {
+            return response.data;
+        });
+    },
+
+    downStock: (entity) => {
+        return api.post(`/insumos/downStock/`, {entity}).then(response => {
+            return response.data;
+        });
     }
 }

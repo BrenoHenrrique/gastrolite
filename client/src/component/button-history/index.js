@@ -13,7 +13,7 @@ export default function ButtonHistory({onClick}) {
             <Button
                 onClick={() => handleOnClick()}
                 type={"primary"}
-            >HISTÓRICO BAIXA</Button>
+            >HISTÓRICO DE BAIXA</Button>
         </div>
     );
 }

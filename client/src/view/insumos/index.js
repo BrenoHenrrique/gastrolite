@@ -7,6 +7,7 @@ import CustomTable from "../../component/custom-table";
 import CustomModal from "../../component/custom-modal";
 import ConfirmModal from "../../component/confirm-modal";
 import {ServiceInsumos} from "../../service/serviceInsumos";
+import ModalBodyTableDownStock from "./utilsTableDownStock";
 import ModalBodyStock from "./utilsDownStock";
 import ModalBody from "./utilsModalNew";
 import {Spin} from "antd";
@@ -28,6 +29,7 @@ export default function Insumos() {
     const [unidades, setUnidades] = useState([]);
     const [showModalDownStock, setShowModalDownStock] = useState(false);
     const [callBackStock, setCallBackStock] = useState(null);
+    const [openHistory, setOpenHistory] = useState(null);
 
     useEffect(() => {
         getList("");
@@ -72,6 +74,10 @@ export default function Insumos() {
         setEntityDownStock(null);
     }
 
+    const openHistoricoBaixa = () => {
+        setOpenHistory(true);
+    }
+
     async function handleSubmit() {
         await ServiceInsumos.save(entity).then(res => {
             getList();
@@ -97,7 +103,11 @@ export default function Insumos() {
     }
 
     async function handleDownStock() {
-        console.log(callBackStock)
+        await ServiceInsumos.downStock(callBackStock).then(res => {
+            getList();
+            setResponse(res);
+            setLoading(true);
+        });
     }
 
     return (
@@ -107,7 +117,7 @@ export default function Insumos() {
             <section className={"listaInsumos-container-principal"}>
                 <div className={"listaInsumos-container-customTable"}>
                     <header className={"customTable-container-header"}>
-                        <ButtonHistory onClick={() => {}}/>
+                        <ButtonHistory onClick={openHistoricoBaixa}/>
                         <ButtonNew onClick={openNewModal}/>
                         <HeaderTable
                             headerBody={header ? [header[0]] : []}
@@ -158,6 +168,18 @@ export default function Insumos() {
                         callBackStock={setCallBackStock}
                     />
                 }
+            />}
+
+            {openHistory && <CustomModal
+                visible={openHistory}
+                title={"HISTÓRICO DE BAIXA"}
+                onOk={() => handleDownStock()}
+                onCancel={setOpenHistory}
+                width={1000}
+                okText={"SALVAR"}
+                cancelText={"CANCELAR"}
+                centered={true}
+                body={<ModalBodyTableDownStock/>}
             />}
 
             {showConfirm &&

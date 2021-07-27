@@ -1,0 +1,14 @@
+import restaurante.BaixaEstoque
+
+model {
+    BaixaEstoque baixaEstoque
+}
+
+json {
+    id baixaEstoque.id
+    nome baixaEstoque.insumo.nome
+    valorUnidade baixaEstoque.insumo.valorUnidade
+    quantidadeBaixa baixaEstoque.quantidade
+    total baixaEstoque.valor
+    data baixaEstoque.data.toLocaleString()
+}

@@ -4,14 +4,20 @@ import {Col, Input, InputNumber, Row} from "antd";
 export default function ModalBodyStock({entityDownStock, callBackStock}) {
 
     const [valorBaixa, setValorBaixa] = useState(0);
+    const [quantBaixa, setQuantBaixa] = useState(0);
 
     useEffect(() => {
-        callBackStock({valor: valorBaixa});
+        callBackStock({
+            id: entityDownStock.id,
+            quantidade: quantBaixa,
+            valor: valorBaixa
+        });
     }, [valorBaixa]);
 
     const onChange = (value) => {
         let total = value * entityDownStock.valorUnidade;
         setValorBaixa(total);
+        setQuantBaixa(value);
     }
 
     return (
@@ -40,7 +46,7 @@ export default function ModalBodyStock({entityDownStock, callBackStock}) {
                     <InputNumber
                         min={1}
                         max={entityDownStock.quantidade}
-                        defaultValue={1}
+                        defaultValue={0}
                         onChange={onChange}
                     />
                 </Col>

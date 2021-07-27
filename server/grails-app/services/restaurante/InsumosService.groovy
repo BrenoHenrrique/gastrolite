@@ -32,6 +32,36 @@ class InsumosService {
         return model
     }
 
+    Map listDownStock(field, value) {
+        Map model = [:]
+        model.put("columns", ["nome", "valor und.", "qtd. baixa", "valor total", "data"])
+
+        List<BaixaEstoque> entities = BaixaEstoque.list()
+        List<BaixaEstoque> filtro = []
+
+        if (field) {
+            if (field == "nome") {
+                entities.each {entity ->
+                    if (entity.nome.toUpperCase().indexOf(value.toUpperCase()) > -1) {
+                        filtro.add(entity)
+                    }
+                }
+            } else if (field == "data") {
+                entities.each { entity ->
+                    if (entity.data <= value) {
+                        filtro.add(entity)
+                    }
+                }
+            }
+
+            model.put("entities", filtro.size() ? filtro.sort {it.nome} : entities)
+            return model
+        }
+
+        model.put("entities", entities.sort{it.nome})
+        return model
+    }
+
     Map save(paramaters) {
         Map model = [:]
         Insumo insumo = Insumo.findByNome(paramaters.nome)
@@ -45,6 +75,7 @@ class InsumosService {
                 entity.quantidade = paramaters.quantidade
                 entity.valorTotal = paramaters.valorTotal
                 entity.save(flush: true, failOnError: true)
+
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.save"))
             } catch(Exception e) {
@@ -73,6 +104,7 @@ class InsumosService {
                 insumo.quantidade = paramaters.quantidade
                 insumo.valorTotal = paramaters.valorTotal
                 insumo.save(flush: true, failOnError: true)
+
                 model.put("status", "success")
                 model.put("message", mensagemService.getMensagem("default.success.update"))
                 return model
@@ -117,13 +149,16 @@ class InsumosService {
         BaixaEstoque novaBaixa = new BaixaEstoque()
 
         try {
-            Insumo entity = new Insumo()
-            entity.nome = paramaters.nome
-            entity.unidade = paramaters.unidade
-            entity.valorUnidade = paramaters.valorUnidade
-            entity.quantidade = paramaters.quantidade
-            entity.valorTotal = paramaters.valorTotal
-            entity.save(flush: true, failOnError: true)
+            Insumo insumo = Insumo.get(paramaters.id)
+            insumo.quantidade = insumo.quantidade - paramaters.quantidade
+            insumo.save(flush: true, failOnError: true)
+
+            novaBaixa.insumo = insumo
+            novaBaixa.quantidade = paramaters.quantidade
+            novaBaixa.valor = paramaters.valor
+            novaBaixa.data = new Date()
+            novaBaixa.save(flush: true, failOnError: true)
+
             model.put("status", "success")
             model.put("message", mensagemService.getMensagem("default.success.save"))
         } catch(Exception e) {

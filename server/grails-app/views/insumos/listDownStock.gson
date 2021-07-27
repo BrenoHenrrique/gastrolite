@@ -1,0 +1,11 @@
+import restaurante.BaixaEstoque
+
+model {
+    List<BaixaEstoque> entities
+    List columns
+}
+
+json {
+    entities g.render(template: "baixaEstoque", collection: entities, var: "baixaEstoque")
+    columns columns
+}

@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {ServiceDashboard} from "../../service/serviceDashboard";
 import {Spin} from "antd";
-import Hoje from "./Hoje";
+import GanhosHoje from "./Hoje/ganhos";
+import GastosHoje from "./Hoje/gastos";
 import "./style.css";
 
 export default function Dashboard() {
 
     const [entities, setEntities] = useState(null);
     const [totalHoje, setTotalHoje] = useState(0);
+    const [gastosHoje, setGastosHoje] = useState(0);
 
     useEffect(() => {
         list();
@@ -15,8 +17,9 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (entities) {
-            const {totalHoje} = entities;
+            const {totalHoje, gastosHoje} = entities;
             setTotalHoje(totalHoje);
+            setGastosHoje(gastosHoje);
         }
     }, [entities]);
 
@@ -32,7 +35,10 @@ export default function Dashboard() {
                 <h2 className={"title-screen"}>Painel de Controle</h2>
                 <aside className={"aside-container-top"}>
                     <div className={"today-card-container"}>
-                        <Hoje totalHoje={totalHoje?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) || "R$ 0"}/>
+                        <GanhosHoje totalHoje={totalHoje?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) || "R$ 0"}/>
+                    </div>
+                    <div className={"today-card-container"}>
+                        <GastosHoje gastosHoje={gastosHoje?.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) || "R$ 0"}/>
                     </div>
                     {/*<div className={"chart-week-container"}>*/}
                     {/*    <canvas id="chart-week"/>*/}

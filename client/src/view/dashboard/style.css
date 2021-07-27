@@ -39,6 +39,13 @@
     color: #059316;
 }
 
+#label-gastos {
+    font-weight: bold;
+    font-size: 60px;
+    margin: 10% auto 10% auto;
+    color: red;
+}
+
 .chart-week-container {
     width: 40%;
     height: 30%;
